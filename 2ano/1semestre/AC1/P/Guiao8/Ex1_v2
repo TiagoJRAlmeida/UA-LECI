@@ -1,0 +1,23 @@
+# Guiao 8 Ex1_v2
+
+# Mapa de registos
+# res: $v0
+# s: $a0
+# *s: $t0
+# digit: $t1
+# Sub-rotina terminal: não devem ser usados registos $sx 
+
+	.data
+	.text
+	.globl main
+	
+atoi: 	li $v0,0 # res = 0;
+while: 	lb $t0,... # while(*s >= ...)
+ 	b?? ... #
+ 	b?? ... # {
+ 	...
+ 	...
+ 	mulu $v0,$v0,10 # res = 10 * res;
+ 	addu ... # res = 10 * res + digit;
+ 	(...) # }
+ 	jr $ra # termina sub-rotina 

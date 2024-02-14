@@ -1,0 +1,95 @@
+Ex2:
+first address of the network 175.0.92.191/23.
+
+1111_1111/1111_1111/1111_111|0/0000_0000|
+
+256/ 2^7 = 256/128 = 2
+
+175.0.0.0
+175.0.2.0
+175.0.4.0
+175.0.6.0
+...
+175.0.92.0; 175.0.92.1 up to 175.0.93.254
+R.: first address = 175.0.92.1
+------------------------------------------------------------------------
+
+Ex3:
+last address of the network 175.0.32.0 with mask 255.255.248.0.
+
+mask = 1111_1111/1111_1111/1111_1000/0000_0000
+
+1,1,1,1, 1, 1, 1,  1
+1,2,4,8,16,32,64,128
+128 + 64 = 192 + 32 = 224 + 16 = 240 + 8 = 248 ==> 1111_1000
+
+256/ 2^5 = 256/32 = 8
+
+175.0.0.0
+175.0.8.0
+175.0.16.0
+175.0.24.0
+175.0.32.0; 175.0.32.1 up to 175.0.39.254 
+175.0.40.0
+
+R.: 175.0.39.254
+------------------------------------------------------------------------
+
+Ex4:
+What is the network of the terminals with addresses:
+
+a)175.0.22.79/25
+
+network mask = 25 = 1111_1111/1111_1111/1111_1111/1000_0000
+256/2^1 = 128
+
+175.0.22.0; 175.0.22.1 up to 175.0.22.127
+175.0.22.128; 175.0.22.129 up to 175.0.22.254
+
+R.: 175.0.22.0 
+
+b)175.0.117.215/23
+
+network mask = 23 = 1111_1111/1111_1111/1111_1110/0000_0000
+
+256/2^7 = 256/128 = 2
+
+175.0.0.0; 
+175.0.2.0;
+175.0.4.0;
+...
+175.0.116.0; 175.0.116.1 up to 175.0.117.254
+
+R.: 175.0.116.0
+------------------------------------------------------------------------
+
+Ex5.1:
+What is the number of networks and available addresses in the network 175.0.4.0 with mask 255.255.255.252? 
+
+
+mask = 255.255.255.1111_1100
+256/2^6 = 256/64 = 4
+Networks between 4 and 4 with 2^2 - 2 = 2 available addresses
+
+Number of networks:
+256/4 = 64 networks and 2 available addresses per network
+
+Available addresses in the network 175.0.4.0:
+2 available addresses
+
+------------------------------------------------------------------------
+
+Ex5.2:
+What is the number of networks and available addresses in the network 175.0.114.0 with mask 255.255.255.240? 
+
+240 = 255 - 15; 15 = 1 + 2 + 4 + 8; 240 = 1111_0000
+mask = 255.255.255.1111_0000
+256/2^4 = 256/16 = 16
+Networks between 16 and 16 with 2^4 - 2 = 14 available addresses
+
+Number of networks:
+256/16 = 16 networks and 14 available addresses per network
+
+Available addresses in the network 175.0.114.0:
+14 available addresses
+

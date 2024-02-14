@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{float}
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[portuguese]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{\textbf{Relatório - Trabalho 2 - MCE}}
+\author{\textbf{Autores:}\\\textbf{Tiago Almeida} - 113106\\\textbf{Tiago Costa} - 114629}
+
+\begin{document}
+\maketitle
+
+
+
+\section{Resumo}
+O trabalho desenvolvido divide-se em duas partes, e consiste no estudo de corrente elétrica e de campo eletromagnético, nomeadamente do princípio da sobreposição, através de uma sonda de efeito Hall e duas bobinas em configuração de Helmholtz. Para efetuarmos o estudo, foi feita inicialmente (parte A) a calibração da sonda de Hall com um solenoide padrão. De seguida (parte B), foi medido a tensão de Hall ao longo do eixo de duas bobinas 3 vezes: A primeira e segunda vez para medir em cada uma individualmente e, por fim, utilizando a configuração de Helmholtz, mediu-se as duas juntas.\\[10pt]
+Os resultados obtidos corresponderam aos esperados, uma vez que a soma dos gráficos que medem a tensão de Hall individual em cada bobina corresponde à medição da tensão de Hall nas duas bobinas em série, ou seja, verificou-se o princípio da sobreposição com a montagem.
+
+\section{Introdução}
+
+O trabalho realizado encontra-se no âmbito do conteúdo lecionado nas aulas teóricas de Mecânica e Campo Eletromagnético na medida em que foi posto em prática o conhecimento e conceitos adquiridos nas aulas dos capítulos de cinemática, nomeadamente o estudo do movimento de projéteis, dinâmica da partícula e movimento curvilíneo.
+
+\section{Detalhes experimentais}
+
+Como já foi citado no resumo, esta experiência foi dividida em 2 partes que vamos denominar como parte A e B. Cada parte serve um propósito diferente e uma diferente execução, pelo que cada parte será abordada individualmente. 
+
+\subsection{Parte A}
+A primeira parte deste trabalho teve como objetivo calibrar a sonda de Hall . Para isto foram utilizados os seguinte materiais:
+\begin{enumerate}
+\item Base;
+\item Lançador de projéteis;
+\item Sensores de passagem;
+\item Sistema de controlo dos sensores;
+\item Esfera metálica (projetil);
+\end{enumerate}
+Após a montagem, foram realizadas 3 operações:
+\begin{itemize}
+\item Medição repetida, de forma a minimizar o desvio, da distancia entre o sensor de passagem de entrada e o sensor de passagem de saída e registo dos respetivos valores.
+\item Disparo da esfera, utilizando o lançador de projéteis, e registo do tempo que esta demora a passar pelos sensores, usando sistema de controlo dos mesmos.
+\item Com a distância percorrida e o tempo que demorou a percorrer registados, foi calculada a velocidade a partir da equação: \[ V = \frac{s_f - s_i}{t_f - t_i} \].
+\end{itemize} 
+
+\begin{figure}[H]
+\begin{minipage}{0.5\linewidth}
+\includegraphics[width=0.75\linewidth]{Base.jpg}
+\caption{Base}
+\includegraphics[width=0.75\linewidth]{LP.jpg}
+\caption{Lançador de projéteis}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[width=0.75\linewidth]{projetil.jpg}
+\caption{Esfera metálica}
+\includegraphics[width=0.75\linewidth]{sensor.jpg}
+\caption{Sensor de movimento}
+\includegraphics[width=0.75\linewidth]{controlador.jpg}
+\caption{Controlador}
+\end{minipage}
+\end{figure}
+
+\subsection{Parte B}
+A segunda parte deste trabalho focou-se na observação da diferença que o ângulo a que o projectil é lançado faz na distância que o mesmo percorre, pelo que foi possível encontrar o ângulo para o qual a distancia é maxima. Para isto, utilizam-se o seguinte material:
+\begin{enumerate}
+\item Base;
+\item Lançador de projéteis;
+\item Esfera metálica (projetil);
+\item Alvo (papel quimico);
+\end{enumerate}
+Após a montagem adequada, foram usados 5 ângulos diferentes de lançamento (30º,34º,38º,40º e 43º) e, para cada angulo, realizados 3 lançamentos, nos quais foi medida a distância  que o projétil percorreu desde a base do lançador até a marca deixada pelo mesmo no papel químico. Após os registos, calculou-se a média da distância percorrida nos 3 lançamentos para cada ângulo com o objetivo de minimizar possíveis erros. Após isso, utilizando o Excel, criou-se uma aproximação de um gráfico indicativo da diferença de distância percorrida em relação ao ângulo. Após isso, usando métodos matemáticos (calculando a derivada e igualando a 0), descobriu-se o ângulo de alcance máximo, isto é, o ângulo para o qual a distância percorrida pelo projetil é maxima, concluindo assim o objetivo da parte B. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\linewidth]{Alvo.jpg}
+\caption{Alvo}
+\end{figure}
+
+\subsection{Parte C}
+
+A terceira parte do trabalho consiste na utilização de um método alternativo para a determinação da velocidade inicial do projétil. No fim do registo de dados e da realização dos cálculos necessários, esta velocidade é comparada com a velocidade medida na Parte A, com o objetivo de discutir a fonte do erro que causa descrepância entre os resultados obtidos e medidos. Para isto foram utilizados os materiais:
+
+\begin{enumerate}
+\item Base;
+\item Lançador de projéteis;
+\item Esfera metálica (projetil);
+\item Pendulo;
+\end{enumerate}
+
+O esquema foi montado de modo a que o projétil, quando disparado, entre no pêndulo e registe um ângulo máximo correspondente à altura máxima atingida pelo pêndulo. Para a realização da experiência foram medidas as massas da esfera (m) e do pêndulo (M) bem como o comprimento do pêndulo (L), tendo por base o seu centro de massa. De seguida, o lançador de projéteis foi carregado com a esfera no modo "\textit{SHORT RANGE}" e foi efetuado o disparo, através do qual foi medido o ângulo máximo descrito pelo pêndulo. Esta experiência foi repetida 5 vezes, tendo sido obtida uma média dos ângulos máximos registados. Utilizando as fórmulas: \[ h = L - L\cos{\alpha} \] \[ v_0 = \frac{m + M}{m}\sqrt{2gh} \]
+
+Após isso, foi calculado os erros associados à altura, ângulo e velocidade e discutidos os valores obtidos ao longo das medições. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\linewidth]{pendulo.jpg}
+\caption{Pendulo}
+\end{figure}
+
+\section{Análise e discussão}
+Os cálculos foram efetuados no programa Excel, no qual foram registados todos os dados e medições efetuadas ao longo das experiências realizadas. Por fim, foram obtidos os seguintes resultados:
+
+\begin{itemize}
+\item Na parte A obtivemos que a velocidade inicial é de 2,25 +/- 0,04 m/s, enquanto que na parte C obtivemos que a velocidade inicial é de 2,47 m/s. Esta diferença pode ter vindo de diversas fontes, como as incertezas das medições, erros nos dispositivos até erros humanos. 
+\item Na parte B foi medido o ângulo de alcance máximo, isto é, o ângulo para o qual o alcance do projétil é máximo. Foi obtido o valor de 35,23º. Podemos concluir que para o ângulo de 35,23º a distância percorrida pelo projétil é máxima.
+\end{itemize}
+
+\section{Conclusões}
+
+Findas todas as experiências e medições, foram alcançados os objetivos do trabalho, uma vez que foram aplicados os conceitos, conhecimentos, e fórmulas lecionadas nas aulas teóricas da unidade curricular nos cálculos e registos de dados. Os problemas encontrados tratam-se essencialmente de erros nas medições, bem como possíveis erros de cálculo e de registo de dados, que podem ser mitigados com a aquisição de experiência dos alunos envolvidos em mais projetos da mesma categoria.
+
+
+
+\end{document}

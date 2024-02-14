@@ -1,0 +1,20 @@
+(Mec. Num.1: 0/1X1X2X3X4X5 Mec. Num.2: 0/1X6X7X8X9X0)
+113106
+104059
+
+X1=1
+X2=3
+X3=1
+X4=0
+X5=6
+X6=0
+X7=4
+X8=0
+X9=5
+X0=9
+
+IPv4: 201.139.006.0/24 – This class C network will be used for all Public IPv4 addressing
+IPv6: 2002:8885:1034:1000::/56 – This /56 will be used to provide addresses to all needs
+
+The GR8 Inc uses 10.104.006.0/23 for the private addressing. One /24 for the GR8 Office
+network and a second /24 to the GR8 WiFi network.

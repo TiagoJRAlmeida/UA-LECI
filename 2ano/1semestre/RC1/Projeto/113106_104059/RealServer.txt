@@ -1,0 +1,102 @@
+/etc/network/interfaces: 
+This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+auto enp0s3
+iface enp0s3 inet static
+    address 201.139.6.1
+    netmask 255.255.255.192
+    gateway 201.139.6.62
+
+/etc/bind/named.conf.local:
+
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "aas.netconfs.net" in{
+        type master;
+        file "/etc/bind/db.aas.netconfs.net";
+};
+
+zone "arqredes.pt" in{
+        type master;
+        file "/etc/bind/db.arqredes.pt";
+};
+
+zone "newnet.pt" in{
+        type master;
+        file "/etc/bind/db.newnet.pt";
+};
+
+zone "gr8.pt" in{
+        type master;
+        file "/etc/bind/db.gr8.pt";
+};
+
+/etc/bind/db.newnet.pt:
+$TTL    604800
+$ORIGIN newnet.pt.
+@       IN      SOA     ns1.newnet.pt.  adm.newnet.pt.  (
+                        2
+                        604800
+                        86400
+                        2419200
+                        604800)
+        IN      NS      ns1.newnet.pt.
+ns1     IN      A       201.139.6.1
+@       IN      A       201.139.6.1
+www     IN      A       201.139.6.1
+
+
+/etc/bind/db.gr8.pt:
+$TTL    604800
+$ORIGIN gr8.pt.
+@       IN      SOA     ns1.gr8.pt.     adm.gr8.pt.     (
+                        2
+                        604800
+                        86400
+                        2419200
+                        604800)
+        IN      NS      ns1.gr8.pt.
+ns1     IN      A       201.139.6.1
+@       IN      A       201.139.6.1
+www     IN      A       201.139.6.1
+
+/var/www/html/newnet.pt-80/index.html:
+<html>
+<body>
+<h1>newnet.pt - Offical Site</h1>
+</body>
+</html>
+
+/var/www/html/gr8.pt-80/index.html:
+html>
+<body>
+<h1>Gr8.pt - Offical Site</h1>
+</body>
+</html>
+
+/etc/apache2/sites-available/newnet.pt-80.conf:
+<VirtualHost *:80>
+        DocumentRoot /var/www/html/newnet.pt-80
+        ServerName newnet.pt
+        ServerAlias www.newnet.pt
+</VirtualHost>
+
+
+/etc/apache2/sites-available/gr8.pt-80.conf:
+VirtualHost *:80>
+        DocumentRoot /var/www/html/gr8.pt-80
+        ServerName gr8.pt
+        ServerAlias www.gr8.pt
+</VirtualHost>

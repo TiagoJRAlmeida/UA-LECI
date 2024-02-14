@@ -1,0 +1,68 @@
+GraphTopoSort* GraphTopoSortComputeV3(Graph* g) {
+  assert(g != NULL && GraphIsDigraph(g) == 1);
+  unsigned int numVerticeLoop = 0;
+  unsigned int numEdgeLoop = 0;
+  // Criar e inicializar a struct
+
+  GraphTopoSort* topoSort = _create(g);
+
+  unsigned int numVertices = GraphGetNumVertices(g);
+
+  // Registar num array auxiliar (numEdgesPerVertex)
+  // o inDegree de cada vértice
+
+  unsigned int* numEdgesPerVertex = (unsigned int*)calloc(numVertices, sizeof(unsigned int));
+  
+  // Criar uma fila para os vértices sem arestas incidentes
+  Queue* queue = QueueCreate(numVertices);
+
+  for (unsigned int v = 0; v < numVertices; ++v) {
+    numVerticeLoop++;
+    numEdgesPerVertex[v] = GraphGetVertexInDegree(g, v);
+
+    // Adicionar à fila os vértices sem arestas incidentes
+    if (numEdgesPerVertex[v] == 0) { // Equivalente a GraphGetVertexInDegree() == 0
+      QueueEnqueue(queue, v);
+    }
+  }
+
+  unsigned int sequenceIndex = 0;
+
+  while (QueueIsEmpty(queue) == 0) {
+    // Retirar o próximo vértice da fila
+    unsigned int v = QueueDequeue(queue);
+
+    // Guardá-lo na ordenação
+    topoSort->vertexSequence[sequenceIndex++] = v;
+
+    unsigned int* adjacents = GraphGetAdjacentsTo(g, v);
+
+    // Para cada vértice w adjacente a v
+    for (unsigned int i = 1; i <= adjacents[0]; i++) {
+      numEdgeLoop++;
+      unsigned int w = adjacents[i];
+      numEdgesPerVertex[w]--;
+
+      if (numEdgesPerVertex[w] == 0) {
+        // Se w não tem mais vértices incidentes, adicioná-lo à fila
+        QueueEnqueue(queue, w);
+      }
+    }
+  }
+
+  // Verificar se o número de elementos na sequência corresponde ao numVertices
+  // i.e, se o sorting é válido
+  if (sequenceIndex == numVertices) {
+    topoSort->validResult = 1;
+  }
+
+
+  printf("Vertice loop interactions: %d", numVerticeLoop);
+  printf("Edge loop interactions: %d", numEdgeLoop);
+
+  // Libertar a memória do array auxiliar e da fila
+  free(numEdgesPerVertex);
+  QueueDestroy(&queue);
+
+  return topoSort;
+}

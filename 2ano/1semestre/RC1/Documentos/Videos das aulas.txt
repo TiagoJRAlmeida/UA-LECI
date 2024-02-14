@@ -1,0 +1,88 @@
+Videos das aulas:
+
+Introdução às Redes de Computadores (parte 1):
+https://youtu.be/hQuT36OKI0g
+
+Introdução às Redes de Computadores (parte 2):
+https://youtu.be/mv3AYeU5WCI
+
+LAN: Introduction to Switching and IPv4:
+https://youtu.be/LQSlY9mQo-M
+
+LAN: Introduction to IPv4 and IP Routing:
+https://youtu.be/-HFETzJTIQs
+
+Planeamento de endereçamento IPv4:
+https://youtu.be/i2JhV69VcCY
+
+DHCP e NAT/PAT:
+https://youtu.be/TtOQ46Qwg4Y
+
+Endereçamento IPv6:
+https://youtu.be/W2cDJt0YBJU
+
+Subnetting e agregação em IPv6 e Exemplo de planeamento IP:
+https://youtu.be/2UpeXr37-gY
+
+Layer 2 - Ethernet - Introdução às VLAN:
+https://youtu.be/M1iV1K4YpBM
+
+VLAN, interligação de VLAN e redundância:
+https://youtu.be/CLbMz4N-GOI
+
+Apoio à fase 1:
+https://youtu.be/I78hoP2FM7E
+
+Spanning Tree Protocol (parte 1):
+https://youtu.be/dnXu6JucK4Q
+
+Spanning Tree Protocol (parte 2). Exemplo STP:
+https://youtu.be/_FyNSVjIDM0
+
+Redes Wi-Fi:
+https://youtu.be/HITLksJqhTI
+
+Conceitos gerais de encaminhamento IP:
+https://youtu.be/O_b7-SAgJMk
+
+Encaminhamento IPv4 dinâmico (RIPv1, RIPv2 e RIPng):
+https://youtu.be/GnW4RT2Xz7c
+
+Mini-revisão do RIP. OSPFv2:
+https://youtu.be/2onITb7fNqA
+
+OSPFv3. Interfaces Passivos. Redistribuição de Rotas:
+https://youtu.be/pF4ZWul2M8k
+
+Exercício de Encaminhamento:
+https://youtu.be/bDs-_sDfqxE
+
+Deteção e controlo de erros. UDP:
+https://youtu.be/xnLSQmhzTns
+
+Projeto FR - Apoio à fase 2:
+https://youtu.be/0XVnXJmtUeI
+
+TCP:
+https://youtu.be/hT6la7-QB_U
+
+Programação de Rede. Sockets:
+https://youtu.be/tqd8SL7t9N0
+
+Conceito de aplicação cliente-servidor. DNS:
+https://youtu.be/O1RaiGV2ZTg
+
+DNS (cont.). TFTP. FTP:
+https://youtu.be/tYnABI0j5fg
+
+HTTP. E-mail:
+https://youtu.be/DWOA6QqjxhE
+
+Voice and Video over IP (SIP):
+https://youtu.be/S7vSqJYb_24
+
+Acesso ao meio. Análise de Espetro:
+https://youtu.be/igd2z7Tbo6Y
+
+Sistemas e Tecnologias de Transmissão (Camada Física):
+https://youtu.be/aDS8ZifJFx4

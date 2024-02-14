@@ -1,0 +1,64 @@
+GraphTopoSort* GraphTopoSortComputeV2(Graph* g) {
+  assert(g != NULL && GraphIsDigraph(g) == 1);
+  unsigned int numVerticeLoop = 0;
+  unsigned int numEdgeLoop = 0;
+  // Criar e inicializar a struct
+
+  GraphTopoSort* topoSort = _create(g);
+
+  unsigned int numVertices = GraphGetNumVertices(g);
+  unsigned int* numEdgesPerVertex = (unsigned int*)calloc(numVertices, sizeof(unsigned int));
+
+  // Registar num array auxiliar (numEdgesPerVertex)
+  // o inDegree de cada vértice
+
+  for (unsigned int v = 0; v < numVertices; ++v) {
+    numVerticeLoop++;
+    numEdgesPerVertex[v] = GraphGetVertexInDegree(g, v);
+  }
+
+  unsigned int sequenceIndex = 0;
+  while(1) {
+    int found = 0;
+
+
+    // Encontrar vértices sem arestas incidentes
+    for (unsigned int v = 0; v < numVertices; ++v) {
+      numVerticeLoop++;
+      if (numEdgesPerVertex[v] == 0 && topoSort->marked[v] == 0) {
+        topoSort->vertexSequence[sequenceIndex++] = v;
+
+        // Marcar o vértice como pertencendo à ordenação
+        topoSort->marked[v] = 1;
+
+
+        // Atualizar o contador de arestas incidentes para os vértices adjacentes
+        unsigned int* adjacents = GraphGetAdjacentsTo(g, v);
+        for (unsigned int i = 1; i <= adjacents[0]; i++) {
+          numEdgeLoop++;
+          unsigned int w = adjacents[i];
+          numEdgesPerVertex[w]--;
+        }
+        found = 1;
+      }
+    }
+
+    // Sair do loop, no caso de não serem encontrados vértices sem arestas incidentes
+    if (!found) {
+      break;
+    }
+  }
+  // Verificar se o número de elementos na sequência corresponde ao numVertices
+  // i.e, se o sorting é válido
+  if (sequenceIndex == numVertices) {
+
+    // O sorting é valido...
+    topoSort->validResult = 1;
+  }
+
+  printf("Vertice loop interactions: %d", numVerticeLoop);
+  printf("Edge loop interactions: %d", numEdgeLoop);
+  // Libertar o array temporário
+  free(numEdgesPerVertex);
+  return topoSort;
+}

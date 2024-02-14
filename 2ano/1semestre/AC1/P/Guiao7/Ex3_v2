@@ -1,0 +1,89 @@
+# Guião 7 Ex3_v2
+
+	.data
+	.eqv STR_MAX_SIZE, 30
+	.eqv print_int10, 1
+	.eqv print_string, 4
+str1:	.asciiz "I serodatupmoC ed arutetiuqrA"
+str2: 	.space 31
+str3:	.asciiz "String too long: "
+str4:	.asciiz "\n"
+	.text
+	.globl main
+
+
+# Função strlen
+				
+strlen: li $t1,0 # len = 0;
+
+while: 	lb $t0,0($a0) # *s               
+ 	addiu $a0,$a0,1 # s++
+ 	beq $t0,'\0',ewhile # salta se *s == 0 ==> while(*s++ != '\0')
+ 	addi $t1,$t1, 1 # len++;
+ 	j while # 
+ 	
+ewhile: move $v0, $t1
+	jr $ra # o retorno é em $v0, logo já está carregado
+
+
+# Função strcpy
+
+# Mapa de registos de strcpy:
+# $t0 : i
+# $a0 : *dst
+# $a1 : *src
+
+strcpy:	addi $sp, $sp, -8
+	sw $ra, 0($sp)
+	sw $s0, 4($sp)
+	
+	move $s0, $a0
+	
+do:	lb $a0, 0($a1)
+
+do_while:	
+	beq $a0, '\0', edo
+	addi $a0, $a0, 1
+	addi $a1, $a1, 1
+	j do
+
+edo:	move $v0, $s0
+	lw $ra, 0($sp)
+	lw $s0, 4($sp)
+	addi $sp, $sp, 8
+	jr $ra
+	
+
+# Função main
+
+# Mapa de registos de main:
+# $t0: strlen(str1)
+
+main:	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	la $a0, str1
+	jal strlen
+	move $t0, $v0
+	
+if:	bgt $t0, STR_MAX_SIZE, else
+	la $a0, str2
+	la $a1, str1
+	jal strcpy
+	move $a0, $v0
+	li $v0, print_string
+	syscall
+	la $a0, str4
+	li $v0, print_string
+	syscall
+	li $v0, 0
+	j eif
+	
+else:	la $a0, str3
+	li $v0, print_string
+	syscall
+	li $v0, -1
+	
+eif:	lw $ra, 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+	

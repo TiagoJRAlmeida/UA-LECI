@@ -1,0 +1,249 @@
+\documentclass{article}
+\usepackage{float}
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[portuguese]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{listings}
+
+\title{\textbf{Relatório - Trabalho 1 - AED}}
+\author{\textbf{Autores:}\\\textbf{Tiago Almeida} - 113106\\\textbf{Tiago Costa} - 114629}
+\lstset{
+    language=C,
+    breaklines=false,
+    basicstyle=\small\ttfamily
+}
+
+\begin{document}
+\maketitle
+
+\section{Analise da complexidade da função ImageLocateSubImage()}
+Com esta primeira parte do trabalho, pretendemos atingir 3 objetivos:
+\begin{enumerate}
+\item Realizar uma sequência de testes, onde irão ser contadas o número de comparações efetuadas envolvendo o valor de cinzento;
+\item Realizar uma análise formal, e teorizar o melhor e o pior caso;
+\item Comparar os resultados obtidos em 1) e 2) e, caso haja diferenças, teorizar porque;
+\end{enumerate}
+\subsection{Sequência de testes}
+
+Nesta primeira parte, foram realizados 5 testes em 3 imagens de tamanhos diferentes (uma de tamanho grande, outra de tamanho medio, e outra de tamanho pequeno), ou seja, 15 testes no total, de forma a conseguir analisar os resultados diferentes obtidos.
+Os 5 testes realizados em cada imagem cheguem o mesmo padrão: 3 testes em que a imagem a ser procurada é um crop da imagem principal e 2 testes onde a imagem a procurar é uma imagem diferente da principal, e por isso, nunca é encontrada em momento nenhum.
+
+\begin{itemize}
+\item Imagem pequena - bird\_256x256
+\begin{enumerate}
+
+\item Imagem 2 -- Imagem diferente de tamanho 300x300 --  0 operações
+\item Imagem 2 -- Crop da imagem 1 de tamanho 64x64 no pixel (64, 64) -- 17260 operações 
+\item Imagem 2 -- Imagem diferente de tamanho 100x100 -- 24649 operações
+\item Imagem 2 -- Crop da imagem 1 de tamanho 128x128 no pixel (64, 64) -- 25355 operações 
+\item Imagem 2 -- Crop da imagem 1 de tamanho 256x256 no pixel (0,0) -- 65536 operações 
+\end{enumerate}
+
+\item Imagem media - ireland-03-640x480
+\begin{enumerate}
+\item Imagem 2 -- Imagem diferente de tamanho 300x300 -- 61723 operações
+\item Imagem 2 -- Crop da imagem 1 de tamanho 160x120 no pixel (160,120) -- 78983 operações 
+\item Imagem 2 -- Crop da imagem 1 de tamanho 320x240 no pixel (160,120) -- 117378 operações 
+\item Imagem 2 -- Imagem diferente de tamanho 100x100 -- 206174 operações
+\item Imagem 2 -- Crop da imagem 1 de tamanho 640x480 no pixel (0,0) -- 307200 operações 
+\end{enumerate}
+
+\item Imagem grande - ireland-06-1200x1600
+\begin{enumerate}
+\item Imagem 2 -- Crop da imagem 1 de tamanho 300x400 no pixel (300,400) -- 489523 operações 
+\item Imagem 2 -- Crop da imagem 1 de tamanho 600x800 no pixel (300,400) -- 728259 operações 
+\item Imagem 2 -- Imagem diferente de tamanho 300x300 -- 1172218 operações
+\item Imagem 2 -- Imagem diferente de tamanho 100x100 -- 1652618 operações
+\item Imagem 2 -- Crop da imagem 1 de tamanho 1600x1200 no pixel (0,0) -- 1920000 operações 
+\end{enumerate}
+
+\end{itemize}
+
+\begin{minipage}{\linewidth}
+\subsection{Análise formal da complexidade do algoritmo}
+
+Nesta segunda parte, teremos que olhar mais diretamente para a função de forma a analisá-la:
+\vspace{10pt}
+\par\textbf{Nota:} Uma vez que a função que pretendemos analisar, a função ImageLocateSubImage, usa a função ImageMatchSubImage, por consequência, também a teremos de analisar.
+\vspace{10pt}
+\begin{itemize}
+\item Função ImageLocateSubImage:
+\begin{lstlisting}[language=C]
+1  int ImageLocateSubImage(Image img1, int* px, int* py, Image img2) {
+2     assert (img1 != NULL);
+3     assert (img2 != NULL);
+4     for(int y = 0; y < img1->height; y++){
+5         if(y + img2->height > img1->height){ 
+6         return 0; 
+7         }
+8         for(int x = 0; x < img1->width; x++){
+9           if(x + img2->width > img1->width){ break; }
+10          if(ImageMatchSubImage(img1, x, y, img2)){
+11            *px = x;
+12            *py = y;
+13            return 1;
+14          }
+15        }
+16      }
+17      return 0;
+18    }
+\end{lstlisting}
+\vspace{10pt}
+\item Função ImageMatchSubImage:
+\begin{lstlisting}[language=C]
+1     int ImageMatchSubImage(Image img1, int x, int y, Image img2) {
+2       assert (img1 != NULL);
+3       assert (img2 != NULL);
+4       assert (ImageValidPos(img1, x, y));
+5       if(img2->width + x > img1->width || img2->height + y > img1->height)
+6         return 0;
+7       if(img2->width + x > img1->width || img2->height + y > img1->height)
+8         return 0;
+10      for(int coordY = 0; coordY < img2->height; coordY++){
+11        for(int coordX = 0; coordX < img2->width; coordX++){
+12          if(ImageGetPixel(img1, coordX + x, coordY + y) != ImageGetPixel(img2, coordX, coordY))
+13            return 0;
+14        }
+15      }
+16      return 1;
+17    }
+\end{lstlisting}
+\end{itemize}
+\vspace{30pt}
+\end{minipage}
+Analisando estas funções, podemos verificar que:
+\begin{itemize}
+\item O loop externo de ImageLocateSubImage executa img1-$>$height iterações (linha 4 de ImageLocateSubImage);
+\item O loop interno executa img1-$>$width iterações (linha 8 de ImageLocateSubImage);
+\item Dentro do loop interno, a função ImageMatchSubImage é chamada, que possui um loop externo de tamanho img2-$>$height e um loop interno de tamanho img2-$>$width. Portanto, o número total de operações básicas dentro deste loop interno seria proporcional a img2-$>$height * img2-$>$width (linhas 10 e 11 de ImageMatchSubImage);
+\end{itemize}
+Assim, poderiamos concluir rapidamente que, segundo a notação Big-Oh, a complexidade é igual a O(x*y*m*n), com x = img1-$>$width, y = img1-$>$height, m = img2-$>$width e n = img2-$>$height. No entanto o algoritmo é um bocado mais complexo que isso e leva algums fatores em cosideração que diminui o numero de operações de forma consideravel:   
+\begin{enumerate}
+\item O loop externo de ImageLocateSubImage na verdade, devido ao if, apenas realiza img1-$>$height - img2-$>$height iterações, da mesma forma que o loop interno tambem só realiza img1-$>$width - img2-$>$width iterações. Podemos concluir assim que o nested loop realiza no total (img1-$>$height - img2-$>$height)*(img1-$>$width - img2-$>$width) iterações;
+\item O nested loop de ImageLocateSubImage apenas executa (img1-$>$height - img2-$>$height)*(img1-$>$width - img2-$>$width) iterações nos casos onde a imagem 2 não se encontra na imagem 1. Caso se encontre apenas executa o numero de vezes suficiente até encontrar o pixel correto;
+\item Quase todas as vezes em que a função ImageMatchSubImage é chamada, apenas 1 iteração do nested loop será realizada, pois na grande maioria dos casos o primeiro pixel terá um gray value diferente e terminará a função imediatamente, sendo o unico caso importante de considerar, o caso onde se chegou ao pixel certo da imagem 2, onde nesse caso o nested loop realizará img2-$>$width*img2-$>$height iterações;
+\end{enumerate}
+\begin{minipage}{\linewidth}
+Assim, com estes promenores em mente, podemos chegar á conclusão que o grau de complexidade será:
+\begin{itemize}
+\item O(m) nos casos onde a imagem 2 \textbf{não está na imagem 1}, sendo que m = (img1-$>$height - img2-$>$height)*(img1-$>$width - img2-$>$width);
+\item O(m + n) nos casos onde a imagem 2 \textbf{está na imagem 1}, sendo que m é o numero de iterações até chegar ao pixel correto (m = (img1-$>$width-img2-$>$width)*y + x, sendo (x, y) as coordenadas onde se encontra a imagem 2), e n é numero de pixeis da imagem 2 (n = img2-$>$height*img2-$>$width);
+\end{itemize}
+
+Portanto, em ambos os casos, esta é uma ordem de complexidade do tipo O(n), ou seja, linear, o que nos indica que é um algoritmo de complexidade media, isto é, não tem uma complexidade muito elevado como um algoritmo factorial (O(n!)), mas tambem não é tão eficiente como um algoritmo logaritmico (O(log(n))), o que nos dá desde já a indicação que existe, em principio, possibilidade de o melhorar.
+\vspace{10pt}
+\par{Agora}, uma vez que já determinamos o que influencia a complexidade do algoritmo, conseguimos facilmente determinar o pior e o melhor caso.
+\vspace{10pt}
+\par{De} forma geral, uma vez que a imagem não pode ser nula, o melhor caso seria onde m = 1, i.e, o melhor caso seria onde a imagem 1 tem um tamanho de apenas 1 pixel e a imagem 2 não se encontra na imagem 1, o que resultaria no algoritmo realizar um total de 1 operações. Já o pior caso seria onde ambas as imagems tem um tamanho infinito, o que daria m = $\infty$ e n = $\infty$, o que, por consequencia, tambem daria um número infinito de operações.
+\vspace{10pt}
+\par{No} entanto, esta é uma análise formal muito vaga e que não nos diz muito, logo determinaremos o pior e o melhor caso no contexto dos testes efetuados anteriormente. Assim, o melhor caso seria o caso onde a imagem 1 é a mais pequena, logo será a imagem "bird\_256x256", e será onde a imagem 2 é a mais pequena possivel e encontrar o mais cedo possivel. Assim chegamos á conclusão que será o teste 2), que tem grau de complexidade de O(((256-64)*64 + 64) + 64*64) = O(12352 + 4096) = 16448.
+\par{Já} o pior caso seria o inverso, ou seja, a imagem 1 seria a  maior imagem a ser testada, que no caso é a imagem "ireland-06-1200x1600", e seria tambem no caso em que a imagem 2 é a maior, o que nos leva ao teste 5, onde a imagem 2 é do mesmo tamanho da imagem 1. Assim, podemos concluir que o grau de complexidade do pior caso será O(((1200-1200)*0 + 0) + 1200*1600) = O(0 + 1920000) = 1920000. 
+\end{minipage}
+\subsection{Comparação dos resultados obtidos}
+Por fim, agora que já fizemos tanto os testes como a analise formal, podemos finalmente comparar os resultados obtidos e tirar conclusões.
+\par{Começando} pelo caso mais simples que foi o do pior caso. Aqui verificamos que o numero de operações contadas nos testes e o grau de complexidade obtida na analise formal são identicas, o que nos indica que não houve nenhuma irregularidade.
+\par{Por} outro lado, o melhor caso já é um bocado mais complicado pois, apesar de tanto os testes realizados como a analise formal concordarem que o teste 2) da imagem "bird\_256x256" é o melhor caso, os valores do numero de operações nos testes e no grau de complexidade na analise formal são diferentes. Isto pode ser devido a diversos motivos, no entanto o motivo mais provavel é que os numeros diferenciam pois em alguns casos, quando se entrou no nested loop da função ImageMatchSubImage, este realizou mais que uma iteração, enquanto que ao calcularmos a complexidade do algoritmo consideramos que sempre que se entra no nested loop da função ImageMatchSubImage apenas 1 iteração é realizada, devido à irregularidade e impressibilidade do processo.
+
+\section{Analise da complexidade da função ImageBlur()}
+Em semelhança ao estudo da função ImageLocateSubImage(), foram concretizados 3 objetivos principais, que diferem levemente entre si:
+\begin{enumerate}
+\item Foram feitas sequências de testes envolvendo uma imagem pequena, uma imagem de tamanho médio, e uma imagem grande. A contagem de operações foi feita quando é chamada alguma função externa, ou seja, as operações de soma e incremento não são contadas como sendo operações, uma vez que operações tão simples não serão relevantes para o tempo de processamento da função, e desempenho.
+\item Em seguida, é descrita a análise formal da complexidade do algoritmo, tendo por base os testes efetuados;
+\item Por fim, comparar uma implementação da função utilizando um algoritmo simples e pouco eficiente, com um algoritmo melhorado.
+\end{enumerate}
+\subsection{Sequência de testes}
+
+Para a realização de testes envolvendo esta função, tivémos em conta duas variáveis: o tamanho da imagem, e o tamanho do filtro. Sendo assim, foram feitos testes em três imagens diferentes, que diferem em tamanho (pequeno, médio e grande). Em cada uma das imagens foram feitos três testes que variam no tamanho do filtro para a aplicação do efeito de \textit{blur}. Com isto, pretendemos verificar como, e em que escala o tamanho da imagem e do filtro afetam a evolução quantidade de operações efetuadas. Tal como já foi mencionado, a contagem de operações foi feita da forma que o grupo considerou mais relevante, sendo apenas considerado uma "operação" como um chamamento de função externa, visto que operações aritméticas são irrelevantes para o caso em estudo.
+
+\begin{itemize}
+
+\item Imagem pequena - bird\_256x256
+\begin{itemize}
+\item Filtro dx e dy = 1 -- 717828 operações 
+\item Filtro dx e dy = 4 -- 5347728 operações 
+\item Filtro dx e dy = 8 -- 18449472 operações 
+\end{itemize}
+
+\item Imagem media - ireland-03-640x480
+\begin{itemize}
+\item Filtro dx e dy = 1 -- 3372484 operações 
+\item Filtro dx e dy = 4 -- 25296400 operações 
+\item Filtro dx e dy = 8 -- 88029504 operações 
+\end{itemize}
+
+\item Imagem grande - ireland-06-1200x1600
+\begin{itemize}
+\item Filtro dx e dy = 1 -- 21103204 operações 
+\item Filtro dx e dy = 4 -- 158856400 operações 
+\item Filtro dx e dy = 8 -- 555297984 operações
+\end{itemize}
+
+\end{itemize}
+
+\subsection{Análise formal dos testes}
+
+Finda a execução de testes, é importante analisar a função do ponto de vista algorítmico. Posto isto, vejamos o código da função \textbf{ImageBlur()}.
+\vspace{10pt}
+\begin{itemize}
+\item Função ImageBlur:
+\begin{lstlisting}[language=C]
+1  void ImageBlur(Image img, int dx, int dy) { ///
+  assert(img != NULL);
+  assert(dx >= 0 && dy >= 0);
+  int width = img->width;
+  int height = img->height;
+
+  Image tempImg = ImageCreate(width, height, img->maxval);
+
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      int sum = 0;
+      double count = 0;
+
+      for (int newY = y - dy; newY <= y + dy; newY++) {
+        for (int newX = x - dx; newX <= x + dx; newX++) {
+          if (ImageValidPos(img, newX, newY)) {
+            sum += (ImageGetPixel(img, newX, newY));
+            count++;
+          }
+        }
+      }
+      
+      uint8 meanValue = (uint8)(sum / count + 0.5);
+      ImageSetPixel(tempImg, x, y, meanValue);
+
+    }
+  }
+  
+  for (int index = 0; index < height * width; index++) {
+      img->pixel[index] = tempImg->pixel[index];
+  }
+  
+  ImageDestroy(&tempImg);
+}
+\end{lstlisting}
+\end{itemize}
+Através da análise da função verifica-se que a sua complexidade depende de quatro fatores:
+\begin{enumerate}
+\item Largura da imagem, que consideramos como w;
+\item Altura da imagem, que consideramos h;
+\item Tamanho da janela de vizinhança do filtro horizontalmente, que consideramos como dx;
+\item Tamanho da janela de vizinhança do filtro verticalmente, que consideramos como dy; 
+
+\end{enumerate}
+Assim sendo, segundo a notação Big-Oh, é possível dizer que o algoritmo tem uma ordem de complexidade de O(w*h*dx*dy). Simplificando, se considerarmos w*y como sendo o tamanho da imagem (quantidade de pixéis, \textbf{m}) e dx*dy o tamanho da vizinhança do filtro (ou tamanho do filtro, \textbf{n}), a ordem de complexidade é O(m*n), ou seja, linear. A análise relativa a algoritmos do tipo linear foi feita juntamente com a análise da função ImageLocateSubImage().
+
+\subsection{Comparação com função melhorada}
+
+O grupo não foi capaz de implementar uma função melhorada do algoritmo ImageBlur tal como foi pedido, no entanto, foi teorizada uma possível melhoria que tornaria o algoritmo mais eficiente. Na implementação atual, a aplicação do filtro de \textit{blur} é feita píxel-a-píxel, ou seja, em cada píxel é aplicado o filtro, calculando a média dos píxeis vizinhos dentro da janela. No entanto, uma possível melhoria para este algoritmo seria fazer uma alteração de modo a que o valor da média não fosse calculado incluindo sempre todos os pixéis da janela de vizinhança, mas mantendo os pixéis comuns à janela anterior, retirando do cálculo os que saíram da janela, e adicionando os que entraram. Assim, não seria necessário fazer um cálculo constante de valores que já tinham sido obtidos anteriormente.
+
+\end{document}

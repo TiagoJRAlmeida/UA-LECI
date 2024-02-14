@@ -1,0 +1,111 @@
+# Guiao 10 Ex1_v2
+	
+# Mapa de registos de abs:
+# $a0 = val
+# $t4 = val
+	
+	# Função abs
+	.data
+	.text
+
+abs:	move $t4, $a0 # $t4 = val (y)
+
+if:	bge $t4, $0, eif # if(val < 0)
+	mul $t4, $t4, -1 # val *= -1
+
+eif:	move $v0, $t4 # $v0 = val
+	jr $ra
+	
+	
+# mapa de registos de xtoi:
+# $t0: i
+# $t1: abs(y)
+# $s1: y
+# $f2 : x
+# $f4: result
+
+	# Função xtoi
+	.data 
+um: 	.float 1.0
+	.text	
+	
+xtoy:	addiu $sp, $sp, -20
+	sw $ra, 0($sp)
+	sw $t0, 4($sp) # i
+	sw $s1, 8($sp) # y
+	s.s $f2, 12($sp) # float x
+	s.s $f4, 16($sp) # result
+	#mov.s $f20, $f12 (?)  # guardar x
+	li $s0, 0 # i = 0
+	la $t3, um # result = 1.0; $t3 serve como middle man para dar o valor a $f4
+	l.s $f4, 0($t3) # result = 1.0
+	move $a0, $s1 # $a0 = y
+	jal abs	# abs(y)
+	move $t1, $v0 # $t1 = abs(y)
+
+for_xt: bge $t0, $t1, efor_xt # while(i < abs(y)){
+	
+if_xt:	blt $s1, $0, else_xt # if(y > 0){
+	mul.s $f4, $f4, $f2 # res *= x
+	j end_if_xt # } 
+	
+else_xt:
+	div.s $f4, $f4, $f2 # else { res /= x }
+	
+end_if_xt:
+	addi $t0, $t0, 1 # i++
+	j for_xt 	
+
+efor_xt: 
+	mov.s $f0, $f4 # $f0 = res
+	lw $ra, 0($sp)
+	lw $t0, 4($sp) # i
+	lw $s1, 8($sp) # y
+	l.s $f2, 12($sp) # float x
+	l.s $f4, 16($sp) # result
+	addiu $sp, $sp, 20
+	jr $ra
+	
+
+	# Função main
+	.data
+str1:	.asciiz "Introduza um numero: "
+str2:	.asciiz "Introduza o exponente: "
+str3:	.asciiz "result:"
+	.eqv print_float, 2
+	.eqv print_string, 4
+	.eqv read_int, 5
+	.eqv read_float, 6
+	.text
+	.globl main
+	
+main:	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+
+	la $a0, str1
+	li $v0, print_string # print_string("Introduza um numero: ");
+	syscall
+	li $v0, read_float # Ler o valor de x
+	syscall
+	mov.s $f2, $f0
+	
+	la $a0, str2
+	li $v0, print_string # print_string("Introduza o exponente: ");
+	syscall
+	li $v0, read_int # Ler o valor de y
+	syscall
+	move $s1, $v0
+	
+	jal xtoy
+	
+	la $a0, str3
+	li $v0, print_string
+	syscall
+	mov.s $f12, $f0
+	li $v0, print_float
+	syscall
+	
+	lw $ra, 0($sp)
+	addi $sp, $sp, 4
+	li $v0, 0
+	jr $ra

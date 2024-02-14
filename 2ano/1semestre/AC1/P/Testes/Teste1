@@ -1,0 +1,21 @@
+	.data
+	 
+L1: 	.word 0,0,0x2345
+L2: 	.asciiz "TeoricaPrimeira"
+    	.align 3
+L5:	.asciiz "L2-end"
+L3:	.space 16
+L4:	.asciiz "L3-end"
+
+	.text
+	.globl main
+	
+main: 	li $t0, 0
+	lui $t0, 0x3A60
+	mtc1 $t0, $f2
+	lui $t0, 0xBA60
+	mtc1 $t0, $f4
+	sub.s $f0,$f2,$f4
+	lui $t0, 0x4000
+	mtc1 $t0, $f4
+	jr $ra
