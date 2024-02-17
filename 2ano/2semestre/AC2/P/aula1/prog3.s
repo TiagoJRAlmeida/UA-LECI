@@ -42,7 +42,12 @@ else:   lb $t1, '.'
 
 
 edo:    addi $t0, $t0, 1 
+        bne $t1, '\n', do
 
-eloop:
+eloop:  move $a0, $t0
+        li $v0, printInt10
+        syscall
+        li $v0, 0
+        jr $ra
 
 
