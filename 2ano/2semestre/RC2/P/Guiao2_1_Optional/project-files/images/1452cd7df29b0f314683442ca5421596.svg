@@ -1,0 +1,19 @@
+<svg width="794" height="331"><text font-family="TypeWriter" font-size="10.0" font-weight="bold" fill="#000000" fill-opacity="1.0">TEORIA:
+Com o metodo de "inter-VLAN routing" usado neste projeto, dispositivos de VLANs 
+diferentes conseguem se comunicar. Isso deve-se ao facto de o router fazer o encaminhamento 
+de uma VLAN para outra.
+
+Existem 3 formas diferentes de fazer "inter-VLAN routing". A usada aqui foi com sub-interfaces virtuais.
+Para relembrar, o seguinte video é bom (O metodo usado neste projeto é o terceiro apresentado no video):
+https://www.youtube.com/watch?v=NmkFzDrZsXM
+
+No inicio eu pensei que isto era inutil porque fazia as VLANs perderem a feature de não permitirem 
+a comunicação com os dispositios de fora, o que eu via como a feature mais importante.
+No entanto, existem outras features importantes tambem que não se perdem como por exemplo:
+- Segurança;
+- Gestão de tráfego (mais facil de gerir ao agrupar em VLANs);
+- Controlo de broadcast (só acontece dentro da VLAN);
+- Otimização de performance (ao agrupar dispositivos para uma mesma rota);
+- Flexibilidade e escalabilidade;
+Assim, temos grupos (VLANs) que conseguem se comunicar entre si e ainda têm todos as vantagens 
+mencionadas em cima.</text></svg>
