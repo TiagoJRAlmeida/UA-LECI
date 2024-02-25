@@ -1,41 +1,12 @@
-Archive member included because of file (symbol)
-
-/opt/pic32mx/lib/libdetpic32.a(xprintf.o)
-                              prog3.o (xprintf)
-/opt/pic32mx/lib/libm.a(dp32.o)
-                              /opt/pic32mx/lib/libdetpic32.a(xprintf.o) (__subdf3)
-/opt/pic32mx/lib/libc.a(putchar.o)
-                              prog3.o (putchar)
-/opt/pic32mx/lib/libc.a(_iob.o)
-                              /opt/pic32mx/lib/libc.a(putchar.o) (_iob)
-/opt/pic32mx/lib/libc.a(_fputc_simple.o)
-                              /opt/pic32mx/lib/libc.a(putchar.o) (fputc)
-/opt/pic32mx/lib/libc.a(write.o)
-                              /opt/pic32mx/lib/libc.a(_fputc_simple.o) (write)
-/opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
-                              /opt/pic32mx/lib/libc.a(_fputc_simple.o) (_flsbuf)
-/opt/pic32mx/lib/libc.a(_mon_putc.o)
-                              /opt/pic32mx/lib/libc.a(write.o) (_mon_putc)
-/opt/pic32mx/lib/libc.a(c32_uart.o)
-                              /opt/pic32mx/lib/libc.a(_mon_putc.o) (__C32_UART)
-
-Allocating common symbols
-Common symbol       size              file
-
-_sibuf              0x20              /opt/pic32mx/lib/libc.a(_iob.o)
-_outdone            0x1               /opt/pic32mx/lib/libc.a(_iob.o)
-_sobuf              0x20              /opt/pic32mx/lib/libc.a(_iob.o)
 
 Microchip PIC32 Memory-Usage Report
 
 kseg0 Program-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
-.text                   0x9d001400         0x2028        8232  Application's executable code 
-.rodata                 0x9d003428           0xe4         228  Read-only constant data 
-.data                   0x9d00350c           0xa0         160  Data-initialization template 
-.sdata                  0x9d0035ac            0x8           8  Small data-initialization template 
-      Total kseg0_program_mem used  :      0x21b4        8628  1.7% of 0x7ec00
+.text                   0x9d001400          0x140         320  Application's executable code 
+.rodata                 0x9d001540           0x18          24  Read-only constant data 
+      Total kseg0_program_mem used  :       0x158         344  0.1% of 0x7ec00
 
 kseg0 Boot-Memory Usage
 section                    address  length [bytes]      (dec)  Description
@@ -54,21 +25,17 @@ section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
          Total kseg1_boot_mem used  :           0           0  <1% of 0x490
         --------------------------------------------------------------------------
-         Total Program Memory used  :      0x2478        9336  1.8% of 0x80480
+         Total Program Memory used  :       0x41c        1052  0.2% of 0x80480
         --------------------------------------------------------------------------
 
 
 kseg1 Data-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
-.data                   0xa0000000           0xa0         160  Initialized data 
-.sdata                  0xa00000a0            0x8           8  Small initialized data 
-.sbss                   0xa00000a8            0x1           1  Small uninitialized data 
-.bss                    0xa00000ac           0x40          64  Uninitialized data 
-.stack                  0xa00000f0         0x2000        8192  Minimum space reserved for stack 
-         Total kseg1_data_mem used  :      0x20e9        8425  6.4% of 0x20000
+.stack                  0xa0000000         0x2000        8192  Minimum space reserved for stack 
+         Total kseg1_data_mem used  :      0x2000        8192  6.2% of 0x20000
         --------------------------------------------------------------------------
-            Total Data Memory used  :      0x20e9        8425  6.4% of 0x20000
+            Total Data Memory used  :      0x2000        8192  6.2% of 0x20000
         --------------------------------------------------------------------------
 
 Memory Configuration
@@ -89,7 +56,7 @@ sfrs             0x00000000bf800000 0x0000000000100000
 
 Linker script and memory map
 
-LOAD prog3.o
+LOAD prog2.o
 LOAD /opt/pic32mx/lib/libdetpic32.a
 LOAD /opt/pic32mx/lib/gcc/pic32mx/3.4.4/libgcc.a
 LOAD /opt/pic32mx/lib/libm.a
@@ -401,100 +368,44 @@ LOAD /opt/pic32mx/lib/startup.o
  *(.vector_63)
                 0x0000000000000001                ASSERT (((_vector_spacing == 0x0) || (SIZEOF (.vector_63) <= (_vector_spacing << 0x5))), function at exception vector 63 too large)
 
-.text           0x000000009d001400     0x2028
+.text           0x000000009d001400      0x140
                 0x000000009d001400                _text_begin = .
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text          0x000000009d001400       0xf8 prog3.o
-                0x000000009d001440                main
-                0x000000009d001400                delay
- .text          0x000000009d0014f8      0x990 /opt/pic32mx/lib/libdetpic32.a(xprintf.o)
-                0x000000009d001500                xprintf
- .text          0x000000009d001e88     0x1128 /opt/pic32mx/lib/libm.a(dp32.o)
-                0x000000009d002f38                fabs
-                0x000000009d002dfc                __eqdf2
-                0x000000009d002dfc                __gtdf2
-                0x000000009d001e88                dpsub
-                0x000000009d002a90                __floatsidf
-                0x000000009d002dfc                __ltdf2
-                0x000000009d002b04                ultodp
-                0x000000009d0022b4                dpmul
-                0x000000009d002bf8                dptofp
-                0x000000009d002d78                __fixunsdfsi
-                0x000000009d002dfc                dpcmp
-                0x000000009d002b54                __extendsfdf2
-                0x000000009d001e90                __adddf3
-                0x000000009d002d78                dptoul
-                0x000000009d0025dc                dpdiv
-                0x000000009d002a90                litodp
-                0x000000009d002cf0                __fixdfsi
-                0x000000009d002dfc                __ledf2
-                0x000000009d002b54                fptodp
-                0x000000009d002f20                __negdf2
-                0x000000009d001e90                dpadd
-                0x000000009d0025dc                __divdf3
-                0x000000009d0022b4                __muldf3
-                0x000000009d002bf8                __truncdfsf2
-                0x000000009d002dfc                __nedf2
-                0x000000009d002cf0                dptoli
-                0x000000009d002f54                nan
-                0x000000009d002f38                dpfabs
-                0x000000009d002dfc                __gedf2
-                0x000000009d002f54                dpnan
-                0x000000009d001e88                __subdf3
- .text.putchar  0x000000009d002fb0        0xc /opt/pic32mx/lib/libc.a(putchar.o)
-                0x000000009d002fb0                putchar
- .text.fputc    0x000000009d002fbc      0x144 /opt/pic32mx/lib/libc.a(_fputc_simple.o)
-                0x000000009d002fbc                fputc
- .text.write    0x000000009d003100       0xa8 /opt/pic32mx/lib/libc.a(write.o)
-                0x000000009d003100                write
- .text._flsbuf  0x000000009d0031a8      0x12c /opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
-                0x000000009d0031a8                _flsbuf
- .text._mon_putc
-                0x000000009d0032d4       0xa4 /opt/pic32mx/lib/libc.a(_mon_putc.o)
-                0x000000009d0032d4                _mon_putc
- .text          0x000000009d003378       0xb0 /opt/pic32mx/lib/startup.o
-                0x000000009d0033e8                printStr
-                0x000000009d0033c8                printInt
-                0x000000009d0033a8                readInt
-                0x000000009d003420                resetCoreTimer
-                0x000000009d003398                putChar
-                0x000000009d0033f8                readStr
-                0x000000009d003408                exxt
-                0x000000009d0033d8                printInt10
-                0x000000009d003378                inkey
-                0x000000009d003388                getChar
-                0x000000009d0033b8                readInt10
-                0x000000009d003418                readCoreTimer
+ .text          0x000000009d001400       0x90 prog2.o
+                0x000000009d001400                main
+ .text          0x000000009d001490       0xb0 /opt/pic32mx/lib/startup.o
+                0x000000009d001500                printStr
+                0x000000009d0014e0                printInt
+                0x000000009d0014c0                readInt
+                0x000000009d001538                resetCoreTimer
+                0x000000009d0014b0                putChar
+                0x000000009d001510                readStr
+                0x000000009d001520                exxt
+                0x000000009d0014f0                printInt10
+                0x000000009d001490                inkey
+                0x000000009d0014a0                getChar
+                0x000000009d0014d0                readInt10
+                0x000000009d001530                readCoreTimer
  *(.text.*personality*)
  *(.gnu.warning)
  *(.mips16.fn.*)
  *(.mips16.call.*)
-                0x000000009d003428                _text_end = .
+                0x000000009d001540                _text_end = .
 
-.rodata         0x000000009d003428       0xe4
+.rodata         0x000000009d001540       0x18
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata.str1.4
-                0x000000009d003428       0x12 prog3.o
-                                         0x14 (size before relaxing)
- *fill*         0x000000009d00343a        0x2 00
- .rodata.str1.4
-                0x000000009d00343c       0x11 /opt/pic32mx/lib/libdetpic32.a(xprintf.o)
-                                         0x14 (size before relaxing)
- *fill*         0x000000009d00344d        0x3 00
- .rodata.cst8   0x000000009d003450       0x20 /opt/pic32mx/lib/libdetpic32.a(xprintf.o)
- .rodata        0x000000009d003470       0x84 /opt/pic32mx/lib/libdetpic32.a(xprintf.o)
- .rodata        0x000000009d0034f4       0x15 /opt/pic32mx/lib/startup.o
+ .rodata        0x000000009d001540       0x15 /opt/pic32mx/lib/startup.o
  *(.rodata1)
-                0x000000009d00350c                . = ALIGN (0x4)
- *fill*         0x000000009d003509        0x3 00
+                0x000000009d001558                . = ALIGN (0x4)
+ *fill*         0x000000009d001555        0x3 00
 
-.sdata2         0x000000009d00350c        0x0
+.sdata2         0x000000009d001558        0x0
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
-                0x000000009d00350c                . = ALIGN (0x4)
+                0x000000009d001558                . = ALIGN (0x4)
 
-.sbss2          0x000000009d00350c        0x0
+.sbss2          0x000000009d001558        0x0
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
-                0x000000009d00350c                . = ALIGN (0x4)
+                0x000000009d001558                . = ALIGN (0x4)
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
@@ -505,102 +416,84 @@ LOAD /opt/pic32mx/lib/startup.o
 .dbg_data       0x00000000a0000000        0x0
                 0x00000000a0000000                . = (. + DEFINED (_DEBUGGER)?0x200:0x0)
 
-.data           0x00000000a0000000       0xa0 load address 0x000000009d00350c
+.data           0x00000000a0000000        0x0 load address 0x000000009d001558
                 0x00000000a0000000                _data_begin = .
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x00000000a0000000       0xa0 /opt/pic32mx/lib/libc.a(_iob.o)
-                0x00000000a0000000                _iob
  *(.gnu.linkonce.d.*personality*)
  *(.data1)
-                0x000000009d00350c                _data_image_begin = LOADADDR (.data)
+                0x000000009d001558                _data_image_begin = LOADADDR (.data)
 
 .eh_frame
  *(.eh_frame)
-                0x00000000a0008090                _gp = (ALIGN (0x10) + 0x7ff0)
+                0x00000000a0007ff0                _gp = (ALIGN (0x10) + 0x7ff0)
 
 .got
  *(.got.plt)
  *(.got)
 
-.sdata          0x00000000a00000a0        0x8 load address 0x000000009d0035ac
-                0x00000000a00000a0                _sdata_begin = .
+.sdata          0x00000000a0000000        0x0 load address 0x000000009d001558
+                0x00000000a0000000                _sdata_begin = .
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x00000000a00000a0        0x4 /opt/pic32mx/lib/libc.a(_iob.o)
-                0x00000000a00000a0                _Files
- .sdata         0x00000000a00000a4        0x4 /opt/pic32mx/lib/libc.a(c32_uart.o)
-                0x00000000a00000a4                __C32_UART
-                0x00000000a00000a8                _sdata_end = .
+                0x00000000a0000000                _sdata_end = .
 
 .lit8
  *(.lit8)
 
 .lit4
  *(.lit4)
-                0x00000000a00000a8                . = ALIGN (0x4)
-                0x00000000a00000a8                _data_end = .
-                0x00000000a00000a8                _bss_begin = .
+                0x00000000a0000000                . = ALIGN (0x4)
+                0x00000000a0000000                _data_end = .
+                0x00000000a0000000                _bss_begin = .
 
-.sbss           0x00000000a00000a8        0x1
-                0x00000000a00000a8                _sbss_begin = .
+.sbss           0x00000000a0000000        0x0
+                0x00000000a0000000                _sbss_begin = .
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
  *(.scommon)
- .scommon       0x00000000a00000a8        0x1 /opt/pic32mx/lib/libc.a(_iob.o)
-                0x00000000a00000a8                _outdone
-                0x00000000a00000a9                _sbss_end = .
+                0x00000000a0000000                _sbss_end = .
 
-.bss            0x00000000a00000ac       0x40
+.bss            0x00000000a0000000        0x0
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
  *(COMMON)
- COMMON         0x00000000a00000ac       0x40 /opt/pic32mx/lib/libc.a(_iob.o)
-                0x00000000a00000ac                _sibuf
-                0x00000000a00000cc                _sobuf
-                0x00000000a00000ec                . = ALIGN (0x4)
-                0x00000000a00000ec                . = ALIGN (0x4)
-                0x00000000a00000ec                _end = .
-                0x00000000a00000ec                _bss_end = .
+                0x00000000a0000000                . = ALIGN (0x4)
+                0x00000000a0000000                . = ALIGN (0x4)
+                0x00000000a0000000                _end = .
+                0x00000000a0000000                _bss_end = .
 
-.persist        0x00000000a00000ec        0x0
+.persist        0x00000000a0000000        0x0
  *(.persist)
-                0x00000000a00000ec                . = ALIGN (0x4)
+                0x00000000a0000000                . = ALIGN (0x4)
 
-.heap           0x00000000a00000ec        0x0
-                0x00000000a00000ec                _heap = .
-                0x00000000a00000ec                . = (. + _min_heap_size)
+.heap           0x00000000a0000000        0x0
+                0x00000000a0000000                _heap = .
+                0x00000000a0000000                . = (. + _min_heap_size)
 
-.stack          0x00000000a00000f0     0x2000
-                0x00000000a00000f0                _splim = .
-                0x00000000a00000f0                _SPLIM = .
-                0x00000000a00020f0                . = (. + _min_stack_size)
- *fill*         0x00000000a00000f0     0x2000 00
+.stack          0x00000000a0000000     0x2000
+                0x00000000a0000000                _splim = .
+                0x00000000a0000000                _SPLIM = .
+                0x00000000a0002000                . = (. + _min_stack_size)
+ *fill*         0x00000000a0000000     0x2000 00
 
-.ramfunc        0x00000000a0002800        0x0 load address 0x000000009d0035b4
-                0x00000000a0002800                _ramfunc_begin = .
+.ramfunc        0x00000000a0002000        0x0 load address 0x000000009d001558
+                0x00000000a0002000                _ramfunc_begin = .
  *(.ramfunc .ramfunc.*)
-                0x00000000a0002800                . = ALIGN (0x4)
-                0x00000000a0002800                _ramfunc_end = .
-                0x000000009d0035b4                _ramfunc_image_begin = LOADADDR (.ramfunc)
+                0x00000000a0002000                . = ALIGN (0x4)
+                0x00000000a0002000                _ramfunc_end = .
+                0x000000009d001558                _ramfunc_image_begin = LOADADDR (.ramfunc)
                 0x0000000000000000                _ramfunc_length = SIZEOF (.ramfunc)
-                0x0000000000002800                _bmxdkpba_address = (_ramfunc_begin - 0xa0000000)
+                0x0000000000002000                _bmxdkpba_address = (_ramfunc_begin - 0xa0000000)
                 0x0000000000020000                _bmxdudba_address = 0x20000
                 0x0000000000020000                _bmxdupba_address = 0x20000
                 0x00000000a0020000                _stack = (_ramfunc_length > 0x0)?(_ramfunc_begin - 0x4):0xa0020000
                 0x0000000000000001                ASSERT (((_min_stack_size + _min_heap_size) <= (_stack - _heap)), Not enough space to allocate both stack and heap.  Reduce heap and/or stack size.)
 
-.pdr            0x0000000000000000      0x120
+.pdr            0x0000000000000000        0x0
  *(.pdr)
- .pdr           0x0000000000000000       0x40 prog3.o
- .pdr           0x0000000000000040       0x40 /opt/pic32mx/lib/libdetpic32.a(xprintf.o)
- .pdr           0x0000000000000080       0x20 /opt/pic32mx/lib/libc.a(putchar.o)
- .pdr           0x00000000000000a0       0x20 /opt/pic32mx/lib/libc.a(_fputc_simple.o)
- .pdr           0x00000000000000c0       0x20 /opt/pic32mx/lib/libc.a(write.o)
- .pdr           0x00000000000000e0       0x20 /opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
- .pdr           0x0000000000000100       0x20 /opt/pic32mx/lib/libc.a(_mon_putc.o)
 
 .reginfo        0x0000000000000000       0x18
  *(.reginfo)
- .reginfo       0x0000000000000000       0x18 prog3.o
+ .reginfo       0x0000000000000000       0x18 prog2.o
 
 .stab
  *(.stab)
@@ -620,17 +513,8 @@ LOAD /opt/pic32mx/lib/startup.o
 .stab.indexstr
  *(.stab.indexstr)
 
-.comment        0x0000000000000000      0x2b5
+.comment
  *(.comment)
- .comment       0x0000000000000000       0x4d prog3.o
- .comment       0x000000000000004d       0x4d /opt/pic32mx/lib/libdetpic32.a(xprintf.o)
- .comment       0x000000000000009a       0x4d /opt/pic32mx/lib/libc.a(putchar.o)
- .comment       0x00000000000000e7       0x4d /opt/pic32mx/lib/libc.a(_iob.o)
- .comment       0x0000000000000134       0x4d /opt/pic32mx/lib/libc.a(_fputc_simple.o)
- .comment       0x0000000000000181       0x4d /opt/pic32mx/lib/libc.a(write.o)
- .comment       0x00000000000001ce       0x4d /opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
- .comment       0x000000000000021b       0x4d /opt/pic32mx/lib/libc.a(_mon_putc.o)
- .comment       0x0000000000000268       0x4d /opt/pic32mx/lib/libc.a(c32_uart.o)
 
 .debug
  *(.debug)
@@ -644,111 +528,32 @@ LOAD /opt/pic32mx/lib/startup.o
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000       0xc8
+.debug_aranges
  *(.debug_aranges)
- .debug_aranges
-                0x0000000000000000       0x28 /opt/pic32mx/lib/libc.a(putchar.o)
- .debug_aranges
-                0x0000000000000028       0x28 /opt/pic32mx/lib/libc.a(_fputc_simple.o)
- .debug_aranges
-                0x0000000000000050       0x28 /opt/pic32mx/lib/libc.a(write.o)
- .debug_aranges
-                0x0000000000000078       0x28 /opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
- .debug_aranges
-                0x00000000000000a0       0x28 /opt/pic32mx/lib/libc.a(_mon_putc.o)
 
 .debug_pubnames
-                0x0000000000000000       0xfe
  *(.debug_pubnames)
- .debug_pubnames
-                0x0000000000000000       0x1e /opt/pic32mx/lib/libc.a(putchar.o)
- .debug_pubnames
-                0x000000000000001e       0x49 /opt/pic32mx/lib/libc.a(_iob.o)
- .debug_pubnames
-                0x0000000000000067       0x1c /opt/pic32mx/lib/libc.a(_fputc_simple.o)
- .debug_pubnames
-                0x0000000000000083       0x1c /opt/pic32mx/lib/libc.a(write.o)
- .debug_pubnames
-                0x000000000000009f       0x1e /opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
- .debug_pubnames
-                0x00000000000000bd       0x20 /opt/pic32mx/lib/libc.a(_mon_putc.o)
- .debug_pubnames
-                0x00000000000000dd       0x21 /opt/pic32mx/lib/libc.a(c32_uart.o)
 
-.debug_info     0x0000000000000000      0x65e
+.debug_info
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x0000000000000000      0x10c /opt/pic32mx/lib/libc.a(putchar.o)
- .debug_info    0x000000000000010c      0x150 /opt/pic32mx/lib/libc.a(_iob.o)
- .debug_info    0x000000000000025c      0x12a /opt/pic32mx/lib/libc.a(_fputc_simple.o)
- .debug_info    0x0000000000000386       0x7c /opt/pic32mx/lib/libc.a(write.o)
- .debug_info    0x0000000000000402      0x122 /opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
- .debug_info    0x0000000000000524       0xfb /opt/pic32mx/lib/libc.a(_mon_putc.o)
- .debug_info    0x000000000000061f       0x3f /opt/pic32mx/lib/libc.a(c32_uart.o)
 
-.debug_abbrev   0x0000000000000000      0x3ad
+.debug_abbrev
  *(.debug_abbrev)
- .debug_abbrev  0x0000000000000000       0xa5 /opt/pic32mx/lib/libc.a(putchar.o)
- .debug_abbrev  0x00000000000000a5       0x81 /opt/pic32mx/lib/libc.a(_iob.o)
- .debug_abbrev  0x0000000000000126       0xb4 /opt/pic32mx/lib/libc.a(_fputc_simple.o)
- .debug_abbrev  0x00000000000001da       0x73 /opt/pic32mx/lib/libc.a(write.o)
- .debug_abbrev  0x000000000000024d       0xa7 /opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
- .debug_abbrev  0x00000000000002f4       0x89 /opt/pic32mx/lib/libc.a(_mon_putc.o)
- .debug_abbrev  0x000000000000037d       0x30 /opt/pic32mx/lib/libc.a(c32_uart.o)
 
-.debug_line     0x0000000000000000      0x899
+.debug_line
  *(.debug_line)
- .debug_line    0x0000000000000000      0x1ab /opt/pic32mx/lib/libc.a(putchar.o)
- .debug_line    0x00000000000001ab      0x196 /opt/pic32mx/lib/libc.a(_iob.o)
- .debug_line    0x0000000000000341      0x197 /opt/pic32mx/lib/libc.a(_fputc_simple.o)
- .debug_line    0x00000000000004d8       0xc2 /opt/pic32mx/lib/libc.a(write.o)
- .debug_line    0x000000000000059a      0x19d /opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
- .debug_line    0x0000000000000737       0xd3 /opt/pic32mx/lib/libc.a(_mon_putc.o)
- .debug_line    0x000000000000080a       0x8f /opt/pic32mx/lib/libc.a(c32_uart.o)
 
-.debug_frame    0x0000000000000000       0xd0
+.debug_frame
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0x20 /opt/pic32mx/lib/libc.a(putchar.o)
- .debug_frame   0x0000000000000020       0x30 /opt/pic32mx/lib/libc.a(_fputc_simple.o)
- .debug_frame   0x0000000000000050       0x34 /opt/pic32mx/lib/libc.a(write.o)
- .debug_frame   0x0000000000000084       0x2c /opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
- .debug_frame   0x00000000000000b0       0x20 /opt/pic32mx/lib/libc.a(_mon_putc.o)
 
-.debug_str      0x0000000000000000      0x416
+.debug_str
  *(.debug_str)
- .debug_str     0x0000000000000000      0x12a /opt/pic32mx/lib/libc.a(putchar.o)
-                                        0x13c (size before relaxing)
- .debug_str     0x000000000000012a       0x89 /opt/pic32mx/lib/libc.a(_iob.o)
-                                        0x14f (size before relaxing)
- .debug_str     0x00000000000001b3       0x7f /opt/pic32mx/lib/libc.a(_fputc_simple.o)
-                                        0x149 (size before relaxing)
- .debug_str     0x0000000000000232       0x7c /opt/pic32mx/lib/libc.a(write.o)
-                                         0xd6 (size before relaxing)
- .debug_str     0x00000000000002ae       0x18 /opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
-                                        0x144 (size before relaxing)
- .debug_str     0x00000000000002c6       0xe1 /opt/pic32mx/lib/libc.a(_mon_putc.o)
-                                        0x13a (size before relaxing)
- .debug_str     0x00000000000003a7       0x6f /opt/pic32mx/lib/libc.a(c32_uart.o)
-                                         0xc1 (size before relaxing)
 
 .debug_loc
  *(.debug_loc)
 
-.debug_macinfo  0x0000000000000000     0x95fb
+.debug_macinfo
  *(.debug_macinfo)
- .debug_macinfo
-                0x0000000000000000     0x1e51 /opt/pic32mx/lib/libc.a(putchar.o)
- .debug_macinfo
-                0x0000000000001e51     0x1e4e /opt/pic32mx/lib/libc.a(_iob.o)
- .debug_macinfo
-                0x0000000000003c9f     0x1e8f /opt/pic32mx/lib/libc.a(_fputc_simple.o)
- .debug_macinfo
-                0x0000000000005b2e      0x92f /opt/pic32mx/lib/libc.a(write.o)
- .debug_macinfo
-                0x000000000000645d     0x1eb3 /opt/pic32mx/lib/libc.a(_flsbuf_simple.o)
- .debug_macinfo
-                0x0000000000008310      0x9bc /opt/pic32mx/lib/libc.a(_mon_putc.o)
- .debug_macinfo
-                0x0000000000008ccc      0x92f /opt/pic32mx/lib/libc.a(c32_uart.o)
 
 .debug_weaknames
  *(.debug_weaknames)
@@ -764,8 +569,4 @@ LOAD /opt/pic32mx/lib/startup.o
 
 /DISCARD/
  *(.note.GNU-stack)
-OUTPUT(prog3.elf elf32-tradlittlemips)
-
-.mdebug.abi32   0x000000009d0035b4        0x0
-
-.rel.dyn        0x000000009d0035b4        0x0
+OUTPUT(prog2.elf elf32-tradlittlemips)

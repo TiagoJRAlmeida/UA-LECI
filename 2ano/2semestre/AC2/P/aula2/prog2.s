@@ -51,7 +51,7 @@ while:  la $a0, '\r'
         j while 
         
         lw $ra, 0($sp)
-	    addiu $sp, $sp, 4
+	addiu $sp, $sp, 4
         
         jr $ra #
 

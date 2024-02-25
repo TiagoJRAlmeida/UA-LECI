@@ -13,6 +13,9 @@
 #     return 0;
 # }
 ###############################################
+# Mapa de registos:
+# $t0: cnt
+# $t1: c
 
         .data
         .equ inkey, 1
@@ -22,32 +25,35 @@
         .text
         .globl main
 
-main:   li $t0, 0 # cnt = 0
+main:   li $t0, 0
 
 do:     li $v0, inkey
-        syscall
-        move $t1, $v0  # c = inkey()
+        syscall 
+        move $t1, $v0
 
-if:     beq $t1, 0, else
+        beq $t1, 0, else
         move $a0, $t1
         li $v0, putChar
         syscall
-        j edo
 
-else:   lb $t1, '.'
-        move $a0, $t1
+        j while
+
+else:   la $a0, '.' 
         li $v0, putChar
         syscall
-        j edo
 
-
-edo:    addi $t0, $t0, 1 
+while:  addi $t0, $t0, 1
         bne $t1, '\n', do
 
-eloop:  move $a0, $t0
+        move $a0, $t0
         li $v0, printInt10
         syscall
+
         li $v0, 0
         jr $ra
 
+# NOTA: Apesar de o resultado da execução deste problema ser estranho, ao executar
+#       o codigo C originalmente dado para traduzir, o resultado é o mesmo
+#       logo deve estar certo, apenas um exercicio estranho, provavelmente para
+#       além de experimentar o inkey() tambem observar a velocidade do clock.
 

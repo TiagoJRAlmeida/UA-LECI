@@ -27,7 +27,8 @@ do:     li $v0, getChar
         addi $t0, $t0, 1 
         bne $a0, '\n', do
 
-edo:    move $a0, $t0
+edo:    addi $t0, $t0, -1
+        move $a0, $t0
         li $v0, printInt10
         syscall
         li $v0, 0

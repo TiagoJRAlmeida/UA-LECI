@@ -100,3 +100,4 @@ main:   # printStr("\nIntroduza um inteiro (sinal e módulo): ");
 
         li $v0, 0
         jr $ra
+        
