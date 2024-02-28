@@ -16,7 +16,17 @@
     "supplier": null,
     "topology": {
         "computes": [],
-        "drawings": [],
+        "drawings": [
+            {
+                "drawing_id": "b8ac6959-cccc-44a6-976d-6e0ec971bb0b",
+                "locked": false,
+                "rotation": 0,
+                "svg": "23317cd6905a9e0c8a2fe5c27ea61fd7.svg",
+                "x": -497,
+                "y": -87,
+                "z": 2
+            }
+        ],
         "links": [
             {
                 "filters": {},
@@ -201,8 +211,8 @@
                 "symbol": ":/symbols/multilayer_switch.svg",
                 "template_id": "774476dd-75a3-49d3-a3a8-68eae0c51be2",
                 "width": 51,
-                "x": -374,
-                "y": 80,
+                "x": -382,
+                "y": -180,
                 "z": 1
             },
             {
@@ -258,8 +268,8 @@
                 "symbol": ":/symbols/multilayer_switch.svg",
                 "template_id": "774476dd-75a3-49d3-a3a8-68eae0c51be2",
                 "width": 51,
-                "x": 137,
-                "y": 80,
+                "x": 128,
+                "y": -180,
                 "z": 1
             },
             {
@@ -315,8 +325,8 @@
                 "symbol": ":/symbols/multilayer_switch.svg",
                 "template_id": "774476dd-75a3-49d3-a3a8-68eae0c51be2",
                 "width": 51,
-                "x": -235,
-                "y": -156,
+                "x": -243,
+                "y": -416,
                 "z": 1
             },
             {
@@ -372,8 +382,8 @@
                 "symbol": ":/symbols/multilayer_switch.svg",
                 "template_id": "774476dd-75a3-49d3-a3a8-68eae0c51be2",
                 "width": 51,
-                "x": 5,
-                "y": -156,
+                "x": -3,
+                "y": -416,
                 "z": 1
             }
         ]
@@ -381,5 +391,5 @@
     "type": "topology",
     "variables": null,
     "version": "2.2.45",
-    "zoom": 100
+    "zoom": 71
 }
