@@ -4,8 +4,8 @@
 #}
 #########################################
 
-# a) Como no exercicio anterior, um atraso de 1ms ou 0,01 seg é equivalente
-#    á contagem de 200.000 ciclos do counter. Logo, se ms = 1, k = 200.000.
+# a) Um atraso de 1ms ou 0,001 seg é equivalente
+#    á contagem de 20.000 ciclos do counter. Logo, se ms = 1, k = 20.000.
 
 # b) ???
 
@@ -40,9 +40,6 @@ while:  la $a0, '\r'
         li $v0, PRINT_INT
         syscall
 
-        li $v0, RESET_CORE_TIMER
-        syscall
-
         move $a0, $t1
         jal delay
 
@@ -56,17 +53,33 @@ while:  la $a0, '\r'
         jr $ra #
 
 
-delay:  mul $a0, $a0, 200000
-
-whileDelay:  
+delay:  mul $a0, $a0, 20000
+        
         li $v0, RESET_CORE_TIMER
         syscall
 
+whileDelay:  
         li $v0, readCoreTimer
         syscall
 
-        blt $v0, $a0, while
+        blt $v0, $a0, whileDelay
 
         li $v0, 0
-
         jr $ra
+
+
+# Teoria:
+# A frequencia do core timer é 20MGZ, ou seja, 50ns de periodo.
+# O clock contar 20.000 vezes é equivalente a:
+# 5 * 10⁻⁸ (seg) * 2 * 10⁴ = 10 * 10⁻⁴ (seg) = 10⁻³ (seg) = 0.001 seg.
+# Ou seja, se $t1 for 1, o delay será 0.001seg ou 1ms, se for 10 vai ser:
+# 5 * 10⁻⁸ (seg) * 2 * 10⁵ = 10 * 10⁻³ (seg) = 10⁻² (seg) = 0.01 seg.
+# 0.01 seg = 10ms, ou seja a logica está correta, $t1 equivale ao tempo de delay em ms.
+
+# $t1 | delay
+#  1  |  1ms
+#  10 |  10ms
+# 100 |  100ms
+# 1000|  1000ms = 1seg
+
+# Testado com o cronometro e correto :))))
