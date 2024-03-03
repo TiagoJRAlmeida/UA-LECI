@@ -1,0 +1,20 @@
+<svg width="884" height="348"><text font-family="TypeWriter" font-size="10.0" font-weight="bold" fill="#000000" fill-opacity="1.0">Todos os SWL3 tem a mesma prioridade (32768), e todas as ligações tem o mesmo peso/custo (19),
+logo, o que definira será o ID:
+
+ESW1: f1/0 --&gt; c201.2e55.0000; Port ID 128.41
+           f1/1 --&gt; c201.2e55.0000; Port ID 128.42
+
+ESW2: f1/0 --&gt; c203.2e91.0000; Port ID 128.41 &lt;-- custo até root 38; Root port, porque está ligado ao menor mac add
+           f1/1 --&gt; c204.2eaf.0000; Port ID 128.42 &lt;--  custo até root 38; Vai estar desligado
+
+ESW3: f1/0 --&gt; c201.2e55.0000; Port ID 128.41 &lt;-- custo até root 19; Root Port 
+           f1/1 --&gt; c203.2e91.0000; Port ID 128.42 &lt;--custo até root 57; 
+
+ESW4: f1/0 --&gt; c201.2e55.0000; Port ID 128.41 &lt;-- custo até root 19; Root port
+           f1/1 --&gt; c204.2eaf.0000; Port ID 128.42 &lt;-- custo até root 57; 
+
+O root será o ESW1 porque é o que tem o bridge ID mais baixo.
+Define-se o custo até ao Root switch de cada porta dos restantes switchs. A porta com menos custo de cada switch 
+tornam-se os Root ports. 
+No caso do ESW2 existe um empate, logo o Root port será aquele ligado ao switch com menos bridge ID, e o outro será
+desligado.</text></svg>

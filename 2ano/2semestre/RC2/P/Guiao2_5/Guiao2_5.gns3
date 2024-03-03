@@ -21,10 +21,19 @@
                 "drawing_id": "b8ac6959-cccc-44a6-976d-6e0ec971bb0b",
                 "locked": false,
                 "rotation": 0,
-                "svg": "23317cd6905a9e0c8a2fe5c27ea61fd7.svg",
-                "x": -497,
+                "svg": "3ca4d77e752a327de09567c739d74a59.svg",
+                "x": -495,
                 "y": -87,
                 "z": 2
+            },
+            {
+                "drawing_id": "84aaab5b-dd3e-4175-946c-3bf0a9beb261",
+                "locked": false,
+                "rotation": 0,
+                "svg": "<svg width=\"918\" height=\"352\"><rect width=\"918\" height=\"352\" fill=\"#ffffff\" fill-opacity=\"1.0\" stroke-width=\"2\" stroke=\"#000000\" /></svg>",
+                "x": -511,
+                "y": -91,
+                "z": 1
             }
         ],
         "links": [
@@ -83,8 +92,8 @@
                             "rotation": 0,
                             "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                             "text": "f1/0",
-                            "x": -34,
-                            "y": -35
+                            "x": -46,
+                            "y": -5
                         },
                         "node_id": "ffb7bbc9-59d2-4b64-94de-2abb91274ef1",
                         "port_number": 0
