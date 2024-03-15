@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/opt/pic32mx/include"
+                "/opt/pic32mx/include",
+                "/home/tiago/github/UA-LECI/2ano/2semestre/AC2/P"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

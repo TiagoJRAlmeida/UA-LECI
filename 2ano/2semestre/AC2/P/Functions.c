@@ -35,3 +35,12 @@ void send2displays(unsigned char value) {
     // toggle "displayFlag" variable
     displayFlag = !displayFlag; 
 }
+
+void delay(unsigned int ms){
+    resetCoreTimer();
+    while(readCoreTimer() < (20000 * ms));
+}
+
+unsigned char toBcd(unsigned char value) { 
+   return ((value / 10) << 4) + (value % 10); 
+}
