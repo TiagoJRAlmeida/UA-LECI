@@ -17,9 +17,9 @@ int main(void){
     while(1){
 
         while(PORTDbits.RD8 == 0);
-        LATEbits.LATE0 = 1;
-        delay(3000);
-        LATEbits.LATE0 = 0;
+            LATEbits.LATE0 = 1;
+            delay(3000);
+            LATEbits.LATE0 = 0;
     } 
 
     return 0;
