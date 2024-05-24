@@ -1,19 +1,16 @@
 #include <detpic32.h>
 #include "/home/tiago/github/UA-LECI/2ano/2semestre/AC2/P/Functions.c"
 
-// O programa deverá: 
-// Timer T1: Fout = 5hz
-// Kprescale = 20000000/TMRx; TMRx = 5hz * 65356; Kprescale = 20000000/(5 * 65356) = 61,2 --> 64
-// PR1 = 20000000/(64 * 5) - 1 = 62499
-
-// Timer T3: Fout = 100hz
-// Kprescale = 20000000/TMRx; TMRx = 100hz * 65356; Kprescale = 20000000/(100 * 65356) = 3,1 --> 4
-// PR3 = 20000000/(4 * 100) - 1 = 49999
-
-// [1, 8, 64, 256]
-// [1, 2, 4, 8, 16, 32, 64, 256]
+// <********** CONTEXTO ***********> 
+// Numero 2 dos exercicios adicionais
 
 volatile int voltage = 0; // Global variable
+
+void setPWM(unsigned int dutyCycle) { 
+  // duty_cycle must be in the range [0, 100]
+  if(dutyCycle < 0 || dutyCycle > 100) return;
+  OC1RS = (50000*dutyCycle)/100; // Determine OC1RS as a function of "dutyCycle" 
+}
 
 // Function to configure all (digital I/O, analog input, A/D module, 
 // timers T1 and T3, interrupts) 
@@ -22,6 +19,8 @@ void configureAll(){
     unsigned int N = 8;
     TRISD = TRISD & 0xFF9F; // 1111 1111 1001 1111
     TRISB = TRISB & 0x80FF; // 1000 0000 1111 1111
+    TRISB = TRISB | 0x0003; // 0000 0000 0000 0011
+    TRISCbits.TRISC14 = 0;
 
     TRISBbits.TRISB4 = 1; 
     AD1PCFGbits.PCFG4 = 0; 
@@ -50,10 +49,14 @@ void configureAll(){
 
     IPC3bits.T3IP = 2; // Interrupt priority (must be in range [1..6]) 
     IEC0bits.T3IE = 1; // Enable timer T3 interrupts 
+
+    OC1CONbits.OCM = 6;  // PWM mode on OCx; fault pin disabled 
+    OC1CONbits.OCTSEL = 1;// Use timer T1 as the time base for PWM generation 
+    OC1CONbits.ON = 1;
 }
 
 int main(void) { 
-
+    int dutyCycle;
     configureAll(); 
     // Reset AD1IF, T1IF and T3IF flags 
     IFS1bits.AD1IF = 0; 
@@ -61,7 +64,30 @@ int main(void) {
     IFS0bits.T3IF = 0; 
 
     EnableInterrupts();  // Global Interrupt Enable 
-    while(1); 
+    while(1){
+        // Read RB1, RB0 to the variable "portVal" 
+        int portVal = PORTB & 0x0003;
+        switch(portVal){ 
+        case 0:  // Measure input voltage 
+            // Enable T1 interrupts
+            IEC0bits.T1IE = 1; 
+            setPWM(0); 
+            break; 
+        case 1:  // Freeze 
+            // Disable T1 interrupts
+            IEC0bits.T1IE = 0; 
+            setPWM(100); 
+            break; 
+        default:  
+            // Enable T1 interrupts
+            IEC0bits.T1IE = 1; 
+            dutyCycle = voltage * 3; 
+            setPWM(dutyCycle); 
+            break; 
+        }
+        LATCbits.LATC14 = PORTDbits.RD0;
+    }; 
+
     return 0; 
 }
 
