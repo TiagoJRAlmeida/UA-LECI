@@ -378,7 +378,7 @@ LOAD /opt/pic32mx/lib/startup.o
  .text          0x000000009d001400      0x460 prog2.o
                 0x000000009d001400                send2displays
                 0x000000009d0014f8                toBcd
-                0x000000009d001688                isr_adc
+                0x000000009d001688                isr_adcsdfsfswfew
                 0x000000009d001530                main
                 0x000000009d0014bc                delay
  .text          0x000000009d001860       0xb0 /opt/pic32mx/lib/startup.o
