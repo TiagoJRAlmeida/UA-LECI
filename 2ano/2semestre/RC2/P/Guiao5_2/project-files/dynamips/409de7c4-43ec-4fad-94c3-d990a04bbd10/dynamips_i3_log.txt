@@ -1,0 +1,52 @@
+May 13 13:17:32.151 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+May 13 13:17:32.151 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 38155.
+May 13 13:17:32.160 HYPERVISOR: exec_cmd: hypervisor version 
+May 13 13:17:32.160 HYPERVISOR: exec_cmd: hypervisor working_dir /home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao5_2/project-files/dynamips 
+May 13 13:17:32.160 GENERAL: working_dir=/home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao5_2/project-files/dynamips
+May 13 13:17:32.160 HYPERVISOR: exec_cmd: hypervisor working_dir /home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao5_2/project-files/dynamips/74a9a17e-41dd-466f-9987-8635e79b47cd 
+May 13 13:17:32.160 GENERAL: working_dir=/home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao5_2/project-files/dynamips/74a9a17e-41dd-466f-9987-8635e79b47cd
+May 13 13:17:32.160 HYPERVISOR: exec_cmd: vm create R2A 2 c7200 
+May 13 13:17:32.160 VM: VM R2A created.
+May 13 13:17:32.160 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2A 5011 
+May 13 13:17:32.161 HYPERVISOR: exec_cmd: c7200 get_mac_addr R2A 
+May 13 13:17:32.161 HYPERVISOR: exec_cmd: vm get_status R2A 
+May 13 13:17:32.161 HYPERVISOR: exec_cmd: vm slot_add_binding R2A 0 0 C7200-IO-FE 
+May 13 13:17:32.161 HYPERVISOR: exec_cmd: vm set_disk0 R2A 0 
+May 13 13:17:32.161 HYPERVISOR: exec_cmd: vm get_status R2A 
+May 13 13:17:32.161 HYPERVISOR: exec_cmd: vm set_idle_pc R2A 0x60608040 
+May 13 13:17:32.161 HYPERVISOR: exec_cmd: vm set_ios R2A /home/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 13 13:17:32.161 HYPERVISOR: exec_cmd: c7200 set_mac_addr R2A ca02.b960.0000 
+May 13 13:17:32.162 HYPERVISOR: exec_cmd: vm set_nvram R2A 512 
+May 13 13:17:32.162 HYPERVISOR: exec_cmd: vm set_ram R2A 512 
+May 13 13:17:32.162 HYPERVISOR: exec_cmd: vm get_status R2A 
+May 13 13:17:32.162 HYPERVISOR: exec_cmd: vm slot_remove_binding R2A 0 0 
+May 13 13:17:32.162 HYPERVISOR: exec_cmd: vm get_status R2A 
+May 13 13:17:32.162 HYPERVISOR: exec_cmd: vm slot_add_binding R2A 0 0 C7200-IO-2FE 
+May 13 13:17:32.162 HYPERVISOR: exec_cmd: vm get_status R2A 
+May 13 13:17:32.162 HYPERVISOR: exec_cmd: vm slot_add_binding R2A 1 0 PA-2FE-TX 
+May 13 13:17:32.612 HYPERVISOR: exec_cmd: nio create_udp udp-79e58ffe-bae1-4be2-8e34-0dc86bb22372 10008 127.0.0.1 10009 
+May 13 13:17:32.820 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2A 0 0 udp-79e58ffe-bae1-4be2-8e34-0dc86bb22372 
+May 13 13:17:32.820 HYPERVISOR: exec_cmd: vm get_status R2A 
+May 13 13:17:33.440 HYPERVISOR: exec_cmd: nio create_udp udp-415b3cc9-9741-4c37-9b4b-e1eccb82ad13 10026 127.0.0.1 10027 
+May 13 13:17:33.440 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2A 0 1 udp-415b3cc9-9741-4c37-9b4b-e1eccb82ad13 
+May 13 13:17:33.441 HYPERVISOR: exec_cmd: vm get_status R2A 
+May 13 13:17:33.474 HYPERVISOR: exec_cmd: nio create_udp udp-5d184fa1-4a13-46c5-8636-182e695f3139 10030 127.0.0.1 10031 
+May 13 13:17:33.475 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2A 1 0 udp-5d184fa1-4a13-46c5-8636-182e695f3139 
+May 13 13:17:33.475 HYPERVISOR: exec_cmd: vm get_status R2A 
+May 13 13:17:40.830 HYPERVISOR: exec_cmd: vm set_ghost_status R2A 2 
+May 13 13:17:40.830 HYPERVISOR: exec_cmd: vm set_ghost_file R2A /home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao5_2/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M2.image-512.ghost 
+May 13 13:17:40.830 HYPERVISOR: exec_cmd: vm get_status R2A 
+May 13 13:17:40.831 HYPERVISOR: exec_cmd: vm set_config R2A configs/i2_startup-config.cfg configs/i2_private-config.cfg 
+May 13 13:17:40.831 HYPERVISOR: exec_cmd: vm start R2A 
+May 13 13:18:11.040 HYPERVISOR: exec_cmd: vm extract_config R2A 
+May 13 13:23:01.401 HYPERVISOR: exec_cmd: vm get_status R2A 
+May 13 13:23:01.401 HYPERVISOR: exec_cmd: vm stop R2A 
+May 13 13:23:01.515 VM: VM R2A shutdown.
+May 13 13:23:01.515 HYPERVISOR: exec_cmd: vm extract_config R2A 
+May 13 13:23:02.030 HYPERVISOR: exec_cmd: vm get_status R2A 
+May 13 13:23:02.031 HYPERVISOR: exec_cmd: vm extract_config R2A 
+May 13 13:23:02.031 HYPERVISOR: exec_cmd: vm delete R2A 
+May 13 13:23:02.032 VM: VM R2A destroyed.
+May 13 13:23:02.032 HYPERVISOR: exec_cmd: hypervisor stop 
+May 13 13:23:02.480 HYPERVISOR: Stopped.
+May 13 13:23:02.480 GENERAL: reset done.

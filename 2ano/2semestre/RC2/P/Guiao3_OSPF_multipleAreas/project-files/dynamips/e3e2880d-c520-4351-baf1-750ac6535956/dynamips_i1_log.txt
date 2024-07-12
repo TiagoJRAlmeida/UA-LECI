@@ -1,0 +1,16 @@
+Apr 08 10:35:59.278 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+Apr 08 10:35:59.278 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 33579.
+Apr 08 10:35:59.280 HYPERVISOR: exec_cmd: hypervisor version 
+Apr 08 10:35:59.281 HYPERVISOR: exec_cmd: hypervisor working_dir /home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao3_OSPF_multipleAreas/project-files/dynamips 
+Apr 08 10:35:59.281 GENERAL: working_dir=/home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao3_OSPF_multipleAreas/project-files/dynamips
+Apr 08 10:35:59.281 HYPERVISOR: exec_cmd: ethsw create SW1 
+Apr 08 10:35:59.633 HYPERVISOR: exec_cmd: nio create_udp udp-363d5642-2d90-4ae7-a5a2-b7a424ec3cd6 10001 127.0.0.1 10000 
+Apr 08 10:35:59.634 HYPERVISOR: exec_cmd: ethsw add_nio SW1 udp-363d5642-2d90-4ae7-a5a2-b7a424ec3cd6 
+Apr 08 10:35:59.643 HYPERVISOR: exec_cmd: ethsw set_access_port SW1 udp-363d5642-2d90-4ae7-a5a2-b7a424ec3cd6 1 
+Apr 08 10:36:00.574 HYPERVISOR: exec_cmd: nio create_udp udp-7b1d9b1e-20da-4748-87bd-57d12a7e31ae 10018 127.0.0.1 10019 
+Apr 08 10:36:00.574 HYPERVISOR: exec_cmd: ethsw add_nio SW1 udp-7b1d9b1e-20da-4748-87bd-57d12a7e31ae 
+Apr 08 10:36:00.592 HYPERVISOR: exec_cmd: ethsw set_access_port SW1 udp-7b1d9b1e-20da-4748-87bd-57d12a7e31ae 1 
+Apr 08 12:45:04.426 HYPERVISOR: exec_cmd: ethsw delete SW1 
+Apr 08 12:45:04.460 HYPERVISOR: exec_cmd: hypervisor stop 
+Apr 08 12:45:04.565 HYPERVISOR: Stopped.
+Apr 08 12:45:04.565 GENERAL: reset done.

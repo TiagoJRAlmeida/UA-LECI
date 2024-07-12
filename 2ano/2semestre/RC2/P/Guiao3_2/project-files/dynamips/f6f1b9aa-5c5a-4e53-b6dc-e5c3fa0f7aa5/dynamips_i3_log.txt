@@ -1,0 +1,16 @@
+Apr 03 17:08:02.377 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+Apr 03 17:08:02.377 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 42747.
+Apr 03 17:08:02.386 HYPERVISOR: exec_cmd: hypervisor version 
+Apr 03 17:08:02.386 HYPERVISOR: exec_cmd: hypervisor working_dir /home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao3_2/project-files/dynamips 
+Apr 03 17:08:02.386 GENERAL: working_dir=/home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao3_2/project-files/dynamips
+Apr 03 17:08:02.386 HYPERVISOR: exec_cmd: ethsw create netA 
+Apr 03 17:08:03.137 HYPERVISOR: exec_cmd: nio create_udp udp-3b3dc731-243f-41bc-b97c-cf76d35c6f00 10011 127.0.0.1 10010 
+Apr 03 17:08:03.138 HYPERVISOR: exec_cmd: ethsw add_nio netA udp-3b3dc731-243f-41bc-b97c-cf76d35c6f00 
+Apr 03 17:08:03.138 HYPERVISOR: exec_cmd: ethsw set_access_port netA udp-3b3dc731-243f-41bc-b97c-cf76d35c6f00 1 
+Apr 03 17:08:03.174 HYPERVISOR: exec_cmd: nio create_udp udp-b32b0f9b-bee5-4720-bb05-8e92518b4014 10014 127.0.0.1 10015 
+Apr 03 17:08:03.174 HYPERVISOR: exec_cmd: ethsw add_nio netA udp-b32b0f9b-bee5-4720-bb05-8e92518b4014 
+Apr 03 17:08:03.178 HYPERVISOR: exec_cmd: ethsw set_access_port netA udp-b32b0f9b-bee5-4720-bb05-8e92518b4014 1 
+Apr 03 17:31:12.884 HYPERVISOR: exec_cmd: ethsw delete netA 
+Apr 03 17:31:12.912 HYPERVISOR: exec_cmd: hypervisor stop 
+Apr 03 17:31:13.277 HYPERVISOR: Stopped.
+Apr 03 17:31:13.277 GENERAL: reset done.

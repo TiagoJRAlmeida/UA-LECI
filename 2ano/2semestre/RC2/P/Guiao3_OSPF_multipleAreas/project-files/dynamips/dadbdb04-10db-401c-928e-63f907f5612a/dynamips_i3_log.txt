@@ -1,0 +1,51 @@
+Apr 08 10:35:59.425 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+Apr 08 10:35:59.425 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 37397.
+Apr 08 10:35:59.433 HYPERVISOR: exec_cmd: hypervisor version 
+Apr 08 10:35:59.434 HYPERVISOR: exec_cmd: hypervisor working_dir /home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao3_OSPF_multipleAreas/project-files/dynamips 
+Apr 08 10:35:59.434 GENERAL: working_dir=/home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao3_OSPF_multipleAreas/project-files/dynamips
+Apr 08 10:35:59.434 HYPERVISOR: exec_cmd: hypervisor working_dir /home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao3_OSPF_multipleAreas/project-files/dynamips/c757bbf5-6f7c-4585-a893-3e0dec7e339d 
+Apr 08 10:35:59.434 GENERAL: working_dir=/home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao3_OSPF_multipleAreas/project-files/dynamips/c757bbf5-6f7c-4585-a893-3e0dec7e339d
+Apr 08 10:35:59.434 HYPERVISOR: exec_cmd: vm create R2 2 c7200 
+Apr 08 10:35:59.434 VM: VM R2 created.
+Apr 08 10:35:59.435 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5004 
+Apr 08 10:35:59.435 HYPERVISOR: exec_cmd: c7200 get_mac_addr R2 
+Apr 08 10:35:59.435 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 08 10:35:59.436 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-FE 
+Apr 08 10:35:59.436 HYPERVISOR: exec_cmd: vm set_disk0 R2 0 
+Apr 08 10:35:59.437 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 08 10:35:59.437 HYPERVISOR: exec_cmd: vm set_idle_pc R2 0x60608040 
+Apr 08 10:35:59.438 HYPERVISOR: exec_cmd: vm set_ios R2 /home/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+Apr 08 10:35:59.438 HYPERVISOR: exec_cmd: c7200 set_mac_addr R2 ca02.3243.0000 
+Apr 08 10:35:59.439 HYPERVISOR: exec_cmd: vm set_nvram R2 512 
+Apr 08 10:35:59.439 HYPERVISOR: exec_cmd: vm set_ram R2 512 
+Apr 08 10:35:59.439 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 08 10:35:59.440 HYPERVISOR: exec_cmd: vm slot_remove_binding R2 0 0 
+Apr 08 10:35:59.440 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 08 10:35:59.441 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-2FE 
+Apr 08 10:35:59.441 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 08 10:35:59.441 HYPERVISOR: exec_cmd: vm slot_add_binding R2 1 0 PA-2FE-TX 
+Apr 08 10:36:00.222 HYPERVISOR: exec_cmd: nio create_udp udp-6ce8b551-c45f-496f-9099-e066a012ffd6 10012 127.0.0.1 10013 
+Apr 08 10:36:00.434 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 0 udp-6ce8b551-c45f-496f-9099-e066a012ffd6 
+Apr 08 10:36:00.434 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 08 10:36:00.491 HYPERVISOR: exec_cmd: nio create_udp udp-df8c2bc8-8536-424a-95e5-0f571a4d24a1 10016 127.0.0.1 10017 
+Apr 08 10:36:00.494 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 1 udp-df8c2bc8-8536-424a-95e5-0f571a4d24a1 
+Apr 08 10:36:00.494 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 08 10:36:08.218 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Apr 08 10:36:08.219 HYPERVISOR: exec_cmd: vm set_ghost_file R2 /home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao3_OSPF_multipleAreas/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M2.image-512.ghost 
+Apr 08 10:36:08.219 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 08 10:36:08.227 HYPERVISOR: exec_cmd: vm set_config R2 configs/i2_startup-config.cfg configs/i2_private-config.cfg 
+Apr 08 10:36:08.228 HYPERVISOR: exec_cmd: vm start R2 
+Apr 08 10:36:38.474 HYPERVISOR: exec_cmd: vm extract_config R2 
+Apr 08 12:45:01.459 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 08 12:45:01.460 HYPERVISOR: exec_cmd: vm stop R2 
+Apr 08 12:45:01.583 VM: VM R2 shutdown.
+Apr 08 12:45:01.584 HYPERVISOR: exec_cmd: vm extract_config R2 
+Apr 08 12:45:04.414 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 08 12:45:04.415 HYPERVISOR: exec_cmd: vm extract_config R2 
+Apr 08 12:45:04.562 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 08 12:45:04.562 HYPERVISOR: exec_cmd: vm extract_config R2 
+Apr 08 12:45:04.563 HYPERVISOR: exec_cmd: vm delete R2 
+Apr 08 12:45:04.563 VM: VM R2 destroyed.
+Apr 08 12:45:04.564 HYPERVISOR: exec_cmd: hypervisor stop 
+Apr 08 12:45:04.672 HYPERVISOR: Stopped.
+Apr 08 12:45:04.672 GENERAL: reset done.

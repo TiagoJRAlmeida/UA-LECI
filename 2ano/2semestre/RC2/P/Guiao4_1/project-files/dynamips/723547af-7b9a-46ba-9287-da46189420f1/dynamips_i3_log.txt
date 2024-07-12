@@ -1,0 +1,52 @@
+May 04 11:36:56.193 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+May 04 11:36:56.193 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 37679.
+May 04 11:36:56.201 HYPERVISOR: exec_cmd: hypervisor version 
+May 04 11:36:56.201 HYPERVISOR: exec_cmd: hypervisor working_dir /home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao4_1/project-files/dynamips 
+May 04 11:36:56.201 GENERAL: working_dir=/home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao4_1/project-files/dynamips
+May 04 11:36:56.201 HYPERVISOR: exec_cmd: hypervisor working_dir /home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao4_1/project-files/dynamips/de55b4c5-3d83-43a2-86b0-4c463fa767f1 
+May 04 11:36:56.201 GENERAL: working_dir=/home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao4_1/project-files/dynamips/de55b4c5-3d83-43a2-86b0-4c463fa767f1
+May 04 11:36:56.201 HYPERVISOR: exec_cmd: vm create R2 2 c7200 
+May 04 11:36:56.202 VM: VM R2 created.
+May 04 11:36:56.202 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5004 
+May 04 11:36:56.202 HYPERVISOR: exec_cmd: c7200 get_mac_addr R2 
+May 04 11:36:56.202 HYPERVISOR: exec_cmd: vm get_status R2 
+May 04 11:36:56.202 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-FE 
+May 04 11:36:56.202 HYPERVISOR: exec_cmd: vm set_disk0 R2 0 
+May 04 11:36:56.202 HYPERVISOR: exec_cmd: vm get_status R2 
+May 04 11:36:56.203 HYPERVISOR: exec_cmd: vm set_idle_pc R2 0x60608040 
+May 04 11:36:56.203 HYPERVISOR: exec_cmd: vm set_ios R2 /home/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 04 11:36:56.203 HYPERVISOR: exec_cmd: c7200 set_mac_addr R2 ca02.aaa5.0000 
+May 04 11:36:56.203 HYPERVISOR: exec_cmd: vm set_nvram R2 512 
+May 04 11:36:56.203 HYPERVISOR: exec_cmd: vm set_ram R2 512 
+May 04 11:36:56.203 HYPERVISOR: exec_cmd: vm get_status R2 
+May 04 11:36:56.204 HYPERVISOR: exec_cmd: vm slot_remove_binding R2 0 0 
+May 04 11:36:56.204 HYPERVISOR: exec_cmd: vm get_status R2 
+May 04 11:36:56.204 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-2FE 
+May 04 11:36:56.204 HYPERVISOR: exec_cmd: vm get_status R2 
+May 04 11:36:56.204 HYPERVISOR: exec_cmd: vm slot_add_binding R2 1 0 PA-2FE-TX 
+May 04 11:36:56.923 HYPERVISOR: exec_cmd: nio create_udp udp-401c1441-d8ef-4853-b895-e7d09249634f 10016 127.0.0.1 10017 
+May 04 11:36:57.131 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 0 udp-401c1441-d8ef-4853-b895-e7d09249634f 
+May 04 11:36:57.132 HYPERVISOR: exec_cmd: vm get_status R2 
+May 04 11:36:57.286 HYPERVISOR: exec_cmd: nio create_udp udp-6b1c9f04-516d-452b-af23-135c829acc52 10026 127.0.0.1 10027 
+May 04 11:36:57.287 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 1 udp-6b1c9f04-516d-452b-af23-135c829acc52 
+May 04 11:36:57.287 HYPERVISOR: exec_cmd: vm get_status R2 
+May 04 11:37:02.415 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+May 04 11:37:02.415 HYPERVISOR: exec_cmd: vm set_ghost_file R2 /home/tiago/github/UA-LECI/2ano/2semestre/RC2/P/Guiao4_1/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M2.image-512.ghost 
+May 04 11:37:02.416 HYPERVISOR: exec_cmd: vm get_status R2 
+May 04 11:37:02.422 HYPERVISOR: exec_cmd: vm set_config R2 configs/i2_startup-config.cfg configs/i2_private-config.cfg 
+May 04 11:37:02.422 HYPERVISOR: exec_cmd: vm start R2 
+May 04 11:37:32.656 HYPERVISOR: exec_cmd: vm extract_config R2 
+May 04 11:46:02.681 HYPERVISOR: exec_cmd: vm extract_config R2 
+May 04 12:20:20.656 HYPERVISOR: exec_cmd: vm get_status R2 
+May 04 12:20:20.656 HYPERVISOR: exec_cmd: vm stop R2 
+May 04 12:20:20.767 VM: VM R2 shutdown.
+May 04 12:20:20.767 HYPERVISOR: exec_cmd: vm extract_config R2 
+May 04 12:20:46.531 HYPERVISOR: exec_cmd: vm get_status R2 
+May 04 12:20:46.531 HYPERVISOR: exec_cmd: vm extract_config R2 
+May 04 12:20:46.871 HYPERVISOR: exec_cmd: vm get_status R2 
+May 04 12:20:46.871 HYPERVISOR: exec_cmd: vm extract_config R2 
+May 04 12:20:46.872 HYPERVISOR: exec_cmd: vm delete R2 
+May 04 12:20:46.872 VM: VM R2 destroyed.
+May 04 12:20:46.872 HYPERVISOR: exec_cmd: hypervisor stop 
+May 04 12:20:47.100 HYPERVISOR: Stopped.
+May 04 12:20:47.100 GENERAL: reset done.
