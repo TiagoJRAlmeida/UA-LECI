@@ -1,0 +1,11 @@
+1) 
+(a) Para não compilar o mesmo ficheiro várias vezes. 
+Na primeira compilação é corrido:
+# ifndef = if not defined;
+# define;
+
+Ao compilar pela segunda vez, como já foi definido uma vez, o if é levado para #endif e não é compilado
+
+strdup
+
+man string
