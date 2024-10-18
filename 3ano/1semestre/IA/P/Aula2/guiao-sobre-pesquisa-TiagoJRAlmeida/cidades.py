@@ -11,6 +11,7 @@
 
 
 from tree_search import *
+import math
 
 class Cidades(SearchDomain):
     def __init__(self,connections, coordinates):
@@ -32,10 +33,17 @@ class Cidades(SearchDomain):
             return C2
         
     def cost(self, city, action):
-        pass
+        city1, city2 = action
+        for estrada in self.connections:
+            if (city1, city2) == (estrada[0], estrada[1]) or (city2, city1) == (estrada[0], estrada[1]):
+                return estrada[2]   
+        return None
     
     def heuristic(self, city, goal_city):
-        pass
+        (c1x,c1y)=cidades_portugal.coordinates[city]
+        (c2x,c2y)=cidades_portugal.coordinates[goal_city]
+        distance = math.hypot(c1x-c2x, c1y-c2y)
+        return distance
     
     def satisfies(self, city, goal_city):
         return goal_city==city
