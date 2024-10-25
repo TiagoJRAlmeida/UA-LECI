@@ -61,12 +61,13 @@ class SearchProblem:
 
 # Nos de uma arvore de pesquisa
 class SearchNode:
-    def __init__(self, state, parent, depth, cost, heuristic): 
+    def __init__(self, state, parent, depth, cost, heuristic, action): 
         self.state = state
         self.parent = parent
         self.depth = depth
         self.cost = cost
         self.heuristic = heuristic
+        self.action = action
         
     def __str__(self):
         return "no(" + str(self.state) + "," + str(self.parent) + ")"
@@ -88,7 +89,7 @@ class SearchTree:
     def __init__(self,problem, strategy='breadth'): 
         self.problem = problem
         initial_heuristic = problem.domain.heuristic(problem.initial, problem.goal)
-        root = SearchNode(problem.initial, None, 0, 0, initial_heuristic)
+        root = SearchNode(problem.initial, None, 0, 0, initial_heuristic, None)
         self.open_nodes = [root]
         self.strategy = strategy
         self.solution = None
@@ -96,6 +97,7 @@ class SearchTree:
         self.terminals = 0
         self.highest_cost_nodes = [root]
         self.average_depth = 0
+        self.plan = []
 
     # obter o caminho (sequencia de estados) da raiz ate um no
     def get_path(self,node):
@@ -135,6 +137,10 @@ class SearchTree:
             
             # Se o nó atual no loop for o nó que se está á procura, dá return ao caminho guardado até então
             if self.problem.goal_test(node.state):
+                auxnode = node
+                while auxnode.parent is not None:
+                    self.plan.insert(0, auxnode.action)
+                    auxnode = auxnode.parent
                 self.terminals = len(self.open_nodes) + 1
                 self.average_depth = total_depth/(self.non_terminals + self.terminals)
                 self.solution = node
@@ -153,7 +159,7 @@ class SearchTree:
                 if not node.in_parent(newstate):
                     cost = node.cost + self.problem.domain.cost(node.state, (node.state, newstate))
                     new_heuristic = self.problem.domain.heuristic(newstate, self.problem.goal)
-                    newnode = SearchNode(newstate,node, newdepth, cost, new_heuristic)
+                    newnode = SearchNode(newstate,node, newdepth, cost, new_heuristic, a)
                     if(newnode.cost > self.highest_cost_nodes[0].cost):
                             self.highest_cost_nodes = [newnode]
                     elif(newnode.cost == self.highest_cost_nodes[0].cost):
