@@ -1,0 +1,2 @@
+Para o teste pratico, podemos usar tanto treads ou processos, semaforos ou mutex.
+O prof diz que tread é muito mais simples na sua opiniao

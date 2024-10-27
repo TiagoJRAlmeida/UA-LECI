@@ -12,15 +12,15 @@ void fifoInit(Fifo *f)
 {
     f->in = f->out = 0;
     f->count = 0;
-    memset(f->data, 0x0, N*sizeof(Item)); // Cria uma array com tamanho N, com todos os valores iniciais = 0x0
+    memset(f->data, 0x0, N*sizeof(Item));
 }
 
-bool fifoIsFull(Fifo *f)
+static bool fifoIsFull(Fifo *f)
 {
     return f->count == N;
 }
 
-bool fifoIsEmpty(Fifo *f)
+static bool fifoIsEmpty(Fifo *f)
 {
     return f->count == 0;
 }
@@ -30,7 +30,8 @@ void fifoInsert(Fifo *f, Item item)
     /* wait until fifo is not full */
     while (fifoIsFull(f))
     {
-        usleep(1000); // wait for a while
+        sched_yield();
+        //usleep(0);
     }
 
     /* make insertion */
@@ -44,10 +45,11 @@ Item fifoRetrieve(Fifo *f)
     /* wait until fifo is not empty */
     while (fifoIsEmpty(f))
     {
-        usleep(1000); // wait for a while
+        sched_yield();
+        //usleep(0);
     }
 
-    /* memorize item to bereturned */
+    /* memorize item to be returned */
     Item ret = f->data[f->out];
 
     /* update fifo */
@@ -60,4 +62,6 @@ Item fifoRetrieve(Fifo *f)
 
 void fifoDestroy(Fifo *f)
 {
+    f->count = 0;
+    f->in = f->out = 0;
 }
