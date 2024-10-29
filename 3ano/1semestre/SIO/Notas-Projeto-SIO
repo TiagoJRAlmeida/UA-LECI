@@ -1,0 +1,8 @@
+desenvolver uma API
+funciona de forma anonimo e por autenticação
+deve existir um role based access aos documentos
+Pode mudar de roles para fazer certas operações
+A primeira avaliação vai ser importante as features adicionais e os testes que temos.
+Na primeira avaliação temos de ter feito o que diz na secção "Fundamental Repository operations"
+Não é necessário um report, mas se meter-mos informações das features no README file é uma coisa boa.
+As duas primeiras avaliações vão focar no código, mas a ultima vai focar no report.
