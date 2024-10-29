@@ -1,0 +1,27 @@
+Resumos de MPEI:
+
+1. Basicos de Probabilidade
+	- Duas probabilidades dizem-se independentes se P(AB) = P(A) * P(B)
+	- Existem 3 axiomas: 
+		- Não existem probabilidades negativas
+		- A soma de todas as probabilidades de uma espaço é igual a 1
+		- P(A U B) = P(A) + P(B) se A e B forem mutuamente exclusivos
+
+
+2. Variaveis Aleatorias
+	- Definição: mapeamento de um espaço amostral S para a recta real;
+	- Existem 3 tipos de VA:
+		- Discretas: valores contaveis;
+		- Continuas: valores não contaveis/ intervalos;
+		- Mistas: ambos;
+	- Variaveis discretas podem ser demonstradas usando:
+		- Função massa de probabilidade;
+		- Função distribuição acumulada (não decrescente);
+	- Variaveis continuas podem ser demonstradas usando:
+		- Função de distribuição acumulada
+		- Função de densidade de probabilidade (É a derivação da função de distribuição);
+		
+3. Distribuições de Variaveis Aleatorias
+
+4. Variaveis Aleatorias Multidimensionais
+	- 
