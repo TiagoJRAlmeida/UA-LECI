@@ -1,2 +1,14 @@
 Para o teste pratico, podemos usar tanto treads ou processos, semaforos ou mutex.
 O prof diz que tread é muito mais simples na sua opiniao
+
+
+Notas: 
+    - Fifo é a memoria partilhada.
+
+
+Perguntas:
+    - Os 5 consumers threads são criados ao mesmo tempo, antes dos consumers, logo estão os 5 em espera ao mesmo tempo
+    que os producers sejam criados e items sejam adicionados ao fifo. Isso significa que a ordem de retrive dos consumers 
+    é aleatoria?
+    
+     

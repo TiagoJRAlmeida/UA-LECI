@@ -45,6 +45,7 @@ static Fifo *theFifo = NULL; // being static, this pointer is accessible by all 
  * Each producer will produce values from 1 to ni and will insert them into the fifo.
  * Note that the same value is placed into fields v1 and v2 of an item.
  */
+
 void producerLifeCycle(uint32_t id, uint32_t ni)
 {
     for (uint32_t i = 1; i <= ni; i++)
@@ -89,11 +90,14 @@ void consumerLifeCycle(uint32_t id)
         /* print it */
         uint32_t id1 = item.v1 / 1000000;
         uint32_t id2 = item.v2 / 1000000;
-        bool raceCondition = (item.id == 0) or (item.v1 == 0) or (id1 != item.id) or (id2 != item.id) or (item.v1 != item.v2);
+        bool raceCondition =  (id1 != item.id) or (id2 != item.id) or (item.v1 != item.v2);
         if (raceCondition)
             printf("\e[31;01mConsumer %u retrieved (%u,%u,%u) from the fifo\e[0m\n", id, item.id, item.v1, item.v2);
         else if (verbose) 
             printf("\e[36;01mConsumer %u retrieved (%u,%u,%u) from the fifo\e[0m\n", id, item.id, item.v1, item.v2);
+
+        if ((item.id == 0) or (item.v1 == 0))
+            break;
     }
 }
 
@@ -170,6 +174,8 @@ int main (int argc, char *argv[])
 
     printf("Parameters: %d producers, %d consumers, %d items\n", np, nc, ni);
 
+    printf("\n\n");
+
     /* create the shared memory and init it as a fifo */
     theFifo = (Fifo*)mem_alloc(sizeof(Fifo));
     fifoInit(theFifo);
@@ -197,6 +203,21 @@ int main (int argc, char *argv[])
     {
         thread_join(pthr[i], NULL);
         printf("Producer %u finished\n", i+1);
+    }
+
+    while (!fifoIsEmpty(theFifo));
+
+    printf("\n\n");
+
+    /*Send dummy items to terminate consumers */
+    for (uint32_t i = 0; i < nc; i++)
+    {
+        /* insert item into fifo and show it */
+        uint32_t v = 0;
+        uint32_t id = 0;
+        Item item = {id, v, v};
+        fifoInsert(theFifo, item);
+        if (verbose) printf("\e[36;01mProducer %u insert (%u,%u,%u) into the fifo\e[0m\n", id, id, v, v);
     }
 
     /* wait for consumers to finish */

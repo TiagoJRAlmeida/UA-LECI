@@ -40,5 +40,7 @@ Item fifoRetrieve(Fifo *f);
 
 void fifoDestroy(Fifo *f);
 
+bool fifoIsEmpty(Fifo *f);
+
 #endif // __SO_FSO_2425_IPC_FIFO__
 

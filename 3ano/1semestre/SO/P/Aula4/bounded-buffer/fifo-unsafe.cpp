@@ -20,7 +20,7 @@ static bool fifoIsFull(Fifo *f)
     return f->count == N;
 }
 
-static bool fifoIsEmpty(Fifo *f)
+bool fifoIsEmpty(Fifo *f)
 {
     return f->count == 0;
 }
