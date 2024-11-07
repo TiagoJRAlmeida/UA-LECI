@@ -274,23 +274,26 @@ int main(int argc, char *argv[])
    pthread_t pthr[npatients];
    pthread_t nthr[nnurses];
    pthread_t dthr[ndoctors];
+   int patient_id[npatients];
+   int nurse_id[nnurses];
+   int doctor_id[ndoctors];
 
    for(int i = 0; i < npatients; i++)
    {
-      int patient_id = i;
-      thread_create(&pthr[i], NULL, patient_thread, &patient_id);
+      patient_id[i] = i + 1;
+      thread_create(&pthr[i], NULL, patient_thread, &patient_id[i]);
    }
 
    for(int i = 0; i < nnurses; i++)
    {
-      int nurse_id = i;
-      thread_create(&nthr[i], NULL, nurse_thread, &nurse_id);
+      nurse_id[i] = i + 1;
+      thread_create(&nthr[i], NULL, nurse_thread, &nurse_id[i]);
    }
 
    for(int i = 0; i < ndoctors; i++)
    {
-      int doctor_id = i;
-      thread_create(&dthr[i], NULL, doctor_thread, &doctor_id);
+      doctor_id[i] = i + 1;
+      thread_create(&dthr[i], NULL, doctor_thread, &doctor_id[i]);
    }
 
 
