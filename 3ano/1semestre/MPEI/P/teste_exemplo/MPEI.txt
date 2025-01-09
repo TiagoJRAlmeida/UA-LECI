@@ -1,0 +1,45 @@
+Considere um filtro de bloom para representar os elementos de um conjunto de palavras. Considere palavras geradas aleatoriamente com os carateres de 'a' a 'z' e com comprimento de 6 carateres (probabilidade de 40%) ou 10 carateres (probabilidade de 60%).
+Assuma que vai adicionar 100 palavras ao filtro de bloom. ASsuma tambem que o filtro de bloom usa uma unica função dispersao e que devera ter a taxa de falsos positivos de aproximadamente 1%. Determine o tamanho adequado do filtro de bloom e apresente o codigo em matlab.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Inicialize o filtro de bloom usando o tamanho calculado anteriormente(se n o conseguir cacular use o valor 10000). De seguida inclua 100 palavras defirentes geradas automaticamente com as caracteristicas defenidas acima. USe a funçao de dispersão default providenciada pela função string2hash na implementação das funções do filtro de bloom.
+Finalmente, determine por simulação a probabilidade de falsos positivos do filtro implementado, usando um conjunto adequado de palavras. Apresente o resultado obtido e o codigo Matlab q usou.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%1:B
+vi = [1 0 0 0 0 0]';
+v = T^3 *vi;
+v(6)
+
+%1.C
+Q = T(1:5, 1:5);
+F = inv(eye(5)-Q);
+passos = sum(F);
+passos(1)
+
+
+
+
