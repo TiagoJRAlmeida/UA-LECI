@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/librdy.a CMakeFiles/rdy.dir/rdy_init.cpp.o CMakeFiles/rdy.dir/rdy_term.cpp.o CMakeFiles/rdy.dir/rdy_print.cpp.o CMakeFiles/rdy.dir/rdy_insert.cpp.o CMakeFiles/rdy.dir/rdy_fetch.cpp.o
+/usr/bin/ranlib /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/librdy.a

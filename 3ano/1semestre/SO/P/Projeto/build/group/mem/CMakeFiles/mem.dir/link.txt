@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/libmem.a CMakeFiles/mem.dir/mem_init.cpp.o CMakeFiles/mem.dir/mem_term.cpp.o CMakeFiles/mem.dir/mem_print.cpp.o CMakeFiles/mem.dir/mem_alloc.cpp.o CMakeFiles/mem.dir/mem_add.cpp.o CMakeFiles/mem.dir/mem_retrieve.cpp.o CMakeFiles/mem.dir/mem_free.cpp.o
+/usr/bin/ranlib /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/libmem.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/libfrontend.a CMakeFiles/frontend.dir/sim.cpp.o CMakeFiles/frontend.dir/jdt.cpp.o CMakeFiles/frontend.dir/pct.cpp.o CMakeFiles/frontend.dir/mem.cpp.o CMakeFiles/frontend.dir/rdy.cpp.o CMakeFiles/frontend.dir/swp.cpp.o
+/usr/bin/ranlib /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/libfrontend.a

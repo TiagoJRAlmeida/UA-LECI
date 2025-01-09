@@ -1,0 +1,19 @@
+# Simple scenario for a worst fit allocation test
+#
+# command: 
+#   ./main -i ../examples/ex03.jdt -S -P 0-999 -b
+# 
+# In this example, it is assumed:
+# 
+## MemorySize = 0x100000 (default)
+## KernelMemorySize = 0x8000 (default)
+## MemoryAllocationPolicy = WorstFit (default)
+## SchedulingPolicy = FCFS (default)
+# 
+# - no job has to be sent to the swapping area
+# - when the 3rd job is admitted, there are 2 free blocks, being the 2nd the biggest
+# 
+## Jobs = 
+ 10  ;   90    ;  0x8000
+ 11  ;  200    ;  0x4000
+110  ;  200    ;  0x2000

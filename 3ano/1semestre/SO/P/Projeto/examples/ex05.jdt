@@ -1,0 +1,21 @@
+# Simple scenario for swapping test
+#
+# command: 
+#       ./main -i ../examples/ex05.jdt -P 0-999 -b -s fp -S 
+# or
+#       ./main -i ../examples/ex05.jdt -P 0-999 -b -s ffp -S 
+# 
+# In this example, it is assumed:
+# 
+## MemorySize = 0x100000 (default)
+## KernelMemorySize = 0x8000 (default)
+## MemoryAllocationPolicy = WorstFit (default)
+## SchedulingPolicy = FCFS (default)
+## SwappingPolicy = ???
+# 
+# 
+## Jobs = 
+ 10  ;  290    ;  0x8000
+ 11  ;  200    ;  0xee000
+200  ;  100    ;  0x9000
+250  ;  100    ;  0x7000

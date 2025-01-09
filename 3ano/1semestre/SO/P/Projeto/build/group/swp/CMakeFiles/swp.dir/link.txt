@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/libswp.a CMakeFiles/swp.dir/swp_init.cpp.o CMakeFiles/swp.dir/swp_term.cpp.o CMakeFiles/swp.dir/swp_print.cpp.o CMakeFiles/swp.dir/swp_insert.cpp.o CMakeFiles/swp.dir/swp_fetch.cpp.o
+/usr/bin/ranlib /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/libswp.a

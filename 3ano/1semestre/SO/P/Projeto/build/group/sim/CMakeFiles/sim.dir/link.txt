@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/libsim.a CMakeFiles/sim.dir/sim_init.cpp.o CMakeFiles/sim.dir/sim_term.cpp.o CMakeFiles/sim.dir/sim_print.cpp.o CMakeFiles/sim.dir/sim_step.cpp.o CMakeFiles/sim.dir/sim_run.cpp.o
+/usr/bin/ranlib /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/libsim.a

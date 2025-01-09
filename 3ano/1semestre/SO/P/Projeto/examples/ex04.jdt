@@ -1,0 +1,22 @@
+# Simple scenario for scheduling test
+#
+# command: 
+#       ./main -i ../examples/ex04.jdt -P 0-999 -b -p fcfs -S 
+# or
+#       ./main -i ../examples/ex04.jdt -P 0-999 -b -p spn -S
+# 
+# In this example, it is assumed:
+# 
+## MemorySize = 0x100000 (default)
+## KernelMemorySize = 0x8000 (default)
+## MemoryAllocationPolicy = WorstFit (default)
+## SchedulingPolicy = ???
+# 
+# - no job has to be sent to the swapping area
+# - when the 1st process ends its execution, there are 2 processes in the READY queue,
+#   the first with a longer CPU-burst
+# 
+## Jobs = 
+ 10  ;  290    ;  0x8000
+ 11  ;  200    ;  0x4000
+110  ;  100    ;  0x2000

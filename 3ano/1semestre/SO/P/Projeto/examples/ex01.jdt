@@ -1,0 +1,24 @@
+# Simple scenario for a first test
+#
+# command: 
+#   ./main -i ../examples/ex05.jdt -S -P 0-999 -b
+# 
+# In this example, it is assumed:
+# 
+## MemorySize = 0x100000 (default)
+## KernelMemorySize = 0x8000 (default)
+## MemoryAllocationPolicy = WorstFit (default)
+## SchedulingPolicy = FCFS (default)
+## SwappingPolicy = FirstProcess (default)
+#
+# Every time allocation occurs there is a only a free block.
+# 
+# - Lines can be job lines or comment lines
+# - A job line is composed of 3 fields: submission time ; lifetime ; memory size
+# - blank characters may exist before and after the field separator
+# - A comment line starts with a hash character
+# - comments may also appear after a job line
+## Jobs = 
+ 10.0  ;  190.0    ;  0x8000
+ 11.0  ;  120.0    ;  0x4000
+110.0  ;  180.0    ;  0x2000

@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/libcore.a CMakeFiles/core.dir/exception.cpp.o CMakeFiles/core.dir/probing.cpp.o CMakeFiles/core.dir/binselection.cpp.o
+/usr/bin/ranlib /home/tiago/github/UA-LECI/3ano/1semestre/SO/P/Projeto/lib/libcore.a
