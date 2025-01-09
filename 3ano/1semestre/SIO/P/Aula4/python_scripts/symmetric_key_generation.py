@@ -13,12 +13,12 @@ def generate_key_iv_from_password(password: str, salt: bytes = None, iterations:
     iv = key_iv[16:]
     
     if pkey_file is not None:
-        with open(pkey_file, "wb") as pkey_f:
-            pkey_f.write(key)
+        with open(pkey_file, "w") as pkey_f:
+            pkey_f.write(key.hex())
 
     if IV_file is not None:
-        with open(IV_file, "wb") as IV_f:
-            IV_f.write(iv)
+        with open(IV_file, "w") as IV_f:
+            IV_f.write(iv.hex())
 
     return key, iv, salt
     

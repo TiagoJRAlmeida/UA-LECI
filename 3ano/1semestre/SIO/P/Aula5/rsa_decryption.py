@@ -2,6 +2,7 @@ from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.primitives import serialization
+import sys
 
 def rsa_decrypt(encrypted_file: str, output_file: str, private_key_file: str):
     
@@ -17,4 +18,17 @@ def rsa_decrypt(encrypted_file: str, output_file: str, private_key_file: str):
     with open(output_file, 'wb') as ofile:
         ofile.write(ciphertext)
         
-rsa_decrypt("encrypted_file.txt", "decrypted_file.txt", "private_key.pem")
+
+if __name__ == "__main__":
+
+    if len(sys.argv) != 4:
+        print("Usage: python3 rsa_encryption.py <encrypted_file> <output_file> <private_key.pem>")
+        sys.exit(1)
+        
+    encrypted_file = sys.argv[1]
+    output_file = sys.argv[2]
+    private_key = sys.argv[3]
+
+    rsa_decrypt(encrypted_file, output_file, private_key)
+
+# rsa_decrypt("encrypted_file.txt", "decrypted_file.txt", "private_key.pem")
