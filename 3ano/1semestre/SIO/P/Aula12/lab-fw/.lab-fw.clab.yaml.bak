@@ -1,0 +1,50 @@
+name: lab-fw
+topology:
+  kinds:
+    linux:
+      image: ubuntu
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      exec:
+        - "echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections"
+        - "apt update"
+        - "apt install -y iproute2 iputils-ping curl dnsutils"
+  nodes:
+    client:
+      kind: linux
+      exec:
+        - "ip addr add dev eth1 192.168.1.64/24"
+        - "ip route del default"
+        - "ip route add default via 192.168.1.1"
+    fw:
+      kind: linux
+      exec:
+        - "apt install -y iptables ulogd2"
+        - "ip addr add dev eth1 192.168.1.1/24"
+        - "ip addr add dev eth2 192.168.100.64/24"
+        - "ip addr add dev eth3 192.168.200.64/24"
+        - "ip route del default"
+        - "ip route add default via 192.168.200.1"
+      stages:
+        create-links:
+          exec:
+            - command: ip address add dev fw-out0 192.168.200.1/24
+              target: host
+              phase: on-exit
+
+    server:
+      kind: linux
+      exec:
+        - "apt install -y nginx openssh-server fail2ban"
+        - "ip addr add dev eth1 192.168.100.1/24"
+        - "ip route del default"
+        - "ip route add default via 192.168.100.64"
+        - "nginx"
+  links:
+    - endpoints: ["client:eth1","fw:eth1"]
+    - endpoints: ["fw:eth2","server:eth1"]
+    - type: host
+      endpoint:
+        node: "fw"
+        interface: "eth3"
+      host-interface: fw-out0

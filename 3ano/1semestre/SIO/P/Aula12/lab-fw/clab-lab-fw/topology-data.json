@@ -1,0 +1,155 @@
+{
+  "name": "lab-fw",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-01609bf0e00e",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "client": {
+      "index": "0",
+      "shortname": "client",
+      "longname": "clab-lab-fw-client",
+      "fqdn": "client.lab-fw.io",
+      "group": "",
+      "labdir": "/home/tiago/github/UA-LECI/3ano/1semestre/SIO/P/Aula12/lab-fw/clab-lab-fw/client",
+      "kind": "linux",
+      "image": "ubuntu",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-01609bf0e00e",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/tiago/github/UA-LECI/3ano/1semestre/SIO/P/Aula12/lab-fw/clab-lab-fw/client",
+        "clab-node-name": "client",
+        "clab-node-type": "",
+        "clab-owner": "tiago",
+        "clab-topo-file": "/home/tiago/github/UA-LECI/3ano/1semestre/SIO/P/Aula12/lab-fw/lab-fw.clab.yaml",
+        "containerlab": "lab-fw"
+      },
+      "port-bindings": [
+      ]
+    },
+    "fw": {
+      "index": "1",
+      "shortname": "fw",
+      "longname": "clab-lab-fw-fw",
+      "fqdn": "fw.lab-fw.io",
+      "group": "",
+      "labdir": "/home/tiago/github/UA-LECI/3ano/1semestre/SIO/P/Aula12/lab-fw/clab-lab-fw/fw",
+      "kind": "linux",
+      "image": "ubuntu",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-01609bf0e00e",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/tiago/github/UA-LECI/3ano/1semestre/SIO/P/Aula12/lab-fw/clab-lab-fw/fw",
+        "clab-node-name": "fw",
+        "clab-node-type": "",
+        "clab-owner": "tiago",
+        "clab-topo-file": "/home/tiago/github/UA-LECI/3ano/1semestre/SIO/P/Aula12/lab-fw/lab-fw.clab.yaml",
+        "containerlab": "lab-fw"
+      },
+      "port-bindings": [
+      ]
+    },
+    "server": {
+      "index": "2",
+      "shortname": "server",
+      "longname": "clab-lab-fw-server",
+      "fqdn": "server.lab-fw.io",
+      "group": "",
+      "labdir": "/home/tiago/github/UA-LECI/3ano/1semestre/SIO/P/Aula12/lab-fw/clab-lab-fw/server",
+      "kind": "linux",
+      "image": "ubuntu",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-01609bf0e00e",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/tiago/github/UA-LECI/3ano/1semestre/SIO/P/Aula12/lab-fw/clab-lab-fw/server",
+        "clab-node-name": "server",
+        "clab-node-type": "",
+        "clab-owner": "tiago",
+        "clab-topo-file": "/home/tiago/github/UA-LECI/3ano/1semestre/SIO/P/Aula12/lab-fw/lab-fw.clab.yaml",
+        "containerlab": "lab-fw"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "client",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:94:ef:03",
+        "peer": "z"
+      },
+      "z": {
+        "node": "fw",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:ac:51:91",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "fw",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:9b:a3:22",
+        "peer": "z"
+      },
+      "z": {
+        "node": "server",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:df:52:35",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "fw",
+        "interface": "eth3",
+        "mac": "aa:c1:ab:2c:9f:70",
+        "peer": "z"
+      },
+      "z": {
+        "node": "host",
+        "interface": "fw-out0",
+        "mac": "aa:c1:ab:7b:a9:0b",
+        "peer": "a"
+      }
+    }
+  ]
+}
