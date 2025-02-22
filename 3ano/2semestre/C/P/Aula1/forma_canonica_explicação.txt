@@ -1,0 +1,29 @@
+regra:
+
+recebo 8 primeiro
+recebo 1M depois
+
+1M > 8 logo 1M x 8
+
+recebo 1M primeiro
+reecbo 200K depois
+
+200k < 1M logo 200k + 1M
+
+Conclusão: Se o que recebo é maior que o que tenho acumulado multiplica, caso contrario soma.
+
+
+for() {
+	if (number <= acum) {
+		result += acum;
+		acum = 0l;
+	}
+
+	if (acum != 0 && number > acum)
+		acum *= number;
+
+	else
+		acum = number;	
+}
+scline.close();
+result += number;
