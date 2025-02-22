@@ -1,0 +1,154 @@
+2a) Desenhar os estados e explicar as transições para cada um deles
+
+
+2b)
+
+P3  |                             ___________                     ___________     __________
+    |                            |           |                   |           |   |          |
+P2  |             __________                  _______
+    |            |          |                |       |
+P1  |___________             ____                     ___________             ___
+    |___________|___________|____|___________________|___________|___________|___|_____________
+            2       4       6       8       10      12      14      16      18      20      22
+
+
+READY
+t=0 - P1 x
+t=2 - P2 x
+t=3 - P1 x 
+t=4 - P3 x
+t=6 - P2 x
+t=7 - P1 x
+t=10 - P3 x
+t=15 - P1 x
+t=18 - P3
+
+2c) Fazer desenho com a fila
+
+3)
+
+3a) Numa arquitétura com organização de memória real, ou processo está por completo em memória ou swapped,
+o endereço fisico é uma tradução direta do endereço lógico, e o espaço de endereçamento do processo é contíguo.
+
+Partições fixas, a memória é préviamente dividia num número fixo de partições,
+quando um processo precida de memória o seu espaço de endereçamento é colocado numa das partições, as devantagens desta abordagem
+são que o número de processos em memória é limitado ao número de partições existentes 
+e o tamanho máximo de um processo é ditado pelo tamanho da maior partição,para um processo pode também ser alocada 
+uma partição maior que o espaço de endereçamento necessário para esse processo gerando problemas de gestão ineficiente da memória.
+
+Partições variáveis, a memória começa como uma única partição contígua á medida que os processos vão sendo colocados em memória, 
+para cada processo é alocada uma partição de memória com tamanho necessário para o seu espaço de endereçamento,
+quando o processo termina a sua execução a partição é libertada. A eficiência do processo de alocação de memória depende
+da politica de alocação de memória.
+
+b) 
+i) O endereço limite verifica se o endereço lógico está dentro do espaço de endereçamento do processo.
+O registo base é adicionado ao endereço lógico de forma a ajustar o à zona da memória principal onde está o endereço fisico.
+
+ii) Dispatch.
+
+iii) Primeiro o endereço lógico é comparado com o registo limite, se for maior ou igual a este é gerada uma excepção.
+Segundo ao endereço lógico é adicionado o registo base e assim obtemos o endereço fisico.
+
+c) 
+
+Disponivél 
+
+10000 - 200000       (10k,190k)
+
+Usado
+
+Nada
+
+Disponivél 
+
+20000 - 200000          (20k,180k)
+
+Usado
+
+A - 10000 - 20000       (10k,10k,A)
+
+Disponivél 
+
+60000 - 200000         (60k,140k)
+
+Usado
+
+A - 10000 - 20000       (10k,10k,A),(20k,40k,B)
+
+B - 20000 - 60000
+
+Disponivél 
+
+80000 - 200000          (80k,120k)
+
+Usado
+
+A - 10000 - 20000
+
+B - 20000 - 60000       (10k,10k,A),(20k,40k,B),(60k,20k,C)
+
+C - 60000 - 80000
+
+Disponivél 
+
+20000 - 60000           (80k,120k),(20,40k)
+80000 - 200000
+
+Usado
+
+A - 10000 - 20000       (10k,10k,A),(60k,20k,C)
+
+C - 60000 - 80000
+
+Disponivél                  
+
+20000 - 60000               (100k,100k),(20,40k)
+100000 - 200000
+
+Usado
+
+A - 10000 - 20000
+
+C - 60000 - 80000       (10k,10k,A),(60k,20k,C),(80k20k,D)
+
+D - 80000 - 100000
+
+Disponivél 
+
+10000 - 60000       (100k,100k),(20k,40k),(10k,10k)
+100000 - 200000
+
+Usado
+
+C - 60000 - 80000       (60k,20k,C),(80k20k,D)
+
+D - 80000 - 100000
+
+4)
+
+4a) Como todas as páginas têm o mesmo tamanho o registo PT é utilizado indicar o começo da página que procuramos.
+O registo P serve para colocar o endereço do frame no inicio do espaco da memória pricipal onde está o espaço de endereçamento do processo.
+
+Um page fault ocorre se a página não estiver em memória ou seja o a flag M/S está a um,
+ou se o frame concatenado com o offset criar um endereço que não pertence á memória pricipal.
+
+4b)
+
+    1   2   1   2   3   1   4   5   4   6   7   1   8   9   2   7   8   9   5   10  9
+F1  1                                                                       5
+F2      2                               6                   2                   10
+F3                  3                       7       
+F4                          4                           9
+F5                              5                   8
+
+4c) FIFO
+
+5
+
+5a) Deadlock avoidance, já que  é o sistema que monitoriza os recursos de forma a não acontecer deadlock.
+
+5b) Para acontecer deadlock 4 requisitos têm de se cumprir, hold-and-wait, mutual exclusion,non-preemption, e circular-wait.
+
+
+
