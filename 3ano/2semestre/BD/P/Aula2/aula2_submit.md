@@ -17,7 +17,17 @@ Considere um Sistema de Gestão de Stocks de uma empresa. O presente exercício 
 Identify the entities, attributes, and relationships of the database.
 
 ```
-... Write here your answer ...
+Entidades: 
+      Produtos, Encomenda, Fornecedor
+
+ Atributos:
+      Produtos: Código, Nome, Preço, Taxa de IVA, Quantidade em armazém
+      Encomenda: Data, Número, ID do Fornecedor
+      Fornecedor: Número de Fax, Nome, Endereço, Condições de pagamento, NIF, ID do tipo de fornecedor: Designação do tipo de fornecedor
+
+ Relações:
+      Vários produtos estão em várias encomendas (N:M)
+      Cada fornecedor tem associado a si N encomendas (1:N)
 
 ```
 
@@ -25,7 +35,17 @@ Identify the entities, attributes, and relationships of the database.
 Specify the relationships regarding the degree, cardinality and instances mandatory participation of the entities in the relationship.
 
 ```
-... Write here your answer ...
+Grau das relações:
+      Relação Encomenda-Produtos: Binária
+      Relação Fornecedor-Encomenda: Binária
+
+ Cardinalidade das relações:
+      Relação Encomenda-Produtos: Várias encomendas(M)  podém ter vários produtos(N) --> N:M
+      Relação Fornecedor-Encomenda: Um fornecedor(1) pode ter várias encomendas(N) --> 1:N
+
+ Obrigatoriedade das relações:
+      Uma Encomenda está obrigatoriamente associada a um Fornecedor (Participação Total) - Um Fornecedor pode não ter associada uma Encomenda
+      Uma Encomenda tem obrigatoriamente Produtos (um ou mais) (Participação Total) - Um Produto pode não estar numa Encomenda
 
 ```
 
@@ -80,7 +100,7 @@ Considere um Sistema de Gestão de um ATL com as seguintes características:
 
 #### *a)* Desenvolva o desenho conceptual da base de dados do Sistema de Informação da Universidade com recurso a um diagrama entidade-relacionamento.
 
-![ex_2_4a!](ex_2_4a.png "AnImage or PDF file")
+![ex_2_4a!](ex_2_4.png "AnImage or PDF file")
 
 ### *b)* [Opcional] Continue a modelar o problema de forma a registar os processos financeiros (mensalidades, atividades, pagamentos, desconto família, etc). Defina os requisitos livremente.
 
