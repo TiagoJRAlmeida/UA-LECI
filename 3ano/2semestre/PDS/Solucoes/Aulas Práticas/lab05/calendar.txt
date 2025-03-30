@@ -1,0 +1,7 @@
+Após a análise da classe Calendar, podemos observar que, apesar de ser uma classe abstrata, ela possui 2 construtores protegidos (não podendo ser instanciada).
+ 
+O primeiro construtor protegido cria um calendário com a timezone e locale default do sistema. 
+O segundo construtor protegido cria um calendário com timezone e locale específicos.
+Estes construtores têm a função de serem utilizados pelas subclasses de Calendar, que são as classes que implementam o calendário de cada país.
+
+Ao analisar a classe Calendar concluímos que o padrão de construção é o Factory Method, pois a classe Calendar é uma classe abstrata que possui um método estático chamado createCalendar() que retorna um objeto Calendar.

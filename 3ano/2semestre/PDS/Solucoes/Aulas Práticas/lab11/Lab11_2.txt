@@ -1,0 +1,2 @@
+O Template Method dita que as classes que compartilham métodos e atributos comuns estabelecem uma estrutura declarativa com métodos implementados que podem ser substituídos em classes filhas.
+Classes como AbstractList, AbstractSet e AbstractMap derivam da mesma classe pai, AbstractCollection, herdando suas propriedades e adaptando-as conforme necessário.

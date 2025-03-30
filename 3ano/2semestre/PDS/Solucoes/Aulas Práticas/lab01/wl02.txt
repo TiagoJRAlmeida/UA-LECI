@@ -1,0 +1,2 @@
+python;felicidade farol faro,engenharia alimentos,horas minutos;anos turma aluno,
+estudar,exames;recurso exame melhoria dados olimpiadas universidadde 

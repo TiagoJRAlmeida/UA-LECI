@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Solver",
+            "request": "launch",
+            "mainClass": "WSSolver",
+            "args": [
+                "jaja.txt"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Launch Generator",
+            "request": "launch",
+            "mainClass": "WSGenerator",
+            "args": [
+                "-i",
+                "wordlist.txt",
+                "-o",
+                "out.txt",
+                "-s",
+                "15",
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": [
+                "puzzle.txt"
+            ]
+        }
+    ]
+}
