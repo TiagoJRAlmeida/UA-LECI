@@ -1,0 +1,4 @@
+Ex01: Uso do padrão proxy (dificuldade media de implementar)
+Ex01b: Java sem padrões, ex inutil
+Ex02: Uso do padrão façade (extremamente facil de implementar)
+ex03: Padrão flyweight. Não está feito pela dificuldade e falta de tempo.

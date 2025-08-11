@@ -3,11 +3,11 @@ program: stat* EOF;
 stat: expr? NEWLINE;
 
 expr:
-op=('+'|'-') expr # ExprUnary
-| expr  op=('*'|'/'|'%') expr #ExprMultDivMod
-| expr  op=('+'|'-') expr #ExprAddSub
-| Integer #ExprInteger
-| '(' expr ')' #ExprParent
+    op=('+'|'-') expr           # ExprUnary
+|   expr  op=('*'|'/'|'%') expr #ExprMultDivMod
+|   expr  op=('+'|'-') expr     #ExprAddSub
+|   Integer                     #ExprInteger
+|   '(' expr ')'                #ExprParent
 ;
 
 Integer : [0-9]+;

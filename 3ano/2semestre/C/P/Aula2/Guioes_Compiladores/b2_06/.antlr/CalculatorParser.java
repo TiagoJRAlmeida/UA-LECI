@@ -1,4 +1,4 @@
-// Generated from /mnt/c/Users/Gabriel/Desktop/LECI/3rd_year/2nd_semester/C/bloco2/b2_06/Calculator.g4 by ANTLR 4.13.1
+// Generated from /home/tiago/github/UA-LECI/3ano/2semestre/C/P/Aula2/Guioes_Compiladores/b2_06/Calculator.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;

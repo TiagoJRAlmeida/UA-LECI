@@ -1,0 +1,5 @@
+Conteudos Abordados:
+
+Ex1 --> Decorator
+Ex2 --> Decorator (não acabei por ser sobre o mesmo padrão que o primeiro)
+Ex3 --> Composite

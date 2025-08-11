@@ -101,6 +101,14 @@ public class PrefixCalculatorParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof PrefixCalculatorListener ) ((PrefixCalculatorListener)listener).enterProgram(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof PrefixCalculatorListener ) ((PrefixCalculatorListener)listener).exitProgram(this);
+		}
 	}
 
 	public final ProgramContext program() throws RecognitionException {
@@ -149,6 +157,14 @@ public class PrefixCalculatorParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_stat; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof PrefixCalculatorListener ) ((PrefixCalculatorListener)listener).enterStat(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof PrefixCalculatorListener ) ((PrefixCalculatorListener)listener).exitStat(this);
+		}
 	}
 
 	public final StatContext stat() throws RecognitionException {
@@ -205,11 +221,27 @@ public class PrefixCalculatorParser extends Parser {
 			return getRuleContext(ExprContext.class,i);
 		}
 		public ExprPrefixContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof PrefixCalculatorListener ) ((PrefixCalculatorListener)listener).enterExprPrefix(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof PrefixCalculatorListener ) ((PrefixCalculatorListener)listener).exitExprPrefix(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprNumberContext extends ExprContext {
 		public TerminalNode Number() { return getToken(PrefixCalculatorParser.Number, 0); }
 		public ExprNumberContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof PrefixCalculatorListener ) ((PrefixCalculatorListener)listener).enterExprNumber(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof PrefixCalculatorListener ) ((PrefixCalculatorListener)listener).exitExprNumber(this);
+		}
 	}
 
 	public final ExprContext expr() throws RecognitionException {

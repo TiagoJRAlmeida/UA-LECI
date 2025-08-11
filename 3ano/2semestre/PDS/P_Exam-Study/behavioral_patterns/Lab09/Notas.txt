@@ -1,0 +1,4 @@
+Ex01: Implementar um iterator; Não é simples, mas depois de perceber é tranquilo. Não completei o exercicio porque é só mais do mesmo. 
+    O ITERADOR DEVE SER FEITO DENTRO DA CLASSE!!!
+Ex02: Implementar o padrão chain of responsabilit. Com o auxilio dos slides é facil, mas a primeira calse abstrata é um bocado confusa.
+Ex03: Assim como no guião8 com o flyWeight, este exercicio usa o command design pattern, um padrão um pouco complexo, o que o torna improvavel de aparecer no teste. No maximo deve aparecer no teste teorico.

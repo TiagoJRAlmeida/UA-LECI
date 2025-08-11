@@ -1,0 +1,3 @@
+Ex01: Exercicio complexo. 
+    Deve ser usar o padrão state para controlar os estados e o 
+    padrão observer para notificar os clientes.
