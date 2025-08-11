@@ -1,0 +1,289 @@
+#!/bin/bash
+
+# Definir cores
+RED="\033[1;31m"
+GREEN="\033[1;32m"
+YELLOW="\033[1;33m"
+BLUE="\033[1;34m"
+MAGENTA="\033[1;35m"
+CYAN="\033[1;36m"
+RESET="\033[0m"
+
+sudo apt-get install jq
+
+echo $'\n'
+echo -e "${MAGENTA}O objetivo deste script é mostrar o funcionamento do sistema. Para tal este segue uma ordem onde contar uma 'hisória' sobre um subject que cria uma conta, uma organização e gere-a de diferentes formas, adicionando subjects novos, roles, documentos e mais! ${RESET}"
+echo $'\n'
+
+# Header inicial
+echo -e "${CYAN}================== Setup ==================${RESET}"
+
+# Remover ficheiros de testes passados
+echo $'\n'
+echo -e "${YELLOW}Remover ficheiros e pastas de testes passados${RESET}"
+
+if test -f Subject_A_keys.json; then
+    rm Subject_A_keys.json
+    echo "--> Ficheiro 'Subject_A_keys.json' removido."
+    sleep 0.1
+fi
+
+if test -f Subject_B_keys.json; then
+    rm Subject_B_keys.json
+    echo "--> Ficheiro 'Subject_B_keys.json' removido."
+    sleep 0.1
+fi
+
+if test -f Subject_A_session.json; then
+    rm Subject_A_session.json
+    echo "--> Ficheiro 'Subject_A_session.json' removido."
+    sleep 0.1
+fi
+
+if test -f Subject_B_session.json; then
+    rm Subject_B_session.json
+    echo "--> Ficheiro 'Subject_B_session.json' removido."
+    sleep 0.1
+fi
+
+if test -f rep_pub_key.pem; then
+    rm rep_pub_key.pem
+    echo "--> Ficheiro 'rep_pub_key.pem' removido."
+    sleep 0.1
+fi
+
+if test -f test_file_10Kb; then
+    rm test_file_10Kb
+    echo "--> Ficheiro 'test_file_10Kb' removido."
+    sleep 0.1
+fi
+
+if test -f test_file_100Kb; then
+    rm test_file_100Kb
+    echo "--> Ficheiro 'test_file_100Kb' removido."
+    sleep 0.1
+fi
+
+if test -f test_file_1Mb; then
+    rm test_file_1Mb
+    echo "--> Ficheiro 'test_file_1Mb' removido."
+    sleep 0.1
+fi
+
+if test -f small_story.txt; then
+    rm small_story.txt
+    echo "--> Ficheiro 'small_story.txt' removido."
+    sleep 0.1
+fi
+
+if test -f metadados.json; then
+    rm metadados.json
+    echo "--> Ficheiro 'metadados.json' removido."
+    sleep 0.1
+fi
+
+if test -d repository/docs; then
+    rm -rf repository/docs
+    echo "--> Pasta 'repository/docs' removida."
+    sleep 0.1
+fi
+
+if test -f repository/documents.json; then
+    rm repository/documents.json
+    echo "--> Ficheiro 'repository/documents.json' removido."
+    sleep 0.1
+fi
+
+if test -f repository/organizations.json; then
+    rm repository/organizations.json
+    echo "--> Ficheiro 'repository/organizations.json' removido."
+    sleep 0.1
+fi
+
+if test -f repository/sessions.json; then
+    rm repository/sessions.json
+    echo "--> Ficheiro 'repository/sessions.json' removido."
+    sleep 0.1
+fi
+
+if test -f repository/rep_priv_key.pem; then
+    rm repository/rep_priv_key.pem
+    echo "--> Ficheiro 'repository/rep_priv_key.pem' removido."
+    sleep 0.1
+fi
+
+if test -f repository/rep_pub_key.pem; then
+    rm repository/rep_pub_key.pem
+    echo "--> Ficheiro 'repository/rep_pub_key.pem' removido."
+    sleep 0.1
+fi
+
+echo $'\n'
+echo -e "${YELLOW}Criar ficheiros de teste${RESET}"
+sleep 0.1
+
+# Criar ficheiro de teste de 10Kb
+dd if=/dev/zero of=test_file_10Kb bs=10K count=1 > /dev/null 2>&1
+echo "--> Ficheiro de teste de 10Kb criado."
+sleep 0.1
+
+# Criar ficheiro de teste de 100Kb
+dd if=/dev/zero of=test_file_100Kb bs=100K count=1 > /dev/null 2>&1
+echo "--> Ficheiro de teste de 100Kb criado."
+sleep 0.1
+
+# Criar ficheiro de teste de 1Mb
+dd if=/dev/zero of=test_file_1Mb bs=1M count=1 > /dev/null 2>&1
+echo "--> Ficheiro de teste de 1Mb criado."
+sleep 0.1
+
+# Criar ficheiro de teste com pequena história
+echo '''In a quiet village, a boy named Liam discovered a hidden key buried 
+in his garden. That night, he dreamt of a glowing door in the forest. 
+The next day, curiosity led him to the woods, where the key fit perfectly into 
+the mysterious door. As it creaked open, a dazzling world of floating islands and 
+golden skies lay before him. Liam stepped through, knowing his life would never be the same.''' > small_story.txt
+echo "--> Ficheiro de teste com pequena história criado."
+sleep 0.1
+
+echo $'\n'
+sleep 0.1
+
+# Header final
+echo -e "${CYAN}============== Fim do Setup ===============${RESET}"
+sleep 0.2
+
+echo $'\n'
+echo -e "${GREEN}=========== Inicio da simulação ===========${RESET}"
+echo $'\n'
+
+# Inicializar o repositório
+echo -e "${YELLOW}Iniciar o repositório${RESET}"
+python3 repository/repository.py &
+REPO_PID=$!
+sleep 0.5
+
+# Pausa para garantir que o repositório está ativo
+echo -e "${RED}A carregar o servidor...${RESET}"
+echo $'\n'
+sleep 3
+
+# Criação de credenciais iniciais
+echo -e "${YELLOW}Subject A cria a suas credenciais${RESET}"
+./rep_subject_credentials 1234 Subject_A_keys.json
+echo $'\n'
+
+
+# Criação de uma organização com as credenciais novas
+echo -e "${YELLOW}Subject A cria uma nova organização${RESET}"
+./rep_create_org Subject_A_ORG Subject_A Tiago Subject_A@ua.pt Subject_A_keys.json
+echo $'\n'
+sleep 0.1
+
+# Mostrar que a organização foi criada
+echo -e "${YELLOW}Subject A verifica se a sua organização foi criado com sucesso${RESET}"
+./rep_list_orgs
+echo $'\n'
+sleep 0.1
+
+
+# Criar uma sessão
+echo -e "${YELLOW}Subject A inicia uma sessão dentro da organização que acabou de criar${RESET}"
+./rep_create_session Subject_A_ORG Subject_A 1234 Subject_A_keys.json Subject_A_session.json
+echo $'\n'
+sleep 0.1
+
+
+# Adicionar novos subjects
+echo -e "${YELLOW}Subject A adiciona um subject B á sua organização${RESET}"
+./rep_subject_credentials 1234 Subject_B_keys.json
+./rep_add_subject Subject_A_session.json Subject_B Subject_B Subject_B@ua.pt Subject_B_keys.json
+echo $'\n'
+sleep 0.1
+
+# Mostrar que o subject B foi adicionado á organização
+echo -e "${YELLOW}Subject A verifica se o Subject B foi adicionado com sucesso${RESET}"
+./rep_list_subjects Subject_A_session.json
+echo $'\n'
+sleep 0.1
+
+# Suspender e ativar subjects
+echo -e "${YELLOW}Subject A experimenta suspender o Subject B${RESET}"
+./rep_suspend_subject Subject_A_session.json Subject_B
+./rep_list_subjects Subject_A_session.json Subject_B
+echo $'\n'
+sleep 0.1
+
+echo -e "${YELLOW}Subject A volta a ativar o Subject B${RESET}"
+./rep_activate_subject Subject_A_session.json Subject_B
+./rep_list_subjects Subject_A_session.json Subject_B
+echo $'\n'
+sleep 0.1
+
+echo -e "${YELLOW}Subject B inicia sessão e assume a role ADMIN${RESET}"
+./rep_create_session Subject_A_ORG Subject_B 1234 Subject_B_keys.json Subject_B_session.json
+echo $'\n'
+sleep 0.1
+
+echo -e "${YELLOW}Subject B experimenta adicionar um documento de 10Kb${RESET}"
+./rep_add_doc Subject_B_session.json test_file_10Kb test_file_10Kb
+echo $'\n'
+sleep 0.1
+
+echo -e "${YELLOW}Subject B experimenta adicionar um documento de 100Kb${RESET}"
+./rep_add_doc Subject_B_session.json test_file_100Kb test_file_100Kb
+echo $'\n'
+sleep 0.1
+
+echo -e "${YELLOW}Subject B experimenta adicionar um documento de 1Mb${RESET}"
+./rep_add_doc Subject_B_session.json test_file_1Mb test_file_1Mb
+echo $'\n'
+sleep 0.1
+
+echo -e "${YELLOW}Subject A experimenta adicionar um documento com uma pequena história${RESET}"
+./rep_add_doc Subject_A_session.json small_story small_story.txt
+echo $'\n'
+sleep 0.1
+
+echo -e "${YELLOW}Subject A verifica que documentos foram adicionados pelo Subject B fazendo uso de diferentes filtros.${RESET}"
+echo -e "${CYAN}Sem filtros (Todos os documentos)${RESET}"
+./rep_list_docs Subject_A_session.json
+echo -e "${CYAN}Documentos do Subject B${RESET}"
+./rep_list_docs Subject_A_session.json -s Subject_B
+echo -e "${CYAN}Documentos do Subject B mais recentes do que 18-12-20${RESET}"
+./rep_list_docs Subject_A_session.json -s Subject_B -d nt 18-12-20
+echo -e "${CYAN}Documentos do Subject B mais antigos do que 18-12-20${RESET}"
+./rep_list_docs Subject_A_session.json -s Subject_B -d ot 18-12-20
+echo -e "${CYAN}Documentos do Subject B do dia 18-12-20${RESET}"
+./rep_list_docs Subject_A_session.json -s Subject_B -d et 18-12-20
+echo $'\n'
+sleep 0.1
+
+echo -e "${YELLOW}Subject A experimenta ler o conteudo do ficheiro small_story.txt${RESET}"
+./rep_get_doc_file Subject_A_session.json small_story
+echo $'\n'
+
+echo -e "${YELLOW}Subject A experimenta apagar o file handle do ficheiro small_story.txt e tenta ler o conteudo novamente${RESET}"
+echo -e "${CYAN}Subject A guarda primeiro o conteudo dos metadados${RESET}"
+./rep_get_doc_metadata Subject_A_session.json small_story > metadados.json
+file_handle=$(jq -r '.file_handle' metadados.json)
+echo -e "${CYAN}Subject A apaga o file handle do documento 'small_story'${RESET}"
+./rep_delete_doc Subject_A_session.json small_story
+echo -e "${CYAN}Subject A experimenta ler o conteudo do ficheiro small_story.txt novamente${RESET}"
+./rep_get_doc_file Subject_A_session.json small_story
+echo -e "${CYAN}Como esperado, não funciona. O Subject A então usa o file handle guardado anteriormente para ler o ficheiro${RESET}"
+./rep_get_file $file_handle
+echo -e "${CYAN}No entanto, o conteudo vem encriptado, então o Subject A guarda o conteudo num ficheiro e desencripta com o comando rep_decrypt_file${RESET}"
+./rep_get_file $file_handle encrypted_content
+./rep_decrypt_file encrypted_content metadados.json
+
+echo -e "${GREEN}============= Fim da simulação ============${RESET}"
+echo $'\n'
+sleep 0.1
+
+# Finalizar o repositório
+echo -e "${RED}A Terminar o processo do repositório...${RESET}"
+kill $REPO_PID  # Encerra o processo da API
+wait $REPO_PID 2>/dev/null  # Aguarda o término para evitar processos zumbis
+echo -e "${GREEN}Repositório terminado com sucesso.${RESET}"
+sleep 0.1

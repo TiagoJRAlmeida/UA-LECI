@@ -1,0 +1,23 @@
+O que resolver:
+    - Quando uma maça está do outro lado e traverse == False, ele tenta atravesar
+    - Random hits quando o traverse == false. Tentar perceber os motivos
+
+Ideias para debug:
+    - Alterar o viewer para mostrar o range do sight em volta da cabeça
+    - Alterar para a cobra não desaparecer e a tabela de score não aparecer, para ver o estado da cobra quando morreu
+
+Ideias para melhorar algoritmos:
+    - Usar um search para ir atrás da maça, para ter certeza que consegue apanhar todas as que viewer
+    - Criar um dict com as coordenadas de todas as paredes no mapa, para usar juntamente com o corpo da cobra e parede para evitar morte por loop
+    - Criar um dict com as coordenadas de cada ponto do mapa e incrementar todas as vezes que for visitado (que vir com o sight), para a cobra priorizar a visita a sitios menos visitados
+    quando não vir maças, invés de andar á deriva.
+    - No geral, maças tensas não são worth. No entanto existe dois casos em que são worth:
+        - No inicio, para ganhar sight range. Quando chegar a 6 de range podemos parar de comer
+        - Se comermos uma sem querer e o traverse for false.
+
+
+Quando é que uma action é boa?
+    - Quando não leva a nenhum hits
+    - Preferencialmente, não gera loops
+    - Se todas as actions possiveis gerarem loops, excluir aquelas que vão para dentro de loops mais pequenos
+    - Se todas as actions possiveis levarem a hits, não há nada a fazer. (There is nothing we can do...)

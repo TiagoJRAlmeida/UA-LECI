@@ -1,0 +1,26 @@
+O que temos que fazer? 
+
+1. Anonymous API 
+2. Local Commands
+    - rep_subject_credentials (done)
+    - rep_decrypt_file
+3. Anonymous API commands
+    - rep_create_org
+    - rep_list_orgs (done)
+    - rep_create_session
+    - rep_get_file
+4. Authenticated API
+    - rep_list_subjects
+    - rep_list_docs
+5. Authorized API
+    - rep_add_subject
+    - rep_suspend_subject
+    - rep_activate_subject
+    - rep_add_doc (sem precisar de autorizar)
+    - rep_get_doc_metadata
+    - rep_get_doc_file
+    - rep_delete_doc
+6. Comandos de teste para todas as features implementadas
+    - possivelmente usar pytest
+
+NOTA: Para conseguir fazer os comandos anteriores, precisamos perceber como fazer o json de organizações, sujeitos e sessões.

@@ -1,0 +1,49 @@
+======== NEW NEW NEW NEW NEW PROTOCOL V300 E TAL WOW ========
+
+
+
+- Criar uma tabela LSH de minhash e adicionar cada Name e short_name do Standard.
+- Os nomes são formatados para não terem caracteres especiais, acentos e está em lower case.
+    -- Exemplo: Max Mat-Construções L.D.A. --> maxmatconstrucoeslda
+- Para adicionar os Nomes ao LSH, os nomes formatados são divididos em shingles de len 2 e usado 128 hash functions 
+
+
+Para Cada Linha Fazer:
+- Caso Identification Number esteja no Standard
+    -- Se o Identification Number for um dos repetidos do standard
+        --- Ignorar <--END-->
+    -- Se o nome for igual ao nome associado ao Identification Number no Standard
+        --- Já está corrigido <--END-->
+    -- Se o nome tiver distancia de levenshtein baixa (similiariedade alta) com o nome standard
+        --- Corrigir nome <--END-->
+    -- Se o nome NÃO for igual ao nome associado ao Identification Number no Standard
+        --- Fazer query do nome á LSH
+            ---- Se devolver uma lista vazia
+                ----- Não está no Standard E o identification Number está errado. Adicionar a uma lista de nomes não Standard <--END-->
+            ---- Se devolver uma lista com um nome
+                ----- Se o nome da lista for igual ao standard associado ao Identification Number
+                    ------ Corrigir o nome da linha <--END-->
+                ----- Se o nome da lista NÃO for igual ao standard associado ao Identification Number
+                    ------ Corrigir o nome da linha E o Identification Number associado ao nome da lista <--END-->
+            ---- Se devolver uma lista com multiplos nomes
+                ----- Usar levenshtein distance para encontrar o melhor nome e tratar como se tivesse econtrado uma lista com 1 nome <--END-->
+
+- Caso Identification Number NÃO esteja no Standard
+    -- Se o Identification Number for NaN
+        --- Fazer query do nome á LSH
+            ---- Se devolver uma lista vazia
+                ----- Não está no Standard <--END-->
+            ---- Se devolver uma lista com um nome
+                ----- Corrigir o nome da linha e o Identification Number <--END-->
+            ---- Se devolver uma lista com multiplos nomes
+                ---- Usar levenshtein distance para encontrar o melhor nome e tratar como se tivesse econtrado uma lista com 1 nome <--END-->
+    -- Se o Identification Number NÃO for NaN
+        --- Verificar se o nome está na lista de não Standard.
+            ---- Se estiver, acabar <--END-->
+            ---- Se não estiver fazer query do nome á LSH
+                ----- Se devolver uma lista vazia
+                    ------ Não está no Standard <--END-->
+            ---- Se devolver uma lista com um nome
+                ----- Corrigir o nome da linha e o Identification Number <--END-->
+            ---- Se devolver uma lista com multiplos nomes
+                ---- Usar levenshtein distance para encontrar o melhor nome e tratar como se tivesse econtrado uma lista com 1 nome <--END-->

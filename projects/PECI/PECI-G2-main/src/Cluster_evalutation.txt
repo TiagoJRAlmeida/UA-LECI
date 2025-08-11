@@ -1,0 +1,737 @@
+================================================================================
+Similarity Treshold:  0.6
+
+Average intra-cluster similarity: 0.53
+Average inter-cluster similarity: 0.21
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 60%
+  - Recall: 58%
+  - F1_score: 59%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 70%
+  - Recall: 70%
+  - F1_score: 70%
+
+================================================================================
+Similarity Treshold:  0.61
+
+Average intra-cluster similarity: 0.54
+Average inter-cluster similarity: 0.22
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 66%
+  - Recall: 63%
+  - F1_score: 64%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 75%
+  - Recall: 74%
+  - F1_score: 74%
+
+================================================================================
+Similarity Treshold:  0.62
+
+Average intra-cluster similarity: 0.55
+Average inter-cluster similarity: 0.22
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 68%
+  - Recall: 65%
+  - F1_score: 67%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 74%
+  - Recall: 74%
+  - F1_score: 74%
+
+================================================================================
+Similarity Treshold:  0.63
+
+Average intra-cluster similarity: 0.56
+Average inter-cluster similarity: 0.22
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 71%
+  - Recall: 68%
+  - F1_score: 69%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 76%
+  - Recall: 76%
+  - F1_score: 76%
+
+================================================================================
+Similarity Treshold:  0.64
+
+Average intra-cluster similarity: 0.57
+Average inter-cluster similarity: 0.22
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 71%
+  - Recall: 70%
+  - F1_score: 71%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 82%
+  - Recall: 81%
+  - F1_score: 82%
+
+================================================================================
+Similarity Treshold:  0.65
+
+Average intra-cluster similarity: 0.58
+Average inter-cluster similarity: 0.22
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 74%
+  - Recall: 72%
+  - F1_score: 73%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 81%
+  - Recall: 78%
+  - F1_score: 80%
+
+================================================================================
+Similarity Treshold:  0.66
+
+Average intra-cluster similarity: 0.59
+Average inter-cluster similarity: 0.22
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 75%
+  - Recall: 73%
+  - F1_score: 74%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 81%
+  - Recall: 80%
+  - F1_score: 80%
+
+================================================================================
+Similarity Treshold:  0.67
+
+Average intra-cluster similarity: 0.60
+Average inter-cluster similarity: 0.22
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 77%
+  - Recall: 75%
+  - F1_score: 76%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 84%
+  - Recall: 81%
+  - F1_score: 82%
+
+================================================================================
+Similarity Treshold:  0.68
+
+Average intra-cluster similarity: 0.61
+Average inter-cluster similarity: 0.22
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 79%
+  - Recall: 76%
+  - F1_score: 77%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 85%
+  - Recall: 82%
+  - F1_score: 84%
+
+================================================================================
+Similarity Treshold:  0.6900000000000001
+
+Average intra-cluster similarity: 0.62
+Average inter-cluster similarity: 0.22
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 81%
+  - Recall: 77%
+  - F1_score: 79%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 86%
+  - Recall: 84%
+  - F1_score: 85%
+
+================================================================================
+Similarity Treshold:  0.7000000000000001
+
+Average intra-cluster similarity: 0.63
+Average inter-cluster similarity: 0.22
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 82%
+  - Recall: 78%
+  - F1_score: 80%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 86%
+  - Recall: 83%
+  - F1_score: 85%
+
+================================================================================
+Similarity Treshold:  0.7100000000000001
+
+Average intra-cluster similarity: 0.65
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 82%
+  - Recall: 79%
+  - F1_score: 80%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 86%
+  - Recall: 84%
+  - F1_score: 85%
+
+================================================================================
+Similarity Treshold:  0.7200000000000001
+
+Average intra-cluster similarity: 0.66
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 83%
+  - Recall: 79%
+  - F1_score: 81%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 88%
+  - Recall: 85%
+  - F1_score: 87%
+
+================================================================================
+Similarity Treshold:  0.7300000000000001
+
+Average intra-cluster similarity: 0.67
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 83%
+  - Recall: 82%
+  - F1_score: 82%
+
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 88%
+  - Recall: 86%
+  - F1_score: 87%
+
+================================================================================
+Similarity Treshold:  0.7400000000000001
+
+Average intra-cluster similarity: 0.68
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 84%
+  - Recall: 82%
+  - F1_score: 83%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 87%
+  - Recall: 86%
+  - F1_score: 86%
+
+================================================================================
+Similarity Treshold:  0.7500000000000001
+
+Average intra-cluster similarity: 0.69
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 84%
+  - Recall: 83%
+  - F1_score: 83%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 87%
+  - Recall: 88%
+  - F1_score: 88%
+
+================================================================================
+Similarity Treshold:  0.7600000000000001
+
+Average intra-cluster similarity: 0.70
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 84%
+  - Recall: 83%
+  - F1_score: 83%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 90%
+  - Recall: 87%
+  - F1_score: 89%
+
+================================================================================
+Similarity Treshold:  0.7700000000000001
+
+Average intra-cluster similarity: 0.71
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 83%
+  - Recall: 82%
+  - F1_score: 82%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 89%
+  - Recall: 88%
+  - F1_score: 88%
+
+================================================================================
+Similarity Treshold:  0.7800000000000001
+
+Average intra-cluster similarity: 0.72
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 83%
+  - Recall: 81%
+  - F1_score: 82%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 89%
+  - Recall: 88%
+  - F1_score: 88%
+
+================================================================================
+Similarity Treshold:  0.7900000000000001
+
+Average intra-cluster similarity: 0.73
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 83%
+  - Recall: 82%
+  - F1_score: 83%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 90%
+  - Recall: 89%
+  - F1_score: 89%
+
+================================================================================
+Similarity Treshold:  0.8000000000000002
+
+Average intra-cluster similarity: 0.75
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 82%
+  - Recall: 81%
+  - F1_score: 81%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 89%
+  - Recall: 88%
+  - F1_score: 89%
+
+================================================================================
+Similarity Treshold:  0.8100000000000002
+
+Average intra-cluster similarity: 0.75
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 81%
+  - Recall: 81%
+  - F1_score: 81%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 88%
+  - Recall: 87%
+  - F1_score: 88%
+
+================================================================================
+Similarity Treshold:  0.8200000000000002
+
+Average intra-cluster similarity: 0.76
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 80%
+  - Recall: 81%
+  - F1_score: 80%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 89%
+  - Recall: 87%
+  - F1_score: 88%
+
+================================================================================
+Similarity Treshold:  0.8300000000000002
+
+Average intra-cluster similarity: 0.77
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 79%
+  - Recall: 80%
+  - F1_score: 79%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 89%
+  - Recall: 89%
+  - F1_score: 89%
+
+================================================================================
+Similarity Treshold:  0.8400000000000002
+
+Average intra-cluster similarity: 0.78
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 79%
+  - Recall: 79%
+  - F1_score: 79%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 89%
+  - Recall: 90%
+  - F1_score: 90%
+
+================================================================================
+Similarity Treshold:  0.8500000000000002
+
+Average intra-cluster similarity: 0.79
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 77%
+  - Recall: 78%
+  - F1_score: 77%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 87%
+  - Recall: 88%
+  - F1_score: 88%
+
+================================================================================
+Similarity Treshold:  0.8600000000000002
+
+Average intra-cluster similarity: 0.80
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 76%
+  - Recall: 77%
+  - F1_score: 76%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 84%
+  - Recall: 84%
+  - F1_score: 84%
+
+================================================================================
+Similarity Treshold:  0.8700000000000002
+
+Average intra-cluster similarity: 0.81
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 75%
+  - Recall: 76%
+  - F1_score: 75%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 83%
+  - Recall: 83%
+  - F1_score: 83%
+
+================================================================================
+Similarity Treshold:  0.8800000000000002
+
+Average intra-cluster similarity: 0.82
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 74%
+  - Recall: 75%
+  - F1_score: 75%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 87%
+  - Recall: 85%
+  - F1_score: 86%
+
+================================================================================
+Similarity Treshold:  0.8900000000000002
+
+Average intra-cluster similarity: 0.83
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 74%
+  - Recall: 75%
+  - F1_score: 75%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 87%
+  - Recall: 86%
+  - F1_score: 87%
+
+================================================================================
+Similarity Treshold:  0.9000000000000002
+
+Average intra-cluster similarity: 0.84
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 73%
+  - Recall: 74%
+  - F1_score: 74%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 85%
+  - Recall: 87%
+  - F1_score: 86%
+
+================================================================================
+Similarity Treshold:  0.9100000000000003
+
+Average intra-cluster similarity: 0.84
+Average inter-cluster similarity: 0.23
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 71%
+  - Recall: 73%
+  - F1_score: 72%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 84%
+  - Recall: 84%
+  - F1_score: 84%
+
+================================================================================
+Similarity Treshold:  0.9200000000000003
+
+Average intra-cluster similarity: 0.85
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 70%
+  - Recall: 72%
+  - F1_score: 71%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 84%
+  - Recall: 85%
+  - F1_score: 84%
+
+================================================================================
+Similarity Treshold:  0.9300000000000003
+
+Average intra-cluster similarity: 0.86
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 69%
+  - Recall: 72%
+  - F1_score: 71%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 83%
+  - Recall: 82%
+  - F1_score: 82%
+
+================================================================================
+Similarity Treshold:  0.9400000000000003
+
+Average intra-cluster similarity: 0.87
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 67%
+  - Recall: 70%
+  - F1_score: 68%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 82%
+  - Recall: 83%
+  - F1_score: 82%
+
+================================================================================
+Similarity Treshold:  0.9500000000000003
+
+Average intra-cluster similarity: 0.88
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 65%
+  - Recall: 69%
+  - F1_score: 67%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 82%
+  - Recall: 84%
+  - F1_score: 83%
+
+================================================================================
+Similarity Treshold:  0.9600000000000003
+
+Average intra-cluster similarity: 0.88
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 63%
+  - Recall: 69%
+  - F1_score: 66%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 78%
+  - Recall: 79%
+  - F1_score: 79%
+
+================================================================================
+Similarity Treshold:  0.9700000000000003
+
+Average intra-cluster similarity: 0.88
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 62%
+  - Recall: 68%
+  - F1_score: 65%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 79%
+  - Recall: 81%
+  - F1_score: 80%
+
+================================================================================
+Similarity Treshold:  0.9800000000000003
+
+Average intra-cluster similarity: 0.88
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 61%
+  - Recall: 67%
+  - F1_score: 64%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 78%
+  - Recall: 81%
+  - F1_score: 80%
+
+================================================================================
+Similarity Treshold:  0.9900000000000003
+
+Average intra-cluster similarity: 0.84
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 60%
+  - Recall: 66%
+  - F1_score: 63%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 78%
+  - Recall: 79%
+  - F1_score: 78%
+
+================================================================================
+Similarity Treshold:  1.0000000000000002
+
+Average intra-cluster similarity: 0.81
+Average inter-cluster similarity: 0.23
+
+--> Version 1 - Predicted Clusters with no base clusters
+Predicted Clusters Evaluation:
+  - Precision: 60%
+  - Recall: 66%
+  - F1_score: 63%
+
+--> Version 2 - Predicted Clusters with base clusters (50% of the synonym clusters)
+Predicted Clusters Evaluation:
+  - Precision: 78%
+  - Recall: 80%
+  - F1_score: 79%

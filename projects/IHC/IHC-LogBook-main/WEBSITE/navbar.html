@@ -1,0 +1,62 @@
+<header class="site-header bg-light shadow-sm py-3">
+    <div class="container d-flex align-items-center justify-content-between">
+      <!-- Logo -->
+      <div class="logo-container d-flex align-items-center">
+        <a href="index.html">
+          <img src="images/logo.png" alt="Logo" class="logo" style="height: 50px;">
+        </a>
+      </div>
+  
+      <!-- Search Bar -->
+      <form id="search-form" class="d-flex flex-grow-1 mx-4 align-items-center" role="search" action="resultados.html" method="get">
+        <div class="input-group">
+          <select class="form-select" name="categoria" aria-label="Categorias" style="max-width: 200px; margin-right: 20px; border-radius: 5px;">
+            <option value="" selected>Todas as Categorias</option>
+            <option value="Frutas e Legumes">Frutas e Legumes</option>
+            <option value="Padaria">Padaria</option>
+            <option value="Higiene e Beleza">Higiene e Beleza</option>
+            <option value="Bebidas">Bebidas</option>
+            <option value="Charcutaria">Charcutaria</option>
+            <option value="Congelados">Congelados</option>
+            <option value="Laticínios e Ovos">Laticínios e Ovos</option>
+            <option value="Animais">Animais</option>
+            <option value="Limpeza">Limpeza</option>
+            <option value="Casa, Bricolage e Jardim">Casa, Bricolage e Jardim</option>
+            <option value="Bio e Saudável">Bio e Saudável</option>
+            <option value="Bebé">Bebé</option>
+            <option value="Mercearia">Mercearia</option>
+          </select>
+          <input type="text" name="termo" class="form-control" placeholder="Pesquise por um produto ou marca..." aria-label="Pesquisar produto" style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;">
+          <button class="btn btn-primary" type="submit" title="Pesquisar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 
+                       1.415-1.414l-3.85-3.85zm-5.242 1.656a5.5 
+                       5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/>
+            </svg>
+          </button>
+        </div>
+      </form>
+  
+      <!-- Location and Radius -->
+      <div class="d-flex align-items-center me-4">
+        <input type="text" class="form-control form-control-sm me-2" placeholder="Código Postal" style="width: 120px;">
+        <select class="form-select form-select-sm" style="width: 100px;">
+          <option selected>5 km</option>
+          <option>10 km</option>
+          <option>15 km</option>
+          <option>20 km</option>
+        </select>
+      </div>
+  
+      <!-- Comparator -->
+      <div class="d-flex align-items-center">
+        <a href="#" onclick="abrirComparador()" class="text-decoration-none d-flex align-items-center">
+          <svg width="24" height="24" class="me-1">
+            <use xlink:href="#compare"></use>
+          </svg>
+          <strong>Comparador</strong>
+        </a>
+      </div>
+    </div>
+  </header>
+  

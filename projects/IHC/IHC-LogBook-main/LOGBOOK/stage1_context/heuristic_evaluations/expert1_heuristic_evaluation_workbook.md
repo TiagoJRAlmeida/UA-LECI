@@ -1,0 +1,120 @@
+<!-- This Heuristic Evaluation Workbook replicates the one proposed by the 
+Nielsen Norman Group available at: https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_-_Nielsen_Norman_Group.pdf
+-->
+
+**Evaluator**: Tiago Costa
+**Date**: [18-02-2025]
+**Product**: Kabaz
+
+Severity Scale adopted: [here](https://www.nngroup.com/articles/how-to-rate-the-severity-of-usability-problems/)
+
+Summary of each usability heuristic: [here](https://media.nngroup.com/media/articles/attachments/Heuristic_Summary1-compressed.pdf)
+
+# 1 Visibility of System Status
+>	The design should always keep users informed about what is going on, through appropriate feedback within a reasonable amount of time. 
+>	- Does the design clearly communicate its state?
+>	- Is feedback presented quickly after user actions?
+
+
+**Nenhum problema relevante encontrado**
+
+<!-- | **Issue**       | **Severity** | Recommendation |
+| --------------- | ------------ | -------------- |
+| Something wrong | 3            |                |
+| Another thing   | 4            |                | -->
+
+# 2 Match Between System and The Real World
+>	The design should speak the users' language. Use words, phrases, and concepts familiar to the user, rather than internal jargon. Follow real-world conventions, making information appear in a natural and logical order. 
+>	- Will user be familiar with the terminology used in the design? 
+>	- Do the design’s controls follow real-world conventions?
+
+<!-- | **Issue**       | **Severity** | Recommendation |
+| --------------- | ------------ | -------------- |
+| Something wrong | 3            |                |
+| Another thing   | 4            |                | -->
+
+**Nenhum problema relevante encontrado**
+
+# 3 User Control and Freedom
+>	Users often perform actions by mistake. They need a clearly marked "emergency exit" to leave the unwanted action without having to go through an extended process. 
+>	- Does the design allow users to go back a step in the process? 
+>	- Are exit links easily discoverable? 
+>	- Can users easily cancel an action? 
+>	- Is Undo and Redo supported?
+
+| **Issue**       | **Severity** | Recommendation |
+| --------------- | ------------ | -------------- |
+| Falta de um botão de saída para o leitor do código de barras | 1            | Seria mais intuitivo se o utilizador pudesse clicar num botão "X" de saída quando entra no modo de leitura do código de barras              |
+
+# 4 Consistency and Standards
+>	Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform and industry conventions. 
+>	- Does the design follow industry conventions? 
+>	- Are visual treatments used consistently throughout the design?
+
+| **Issue**       | **Severity** | Recommendation |
+| --------------- | ------------ | -------------- |
+| Imagens da comida sem embalagem em vez de imagens da embalagem| 2            | Os consumidores muitas vezes reconhecem os produtos porque se lembram da embalagem dos mesmos. É muito mais fácil saber qual o produto que está a ver quando pode ver a embalagem               |
+
+# 5 Error Prevention
+>	Good error messages are important, but the best designs carefully prevent problems from occurring in the first place. Either eliminate error-prone conditions, or check for them and present users with a confirmation option before they commit to the action. 
+>	- Does the design prevent slips by using helpful constraints? 
+>	- Does the design warn users before they perform risky actions?
+
+**Nenhum problema relevante encontrado**
+<!-- | **Issue**       | **Severity** | Recommendation |
+| --------------- | ------------ | -------------- |
+| Something wrong | 3            |                |
+| Another thing   | 4            |                | -->
+
+# 6 Recognition Rather than Recall
+>	Minimize the user's memory load by making elements, actions, and options visible. The user should not have to remember information from one part of the interface to another. Information required to use the design (e.g. field labels or menu items) should be visible or easily retrievable when needed. 
+>	- Does the design keep important information visible, so that users do not have to memorize it? 
+>	- Does the design offer help in-context?
+
+| **Issue**       | **Severity** | Recommendation |
+| --------------- | ------------ | -------------- |
+| Histórico de pesquisa não disponível | 1           | É importante que o utilizador possa saber as suas compras anteriores, porque assim é mais fácil fazê-las de novo, no caso de ter ficado satisfeito               | 
+| O website não tem possibilidade de criar uma conta pessoal | 2            | É muito mais fácil e intuitivo utilizar um website de forma recorrente quando o utilizador tem preferências definidas. Isso só é possível se houver algum tipo de conta pessoal que seja possível criar na plataforma. Isto é especialmente útil para guardar filtros, localização e histórico               |
+
+# 7 Flexibility and Efficiency of Use
+>	Shortcuts — hidden from novice users — may speed up the interaction for the expert user such that the design can cater to both inexperienced and experienced users. Allow users to tailor frequent actions. 
+>	- Does the design provide accelerators like keyboard shortcuts and touch gestures? 
+>	- Is content and funtionality personalized or customized for individual users?
+
+| **Issue**       | **Severity** | Recommendation |
+| --------------- | ------------ | -------------- |
+| Falta de um filtro de faixa de preço | 3            | Num site onde o foco é a comparação de preços, é relevante incluir um filtro que permita delimitar uma faixa de preço               |
+
+# 8 Aesthetic and Minimalist Design
+>	Interfaces should not contain information that is irrelevant or rarely needed. Every extra unit of information in an interface competes with the relevant units of information and diminishes their relative visibility. 
+>	- Is the visual design and content focused on the essentials? 
+>	- Have all distracting, unnescessary elements been removed?
+
+| **Issue**       | **Severity** | Recommendation |
+| --------------- | ------------ | -------------- |
+| Barra de categorias com visibilidade reduzida | 2            | Muitas vezes o problema de adotar um estilo demasiado minimalista é apresentar menos informação relevante ao utilizador. Neste caso, a visibilidade da barra de categorias devia ser aumentada para facilitar a leitura a pessoas que tenham dificuldade na leitura de fontes menores              |
+| Falta de informação relativa à localização dos supermercados   | 2            | Nem sempre os utilizadores conhecem a localização de uma loja pelo nome da rua. É possível reduzir a carga de trabalho do lado do utilizador incluindo uma opção de "mapa" onde seja possível localizar o supermercado de forma mais visual               |
+| Falta de filtro e informação de intolerâncias | 3 | Ao não incluir um filtro de intolerâncias, nem informação sobre as mesmas no produto, cria-se uma barreira ao utilizador intolerante, que não pode confiar no website para procurar produtos, pois não sabe se pode consumir os mesmos  |
+| Falta de informação nutricional em cada produto | 3 | Num supermercado físico, não só é obrigatório mas também é extremamente importante que todos os produtos incluam informação nutricional. Isto deve refletir-se também numa plataforma cujo principal propósito é apresentar produtos alimentares |
+
+# 9 Help Users Recognize, Diagnose, and Recover from Errors
+>	Error messages should be expressed in plain language (no error codes), precisely indicate the problem, and constructively suggest a solution. 
+>	- Does the design use traditional error message visuals, like bold, red text? 
+>	- Does the design offer a solution that solves the error immediately?
+
+**Nenhum problema relevante encontrado**
+<!-- | **Issue**       | **Severity** | Recommendation |
+| --------------- | ------------ | -------------- |
+| Something wrong | 3            |                |
+| Another thing   | 4            |                | -->
+
+# 10 Help and Documentation
+>	It’s best if the system doesn’t need any additional explanation. However, it may be necessary to provide documentation to help users understand how to complete their tasks. 
+>	- Is help documentation easy to search? 
+>	- Is help provided in context right at the moment when the user requires it?
+
+**Nenhum problema relevante encontrado**
+<!-- | **Issue**       | **Severity** | Recommendation |
+| --------------- | ------------ | -------------- |
+| Something wrong | 3            |                |
+| Another thing   | 4            |                | -->

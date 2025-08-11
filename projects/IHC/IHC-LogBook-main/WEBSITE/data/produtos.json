@@ -1,0 +1,595 @@
+[
+  {
+    "id": 1,
+    "nome": "Banana",
+    "preco": "1.15",
+    "categoria": "Frutas & Legumes",
+    "subcategoria": "Frutas",
+    "imagem": "images/banana-prata.png",
+    "descricao": "Banana Prata, embalagem de 1kg",
+    "nutricionalImagem": "images/banana-prata-nutri.png",
+    "supermercados": [
+      { "nome": "Continente", "preco": "1.05" },
+      { "nome": "Pingo Doce", "preco": "1.10" },
+      { "nome": "Auchan", "preco": "1.15" }
+    ],
+    "sazonalidade": "Todas",
+    "descontoFlag": false,
+    "bioFlag": false,
+    "destaque": true
+  },
+  {
+    "id": 2,
+    "nome": "Manga",
+    "preco": "2.0",
+    "categoria": "Frutas & Legumes",
+    "subcategoria": "Frutas",
+    "imagem": "images/manga.jpg",
+    "descricao": "Manga Palmer Maturada",
+    "nutricionalImagem": "images/nutri-manga.png",
+    "supermercados": [
+      { "nome": "Continente", "preco": "1.05" },
+      { "nome": "Pingo Doce", "preco": "1.10" },
+      { "nome": "Auchan", "preco": "1.15" }
+    ],
+    "sazonalidade": "Todas",
+    "descontoFlag": false,
+    "destaque": true,
+    "bioFlag": false
+  },
+  {
+    "id": 3,
+    "nome": "Batata Doce",
+    "preco": "1.10",
+    "categoria": "Frutas & Legumes",
+    "subcategoria": "Legumes",
+    "imagem": "images/batata_doce.jpg",
+    "descricao": "As características nutricionais desta raiz tuberosa incitam a sua inclusão em dietas com diferentes objetivos como por exemplo, para reduzir percentual de gordura, ganhar massa muscular, perder peso corporal!",
+    "nutricionalImagem": "images/nutri-batata_doce.png",
+    "supermercados": [
+      { "nome": "Continente", "preco": "1.05" },
+      { "nome": "Pingo Doce", "preco": "1.10" },
+      { "nome": "Auchan", "preco": "1.15" }
+    ],
+    "sazonalidade": "Todas",
+    "descontoFlag": false,
+    "destaque": true,
+    "bioFlag": false
+  },
+  {
+    "id": 4,
+    "nome": "Couve Flor",
+    "preco": "0.90",
+    "categoria": "Frutas & Legumes",
+    "subcategoria": "Legumes",
+    "imagem": "images/couve_flor.jpg",
+    "descricao": "A couve-flor é uma hortícola da mesma família dos brócolos, do repolho e das couves.",
+    "nutricionalImagem": "images/nutri-couve_flor.jpg",
+    "supermercados": [
+      { "nome": "Continente", "preco": "1.05" },
+      { "nome": "Pingo Doce", "preco": "1.10" },
+      { "nome": "Auchan", "preco": "1.15" }
+    ],
+    "sazonalidade": "Todas",
+    "descontoFlag": false,
+    "destaque": true,
+    "bioFlag": false
+  },
+  {
+    "id": 5,
+    "nome": "Pão de Forma Integral sem Côdea",
+    "preco": "1.10",
+    "categoria": "Padaria",
+    "imagem": "images/bimbo_integral.jpg",
+    "nutricionalImagem": "images/nutri-bimbo_integral.jpg",
+    "supermercados": [
+      { "nome": "Continente", "preco": "1.05" },
+      { "nome": "Pingo Doce", "preco": "1.10" },
+      { "nome": "Auchan", "preco": "1.15" }
+    ],
+    "descontoFlag": false,
+    "bioFlag": false,
+    "glutenFreeFlag": false
+  },
+  {
+    "id": 6,
+    "nome": "Bola de Mistura",
+    "preco": "1.10",
+    "categoria": "Padaria",
+    "imagem": "images/pao_mistura.jpg",
+    "nutricionalImagem": "images/nutri-bola_mistura.png",
+    "supermercados": [
+      { "nome": "Continente", "preco": "1.05" },
+      { "nome": "Pingo Doce", "preco": "1.10" },
+      { "nome": "Auchan", "preco": "1.15" }
+    ],
+    "descontoFlag": false,
+    "bioFlag": false,
+    "glutenFreeFlag": false,
+    "destaque": true
+  },
+  {
+    "id": 7,
+    "nome": "Creme Corpo Hidratante Silky",
+    "preco": "1.10",
+    "categoria": "Higiene & Beleza",
+    "subcategoria": "Corpo",
+    "imagem": "images/creme_dove.jpg",
+    "descricao": "O creme corporal hidratante Silky Dove Body Love é adequado para pele seca proporcionando uma hidratação do corpo duradoura para uma pele sedosa e macia. Dove acredita em Body Love. Isto significa cuidar do seu corpo e através de uma rotina que cuida da pele mostrar-lhe o amor que ele merece independentemente de como se possa estar a sentir. O melhor cuidado de pele começa por encontrar o creme que mais se adequa a si.",
+    "supermercados": [
+      { "nome": "Continente", "preco": "1.05" },
+      { "nome": "Pingo Doce", "preco": "1.10" },
+      { "nome": "Auchan", "preco": "1.15" }
+    ],
+    "descontoFlag": false
+  },
+  {
+    "id": 8,
+    "nome": "Creme Corpo Hidratante Silky",
+    "preco": "1.10",
+    "categoria": "Higiene & Beleza",
+    "subcategoria": "Cabelo",
+    "imagem": "images/champo_loreal.jpg",
+    "descricao": "Para cabelos desidratados e sem vida. O champô Hidra Hialurónico reveste o cabelo para 72h de hidratação, deixando o cabelo mais brilhante, 10x mais hidratado e revitalizado sem pesar.",
+    "supermercados": [
+      { "nome": "Continente", "preco": "1.05" },
+      { "nome": "Pingo Doce", "preco": "1.10" },
+      { "nome": "Auchan", "preco": "1.15" }
+    ],
+    "descontoFlag": false
+  },
+  {
+  "id": 9,
+  "nome": "Ice Tea Pêssego",
+  "preco": "1.50",
+  "categoria": "Bebidas",
+  "subcategoria": "Sumos e Refrigerantes",
+  "imagem": "images/ice_tea.jpg",
+  "descricao": "Lipton Ice Tea Pêssego é a companhia perfeita para criar memórias com amigos e família! As nossas folhas de chá e pêssegos amadurecidos ao sol criam o delicioso e refrescante sabor Lipton, baixo em calorias.",
+  "nutricionalImagem": "images/nutri-ice_tea.jpg",
+  "supermercados": [
+    { "nome": "Continente", "preco": "1.45" },
+    { "nome": "Pingo Doce",  "preco": "1.50" },
+    { "nome": "Auchan",      "preco": "1.55" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": false,
+  "glutenFreeFlag": true,
+  "destaque": true,
+  "sugarFreeFlag": false
+  },
+  {
+  "id": 10,
+  "nome": "Água sem Gás Garrafão",
+  "preco": "1.50",
+  "categoria": "Bebidas",
+  "subcategoria": "Água",
+  "imagem": "images/garrafao.jpg",
+  "descricao": "Água Mineral Natural com origem subterrânea na Serra do Bussaco e que chega até ti desde 1852.",
+  "supermercados": [
+    { "nome": "Continente", "preco": "1.45" },
+    { "nome": "Pingo Doce",  "preco": "1.50" },
+    { "nome": "Auchan",      "preco": "1.55" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": false,
+  "glutenFreeFlag": true,
+  "sugarFreeFlag": false,
+  "destaque": true
+  },
+  {
+  "id": 11,
+  "nome": "Cerveja com Álcool Mini",
+  "preco": "1.50",
+  "categoria": "Bebidas",
+  "subcategoria": "Cervejas e Sidras",
+  "imagem": "images/cerveja_mini.jpg",
+  "descricao": "O sabor autêntico. Super Bock Original é a única cerveja portuguesa com 37 medalhas de ouro consecutivas.",
+  "nutricionalImagem": "images/nutri_mini.png",
+  "supermercados": [
+    { "nome": "Continente", "preco": "1.45" },
+    { "nome": "Pingo Doce",  "preco": "1.50" },
+    { "nome": "Auchan",      "preco": "1.55" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": false,
+  "glutenFreeFlag": true,
+  "sugarFreeFlag": false,
+  "destaque": true
+  },
+  {
+  "id": 12,
+  "nome": "Strogonoff de Frango do Campo",
+  "preco": "3.99",
+  "categoria": "Charcutaria",
+  "subcategoria": "Frango e Peru",
+  "imagem": "images/strogonoff.jpg",
+  "descricao": "Frango do Campo",
+  "nutricionalImagem": "images/nutri-strogonoff.jpg",
+  "supermercados": [
+    { "nome": "Continente", "preco": "3.79" },
+    { "nome": "Pingo Doce",  "preco": "3.99" },
+    { "nome": "Auchan",      "preco": "4.10" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": true
+  },
+  {
+  "id": 13,
+  "nome": "Bife do Coração de Alcatra de Vitela Fatiado ",
+  "preco": "3.99",
+  "categoria": "Charcutaria",
+  "subcategoria": "Novilho, Vitela e Vitelão",
+  "imagem": "images/vitela.jpg",
+  "descricao": "Bife do Coração de Alcatra de Vitela Fatiado",
+  "nutricionalImagem": "images/nutri-vitela.jpg",
+  "supermercados": [
+    { "nome": "Continente", "preco": "3.79" },
+    { "nome": "Pingo Doce",  "preco": "3.99" },
+    { "nome": "Auchan",      "preco": "4.10" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": true
+  },
+  {
+  "id": 14,
+  "nome": "Tiras de Entrecosto de Porco com Marinada Barbecue",
+  "preco": "3.99",
+  "categoria": "Charcutaria",
+  "subcategoria": "Porco",
+  "imagem": "images/porco.jpg",
+  "descricao": "Tiras de Entrecosto de Porco com Marinada Barbecue",
+  "nutricionalImagem": "images/nutri-porco.jpg",
+  "supermercados": [
+    { "nome": "Continente", "preco": "3.79" },
+    { "nome": "Pingo Doce",  "preco": "3.99" },
+    { "nome": "Auchan",      "preco": "4.10" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": true
+  },
+  {
+  "id": 15,
+  "nome": "Salsichas de Soja Veggie Lovers Lata 8 un",
+  "preco": "2.50",
+  "categoria": "Bio & Saudável",
+  "subcategoria": "Vegetariano e Vegan",
+  "imagem": "images/salsicha_veggie.jpg",
+  "descricao": "Alternativas à Carne",
+  "nutricionalImagem": "images/nutri-veggie.png",
+  "supermercados": [
+    { "nome": "Continente", "preco": "2.45" },
+    { "nome": "Pingo Doce",  "preco": "2.50" },
+    { "nome": "Auchan",      "preco": "2.55" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": true,
+  "glutenFreeFlag": true,
+  "sugarFreeFlag": true,
+  "lactoseFreeFlag": true,
+  "veganFlag": false,
+  "vegetarianFlag": true
+  },
+  {
+  "id": 16,
+  "nome": "Proteína Vegetal Cacau",
+  "preco": "2.50",
+  "categoria": "Bio & Saudável",
+  "subcategoria": "Nutrição Desportiva",
+  "imagem": "images/prota.jpg",
+  "descricao": "Proteína vegetal com sabor a Cacau que contém, por porção, 25g de Proteína (combinação inovadora de proteína de ervilha e de levedura), um perfil completo com 9.2g de Aminoácidos Essenciais e 4.4g de BCAAs 4:1:1 (Leucina:Isoleucina:Valina).",
+  "nutricionalImagem": "images/nutri-prota.jpg",
+  "supermercados": [
+    { "nome": "Continente", "preco": "2.45" },
+    { "nome": "Pingo Doce",  "preco": "2.50" },
+    { "nome": "Auchan",      "preco": "2.55" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": true,
+  "glutenFreeFlag": true,
+  "sugarFreeFlag": true,
+  "lactoseFreeFlag": true,
+  "veganFlag": false,
+  "vegetarianFlag": true
+  },
+  {
+  "id": 17,
+  "nome": "Mini Pizzas de Fiambre e Queijo",
+  "preco": "2.80",
+  "categoria": "Congelados",
+  "subcategoria": "Pizzas",
+  "imagem": "images/pizza.jpg",
+  "descricao": "Buitoni Piccolinis Fiambre e Queijo é o modo alegre e saboroso de comer pizza. Deliciosos snacks de massa fina e crocante com abundante recheio de fiambre e queijo edam.",
+  "nutricionalImagem": "images/nutri-pizza.jpg",
+  "supermercados": [
+    { "nome": "Continente", "preco": "2.75" },
+    { "nome": "Pingo Doce",  "preco": "2.80" },
+    { "nome": "Auchan",      "preco": "2.85" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": false,
+  "glutenFreeFlag": false,
+  "sugarFreeFlag": true,
+  "lactoseFreeFlag": false,
+  "veganFlag": false,
+  "vegetarianFlag": true
+  },
+  {
+  "id": 18,
+  "nome": "Mimos de Pescada do Cabo Ultracongelados",
+  "preco": "2.80",
+  "categoria": "Congelados",
+  "subcategoria": "Peixe, Marisco e Carne",
+  "imagem": "images/pescada.jpg",
+  "descricao": "Pescada",
+  "nutricionalImagem": "images/nutri-pescada.jpg",
+  "supermercados": [
+    { "nome": "Continente", "preco": "2.75" },
+    { "nome": "Pingo Doce",  "preco": "2.80" },
+    { "nome": "Auchan",      "preco": "2.85" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": false,
+  "glutenFreeFlag": false,
+  "sugarFreeFlag": true,
+  "lactoseFreeFlag": false,
+  "veganFlag": false,
+  "vegetarianFlag": true
+  },
+  {
+  "id": 19,
+  "nome": "Gelado Cone Morango 6 unidades",
+  "preco": "2.80",
+  "categoria": "Congelados",
+  "subcategoria": "Sobremesas",
+  "imagem": "images/gelado.jpg",
+  "descricao": "Seis deliciosos gelados de morango e nata com mais xarope de morango no topo. Tudo isto num cone de bolacha com o pedacinho de chocolate no final.",
+  "nutricionalImagem": "images/nutri-gelado.jpg",
+  "supermercados": [
+    { "nome": "Continente", "preco": "2.75" },
+    { "nome": "Pingo Doce",  "preco": "2.80" },
+    { "nome": "Auchan",      "preco": "2.85" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": false,
+  "glutenFreeFlag": false,
+  "sugarFreeFlag": true,
+  "lactoseFreeFlag": false,
+  "veganFlag": false,
+  "vegetarianFlag": true
+  },
+  {
+    "id": 20,
+    "nome": "Leite Meio-Gordo 1L",
+    "preco": "0.89",
+    "imagem": "images/leite.jpg",
+    "categoria": "Laticínios & Ovos",
+    "subcategoria": "Leite",
+    "destaque": true,
+    "descricao": "Embalagem de leite meio-gordo de 1 litro",
+    "nutricionalImagem": "images/nutri-leite_meio_gordo.png",
+    "supermercados": [
+      { "nome": "Continente", "preco": "1.05" },
+      { "nome": "Pingo Doce", "preco": "1.10" },
+      { "nome": "Auchan", "preco": "1.15" }
+    ],
+    "fat": "1.5%",
+    "descontoFlag": true,
+    "bioFlag": false,
+    "glutenFreeFlag": false,
+    "sugarFreeFlag": false,
+    "lactoseFreeFlag": false,
+    "veganFlag": false,
+    "vegetarianFlag": false
+  },
+  {
+    "id": 21,
+    "nome": "Leite Magro 1L",
+    "preco": "0.95",
+    "imagem": "images/leite2.jpg",
+    "categoria": "Laticínios & Ovos",
+    "subcategoria": "Leite",
+    "descricao": "Embalagem de leite meio-gordo de 1 litro",
+    "nutricionalImagem": "images/nutri-leite_magro.jpg",
+    "supermercados": [
+      { "nome": "Continente", "preco": "1.05" },
+      { "nome": "Pingo Doce", "preco": "1.10" },
+      { "nome": "Auchan", "preco": "1.15" }
+    ],
+    "fat": "1.5%",
+    "descontoFlag": true,
+    "bioFlag": false,
+    "glutenFreeFlag": false,
+    "sugarFreeFlag": false,
+    "lactoseFreeFlag": false,
+    "veganFlag": false,
+    "vegetarianFlag": false
+  },
+  {
+    "id": 22,
+    "nome": "Leite Biológico 1L",
+    "preco": "0.99",
+    "imagem": "images/leite3.jpg",
+    "categoria": "Laticínios & Ovos",
+    "subcategoria": "Leite",
+     "descricao": "Embalagem de leite meio-gordo de 1 litro",
+    "nutricionalImagem": "images/nutri-leite_bio.jpg",
+    "supermercados": [
+      { "nome": "Continente", "preco": "1.05" },
+      { "nome": "Pingo Doce", "preco": "1.10" },
+      { "nome": "Auchan", "preco": "1.15" }
+    ],
+    "fat": "1.5%",
+    "descontoFlag": true,
+    "bioFlag": false,
+    "glutenFreeFlag": false,
+    "sugarFreeFlag": false,
+    "lactoseFreeFlag": false,
+    "veganFlag": false,
+    "vegetarianFlag": false
+  },
+  {
+  "id": 23,
+  "nome": "Ração para Cão Adulto Médio e Máxi Vaca",
+  "preco": "25.00",
+  "categoria": "Animais",
+  "subcategoria": "Cão",
+  "imagem": "images/racao_cao.jpg",
+  "descricao": "COMPOSIÇÃO: Vísceras de vaca (17.0%), milho (16.5%), proteína de aves desidratada, trigo (16.0%), gorduras animais, sémola de milho, arroz (4.6%), polpa de beterraba sacarina desidratada (4.5%), glúten de trigo, vísceras organoléticas, Substâncias minerais, Glicerol, farinha de proteína de milho, farinha de malte torrada, óleo de peixe.",
+  "supermercados": [
+    { "nome": "Continente", "preco": "24.50" },
+    { "nome": "Pingo Doce",  "preco": "25.00" },
+    { "nome": "Zoomania",    "preco": "26.20" }
+  ],
+  "descontoFlag": false
+  },
+  {
+  "id": 24,
+  "nome": "Comida Húmida para Gato Adulto Seleção Mousses",
+  "preco": "25.00",
+  "categoria": "Animais",
+  "subcategoria": "Cão",
+  "imagem": "images/racao_gato.jpg",
+  "descricao": "Composição: Com Borrego: Carnes e subprodutos animais (56%, dos quais 4% borrego), substâncias minerais, subprodutos de origem vegetal, açúcares. Com Coelho: Carnes e subprodutos animais.",
+  "supermercados": [
+    { "nome": "Continente", "preco": "24.50" },
+    { "nome": "Pingo Doce",  "preco": "25.00" },
+    { "nome": "Zoomania",    "preco": "26.20" }
+  ],
+  "descontoFlag": false
+  },
+  {
+  "id": 25,
+  "nome": "Amaciador Roupa Concentrado Relax",
+  "preco": "2.99",
+  "categoria": "Limpeza",
+  "subcategoria": "Roupa",
+  "imagem": "images/amaciador.jpg",
+  "descricao": "Amaciador Concentrado",
+  "supermercados": [
+    { "nome": "Continente", "preco": "2.89" },
+    { "nome": "Pingo Doce",  "preco": "2.99" },
+    { "nome": "Auchan",      "preco": "3.05" }
+  ],
+  "descontoFlag": false
+  },
+  {
+  "id": 26,
+  "nome": "Detergente Manual Loiça Ultra Limão",
+  "preco": "2.99",
+  "categoria": "Limpeza",
+  "subcategoria": "Cozinha",
+  "imagem": "images/detergente.jpg",
+  "descricao": "Detergente ultra duradouro e concentrado, até à última gota. Marca Nº1 mais vendida em Portugal e Espanha",
+  "supermercados": [
+    { "nome": "Continente", "preco": "2.89" },
+    { "nome": "Pingo Doce",  "preco": "2.99" },
+    { "nome": "Auchan",      "preco": "3.05" }
+  ],
+  "descontoFlag": false
+  },
+  {
+  "id": 27,
+  "nome": "Colchão Molas Contínuas Classic Spring",
+  "preco": "150.00",
+  "categoria": "Casa, Bricolage & Jardim",
+  "subcategoria": "Mobiliário e Colchões",
+  "imagem": "images/colchao.jpg",
+  "descricao": "Colchão com sistema de molas contínuas com duas zonas de firmeza diferenciadas e independentes. Maior firmeza e estabilidade.",
+  "supermercados": [
+    { "nome": "Leroy Merlin", "preco": "15.49" },
+    { "nome": "Continente",   "preco": "15.99" },
+    { "nome": "AKI",          "preco": "16.50" }
+  ],
+  "descontoFlag": true
+  },
+  {
+  "id": 28,
+  "nome": "Caixa Arrumação com Lock Plástico 55L Preta",
+  "preco": "7.99",
+  "categoria": "Casa, Bricolage & Jardim",
+  "subcategoria": "Lavandaria e Organização",
+  "imagem": "images/caixa.jpg",
+  "descricao": "Ideal para Garagem e Arrumos",
+  "supermercados": [
+    { "nome": "Leroy Merlin", "preco": "15.49" },
+    { "nome": "Continente",   "preco": "15.99" },
+    { "nome": "AKI",          "preco": "16.50" }
+  ],
+  "descontoFlag": true
+  },
+  {
+  "id": 29,
+  "nome": "Azeite Virgem Extra Reserva",
+  "preco": "5.49",
+  "categoria": "Mercearia",
+  "subcategoria": "Azeite, Óleo e Vinagre",
+  "imagem": "images/azeite.jpg",
+  "descricao": "Um azeite com uma personalidade forte, pela combinação de aromas e sabores ricos e persistentes. Evidentemente frutado e com notas de picante, vai ficar reservado na sua memória.",
+  "nutricionalImagem": "images/nutri-azeite.jpg",
+  "supermercados": [
+    { "nome": "Continente", "preco": "5.29" },
+    { "nome": "Pingo Doce",  "preco": "5.49" },
+    { "nome": "Auchan",      "preco": "5.59" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": false,
+  "glutenFreeFlag": true,
+  "sugarFreeFlag": true,
+  "lactoseFreeFlag": true,
+  "veganFlag": true,
+  "vegetarianFlag": true
+  },
+  {
+  "id": 30,
+  "nome": "Arroz Agulha",
+  "preco": "5.49",
+  "categoria": "Mercearia",
+  "subcategoria": "Arroz, Massa e Farinha",
+  "imagem": "images/arroz.jpg",
+  "descricao": "Arroz bastante flexível, fácil de cozinhar e sempre de grãos soltos!",
+  "nutricionalImagem": "images/nutri-arroz.jpg",
+  "supermercados": [
+    { "nome": "Continente", "preco": "5.29" },
+    { "nome": "Pingo Doce",  "preco": "5.49" },
+    { "nome": "Auchan",      "preco": "5.59" }
+  ],
+  "descontoFlag": false,
+  "bioFlag": false,
+  "glutenFreeFlag": true,
+  "sugarFreeFlag": true,
+  "lactoseFreeFlag": true,
+  "veganFlag": true,
+  "vegetarianFlag": true
+  },
+  {
+  "id": 31,
+  "nome": "Toalhitas Bebé Aqua Pure",
+  "preco": "7.99",
+  "categoria": "Bebé",
+  "subcategoria": "Fraldas e Toalhitas",
+  "imagem": "images/toalhitas.jpg",
+  "descricao": "Adequadas para a pele delicada do recém-nascido, incluindo rabinho, mãos, pés e cara!",
+  "supermercados": [
+    { "nome": "Continente", "preco": "7.49" },
+    { "nome": "Pingo Doce",  "preco": "7.99" },
+    { "nome": "Auchan",      "preco": "8.19" }
+  ],
+  "descontoFlag": true
+  },
+  {
+  "id": 32,
+  "nome": "Leite em Pó de Crescimento Optipro 4 +24M",
+  "preco": "7.99",
+  "categoria": "Bebé",
+  "subcategoria": "Leites em Pó e Bebidas Lácteas",
+  "imagem": "images/leite_po.jpg",
+  "descricao": "+24 meses",
+  "supermercados": [
+    { "nome": "Continente", "preco": "7.49" },
+    { "nome": "Pingo Doce",  "preco": "7.99" },
+    { "nome": "Auchan",      "preco": "8.19" }
+  ],
+  "descontoFlag": true
+  }
+]

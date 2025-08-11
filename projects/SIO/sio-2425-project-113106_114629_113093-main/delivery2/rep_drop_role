@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# rep_drop_role <session file> <role>
+python3 ./client.py -k rep_pub_key.pem -r 127.0.0.1:5000 -c rep_drop_role $1 $2
