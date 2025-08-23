@@ -1,0 +1,30 @@
+Objetivo: Standardizar os nomes dos data sets
+
+
+Passo 1: Usar os nomes da tabela standard. 
+ Isto implica diferentes metodos (por ordem):
+    1- Verificar se o nome a standardizar está no dicionário de sinonimos
+    2- Verificar se o NIF está no standard. Se tiver:
+Ir buscar o nome correto (verificar se está realmente correto)
+    3- Caso não haja NIF ou não estiver no standard:
+ Usar o algoritmo minHash para encontrar nomes parecidos na tabela standard e escolher o mais correto (se houver) com o auxilio da distancia de levenshtein
+ Nota: Todos as correspondencias encontradas devem ser adicionadas ao dicionário de sinonimos. Para o bom funcionamento do "Passo 2", o  dicionário de sinonimos deve estar a funcionar bem. Talvez implique sermos mais criticos e verificar melhor a accuracy deste passo.
+ Nota2: Neste passo o dataset não deve ser alterado, o objetivo por agora é apenas completar o dicionário de sinonimos.
+ Resultados:  Percentagem de correção do Transport --> 63%
+        Percentagem de correção do Departure --> 97%
+
+Passo 2: Fazer um clustering para criar um standard para os nomes restantes.
+ A grande maioria do resto que não foi corrigido no "Passo 1" é porque os nomes não estão na tabela standard. Assim é necessário criar um  "novo standard nosso". Para isso fazemos os seguintes metodos:
+São adicionados por default os nomes unicos do standard como clusters diferentes
+Vão sendo adicionados nomes aos clusters (ou a um cluster novo) segundo a seguinte métrica:
+Clusters onde o center name tem similaridade < 0.4 com o nome a ser inserido são descartados.
+Para os restantes clusters, para cada um, é calculado a média de similaridade entre o nome a ser inserido e todos os elementos do mesmo, e é escolhido o cluster com similaridade menor.
+Se a similaridade menor mesmo assim for < 0.7, é criado um novo cluster para o nome
+ Verificação de accuracy: Para verificar a pergentagem de accuracy do clustering feito (Chamemos de Clustering A), fazemos uso do dicionário  de sinonimos. Criamos um novo clustering (Vamos chamar de clustering B) a partir do dicionario e comparamos os cluster do Clustering A que  tem nomes do standard com os clusters correspondentes do clustering B.
+ Nota: No "Passo 1", são guardados os nomes que tem NIF no standard, mas não foi possivel ter certeza que estejam corretos com o nome              standard associado. Esses nomes não são adicionados ao cluster, uma vez que tambem não estão dicionário de sinonimos. Desta forma não danificamos o calculo de accuracy.
+
+Passo 3: Atualizar o dicionário de sinonimos com os nomes não standard.
+ Voltamos a percorrer os datasets, e verificamos os nomes. Caso já estejam no dicionário de sinonimos ("Passo 1") são ignorados. Para os restantes, verifica-se em qual cluster eles pertencem, e atualiza-se o dicionário de sinonimos, associando-os ao center name do cluster.
+
+Passo 4: Correção do dataset.
+ Agora com o dicionário de sinonimos feito para todos os nomes, estejam eles no Standard ou não, percorremos uma ultima vez os datasets, alterando os nomes pelos seus standard associados.
