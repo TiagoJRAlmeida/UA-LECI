@@ -1,5 +1,9 @@
 # 🐍 Development of an Autonomous Agent for Snake
 
+<img src="images/example-game.png" alt="Example of how the game looks" tittle="Example of how the game looks">
+
+---
+
 ## 📋 Project Overview
 
 This project was developed as part of the **Artificial Intelligence** course.
@@ -101,7 +105,7 @@ The project evolved in several stages:
   * Heuristics for **multiplayer** (predicting enemy snake paths)
   * Smarter **apple prioritization**
   * More efficient **exploration strategies**
-* Biggest point of this project is the agent ability to evade death. No matter if it is single player or multiplayer, **it will always survive until the end**.
+* The Biggest strength of this project is the agent's ability to evade death. No matter if it is single player or multiplayer, **it will always survive until the end**.
 ---
 
 ## ⚙️ How to Run
