@@ -4,22 +4,6 @@ import json
 import os
 import websockets
 import random
-
-#########################################################################
-#                                                                       #
-#   MEMBROS DO GRUPO:                                                   #
-#       - TIAGO ALMEIDA - NMEC: 113106                                  #
-#       - TIAGO COSTA - NMEC: 114629                                    #
-#                                                                       #
-#   AJUDAMOS COM IDEIAS O GRUPO CONSTITUIDO PELO SEGUINTES MEMBROS:     #
-#       - GABRIEL BOIA - NMEC: 113167                                   #
-#       - RAFAEL DIAS - NMEC: 114258                                    #
-#       - GUILHERME MATOS - NMEC: 114252                                #
-#                                                                       #
-#########################################################################
-
-
-
 # import logging
 # import time
 

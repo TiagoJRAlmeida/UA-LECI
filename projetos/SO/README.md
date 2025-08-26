@@ -16,34 +16,6 @@ In other Linux distributions you need equivalent packages installed.
 
 ******
 
-## Checking access to the GibHub repositories
-
-The best way to access your repositories in GitHub is having a public SSH Key to your computer there.
-If you don't have one, proceed as follows:
-
-- In your computer, in Linux, check if you have, in your home directory, a folder named <tt>.ssh</tt> with a file whose name ends in <tt>.pub</tt>.
-- If not, run command <code>ssh-keygen</code>. 
-  It will create the folder, if necessary, and 2 files.
-- The file with termination <tt>.pub</tt> contains your public key.
-- In GihHub, press your icon (at top right corner) and choose <tt>Settings</tt>
-- In the page that appears, choose <tt>SSH and GPG Keys</tt>. 
-- Then press the <tt>New SSH Key</tt> button.
-- Fill a title (typically the name of your computer) and copy the contains of the <tt>.pub</tt> to the key field.
-- Finally, press the <tt>Add SSH Key</tt> button.
-
-******
-
-## Cloning the repo
-
-In a directory of your choice, clone the project to your computer
-
-```
-cd «directory-of-your-choice»
-git clone https://git@github.com:ua-so-fso/«your-project»
-```
-
-******
-
 ## Generating documentation
 
 The code is documented in **doxygen**. So, you can easily generate **html** documentation pages.
@@ -103,29 +75,6 @@ or
 cd «directory-of-your-choice»
 cd «your-project»/build
 ninja
-```
-
-******
-
-## Setting your user name and email in Git
-
-Commands
-
-```
-cd «directory-of-your-choice»
-cd «your-project»
-git config user.name "«your name»"
-git config user.email "«your email»"
-```
-allows you to set your user name and email for this repository.
-
-If you want to apply the settings to all repositories in the computer, run the followings commands instead.
-
-```
-cd «directory-of-your-choice»
-cd «your-project»
-git config --global user.name "«your name»"
-git config --global user.email "«your email»"
 ```
 
 ******
