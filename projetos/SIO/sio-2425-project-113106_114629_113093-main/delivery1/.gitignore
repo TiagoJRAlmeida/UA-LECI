@@ -1,7 +1,0 @@
-__pycache__
-.sio
-repository/rep_priv_key.pem
-repository/rep_pub_key.pem
-my_keys.json
-my_session.json
-joao_keys.json

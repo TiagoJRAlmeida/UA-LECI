@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# rep_create_org <organization> <username> <name> <email> <public key file>
-python3 ./client.py -k rep_pub_key.pem -r 127.0.0.1:5000 -c rep_create_org $1 $2 $3 $4 $5
-
