@@ -1,8 +1,0 @@
-CasoDeEstudo2
-Departure_Data.txt
-Dados_Standardizados.txt
-venv
-Transport_Data.txt
-*.json
-*.pkl
-*__pycache__/

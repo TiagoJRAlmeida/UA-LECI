@@ -1,8 +1,0 @@
-#!/bin/bash
-
-rm -rf __pycache__
-rm *.json
-rm *.csv
-rm *.db
-rm Standard-minhashlsh.pkl
-rm Standard-unique_words.txt

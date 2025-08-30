@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd AuxiliaryFiles
-rm *.json
-cd ..
-python3 main.py

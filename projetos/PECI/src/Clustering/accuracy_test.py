@@ -1,6 +1,56 @@
 from itertools import combinations
 import numpy as np
 import Levenshtein
+from Clustering.clustering import combined_similarity
+
+
+def cluster_cohesion(cluster):
+    """Compute the average pairwise similarity within a cluster"""
+    if len(cluster) < 2:
+        return 1.0
+    sims = []
+    for i in range(len(cluster)):
+        for j in range(i + 1, len(cluster)):
+            sims.append(combined_similarity(cluster[i], cluster[j]))
+    return sum(sims) / len(sims)
+
+
+def cluster_similarity(cluster_a, cluster_b):
+    """Compute average similarity between two clusters"""
+    sims = []
+    for name1 in cluster_a:
+        for name2 in cluster_b:
+            sims.append(combined_similarity(name1, name2))
+    return sum(sims) / len(sims)
+
+
+def clean_ground_truth_clusters(clusters, cohesion_thresh=0.7, inter_thresh=0.65):
+    """
+    Removes:
+    - Clusters with low internal cohesion.
+    - Clusters that are highly similar to other clusters (assumed redundant).
+    """
+    # Step 1: Remove low-cohesion clusters
+    filtered = [c for c in clusters if cluster_cohesion(c) >= cohesion_thresh]
+
+    # Step 2: Remove redundant clusters
+    to_keep = [True] * len(filtered)
+
+    for i in range(len(filtered)):
+        if not to_keep[i]:
+            continue
+        for j in range(i + 1, len(filtered)):
+            if not to_keep[j]:
+                continue
+            if cluster_similarity(filtered[i], filtered[j]) >= inter_thresh:
+                # Remove the smaller one
+                if len(filtered[i]) >= len(filtered[j]):
+                    to_keep[j] = False
+                else:
+                    to_keep[i] = False
+
+    cleaned_clusters = [filtered[i] for i in range(len(filtered)) if to_keep[i]]
+    return cleaned_clusters
 
 
 # Purpose: 
@@ -75,8 +125,8 @@ def get_pairs(cluster):
         else:
             for a, b in combinations(sorted(group), 2):
                 pairs.add((a, b))
-    return pairs
 
+    return pairs
 
 # NOTE: This function calculates the clustering accuracy based on the true clusters and predicted clusters.
 # It uses precision, recall, and F1 score as metrics.

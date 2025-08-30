@@ -1,19 +1,18 @@
-from sentence_transformers import SentenceTransformer
-from string_cleaning import clean_name, is_person_name
+from string_cleaning import is_person_name
 import Levenshtein
 import numpy as np
 from tqdm import tqdm
-import faiss
 from collections import defaultdict
+import re
 
 LEGAL_PREFIX = {
     'plc', 'inc', 'company', 'tic', 'dis', 'sti', 'ltd', 'sirketi', 'ic', 'spa', 've', 'sa', 'ltdsti', 
-    'san', 'as', 'pte', 'bv', 'ticaret', 'anonim', 'co', 'llc', 'gmbh', 'corp', 'ltda'
+    'san', 'as', 'pte', 'bv', 'ticaret', 'anonim', 'co', 'llc', 'gmbh', 'corp', 'ltda', 'lda'
 }
 
 REGION_KEYWORDS = {
     # Full names
-    'usa', 'us', 'uk', 'germany', 'greece', 'china', 'india', 'israel', 'egypt', 'uae',
+    'usa', 'uk', 'germany', 'greece', 'china', 'india', 'israel', 'egypt', 'uae',
     'turkey', 'saudi', 'france', 'spain', 'italy', 'canada', 'brazil', 'mexico', 'australia',
     'panama', 'japan', 'senegal', 'colombia', 'vietnam', 'indonesia', 'netherlands',
     'south africa', 'portugal', 'argentina', 'singapore', 'russia', 'poland', 'peru', 'chile',
@@ -21,19 +20,25 @@ REGION_KEYWORDS = {
     'bolivia', 'uruguay', 'venezuela', 'honduras', 'guatemala', 'nicaragua', 'paraguay',
     'dominican', 'el salvador', 'lebanon', 'sri lanka', 'bangladesh', 'nepal', 'pakistan',
     'thailand', 'malaysia', 'myanmar', 'taiwan', 'hong kong', 'south korea', 'korea', 'mozambique',
-    'angola', 'tunisia', 'libya', 'zambia', 'zimbabwe', 'cameroon', 'ethiopia', 'botswana',
+    'angola', 'tunisia', 'libya', 'zambia', 'zimbabwe', 'cameroon', 'ethiopia', 'botswana', 'grecia', 
+    'belgica', 'noruega', 'suecia', 'alemanha', 'irlanda', 'dinamarca', 'norway', 'denmark', 'franca',
+    'espanha', 'marrocos', 'irlanda', 'bulgaria', 'estonia', 'paises baixos', 'britanica', 'coreia do sul',
+    'italia', 'brasil', 
 
     # Cities or custom regions
     'dubai', 'riyadh', 'jeddah', 'cairo', 'doha', 'abu dhabi', 'amman', 'santiago',
     'barcelona', 'madrid', 'guadalajara', 'monterrey', 'puebla', 'lyon', 'porto', 'lisbon',
     'paris', 'milan', 'milano', 'napoli', 'rome', 'athens', 'sofia', 'bucharest', 'vienna',
     'warsaw', 'zagreb', 'brussels', 'oslo', 'stockholm', 'copenhagen', 'geneva', 'lausanne',
-    'luxembourg', 'shanghai', 'beijing', 'shenzhen', 'qingdao', 'xiamen', 'tianjin',
+    'luxembourg', 'shanghai', 'beijing', 'shenzhen', 'qingdao', 'xiamen', 'tianjin', 'ilha do faial',
+    'ilha do corvo', 'ilha terceira', 'ilha sao miguel', 'texas', 'hong kong', 'matosinhos', 'leixoes',
+    'setubal', 'sesimbra', 'ponta delgada', 'setubalense', 'portimao', 'roque do pico', 'madalena do pico',
+    'praia da vitoria'
 
     # ISO Alpha-2 country codes
     'us', 'fr', 'de', 'pt', 'es', 'it', 'nl', 'be', 'se', 'no', 'fi', 'dk', 'pl', 'gr',
     'ro', 'bg', 'cz', 'hu', 'sk', 'si', 'at', 'ch', 'ie', 'ru', 'tr', 'cn', 'jp', 'kr', 'in',
-    'id', 'th', 'my', 'vn', 'sg', 'ph', 'bd', 'pk', 'il', 'eg', 'sa', 'ae', 'qa', 'kw', 'dz',
+    'id', 'th', 'my', 'vn', 'sg', 'ph', 'bd', 'pk', 'il', 'eg', 'ae', 'qa', 'kw', 'dz',
     'ma', 'tn', 'ng', 'gh', 'za', 'zm', 'zw', 'cm', 'ke', 'tz',
 
     # ISO Alpha-3 codes (and common short customs abbreviations)
@@ -44,43 +49,59 @@ REGION_KEYWORDS = {
     'zaf', 'zmb', 'zwe', 'cmr', 'ken', 'tza',
 
     # Seen in the clusters
-    'esp', 'pt', 'po', 'sh', 'sur', 'sor', 'ne', 'lim', 'sen', 'del', 'mex'
+    'esp', 'pt', 'po', 'sh', 'sur', 'sor', 'ne', 'lim', 'sen', 'del', 'mex', "spa", "viet", "chin"
 }
 
 
-def extract_regions(name):
+def remove_regions(name):
     tokens = name.split()
-    regions = {t for t in tokens if t in REGION_KEYWORDS}
-    if not regions:
-        return {"default"}
 
-    # Optional: Prioritize last token if it's a region
-    if tokens[-1] in REGION_KEYWORDS:
-        return {tokens[-1]}  # force clear region tag
+    cleaned_tokens = [
+        token for token in tokens
+        if token not in REGION_KEYWORDS and token not in LEGAL_PREFIX
+    ]
 
-    return regions
+    return ' '.join(cleaned_tokens)
 
 
-# EXAMPLE: Given the cluster:
-# [
-#     "hellmann worldwide logistics china usa",
-#     "hellmann worldwide logistics china",
-#     "hellmann worldwide logistics usa",
-#     "hellmann worldwide logistics india"
-# ]
+def extract_regions(name):
+    name_lower = name.lower()
+    
+    # Garante que só vai buscar frases ou palavras inteiras (ex: 'ilha terceira', não 'sa' dentro de 'saude')
+    regions = {
+        region for region in REGION_KEYWORDS
+        if re.search(rf'\b{re.escape(region)}\b', name_lower)
+    }
+    
+    return regions if regions else {"default"}
 
-# It will divide like:
-# [
-#     ["hellmann worldwide logistics china usa", "hellmann worldwide logistics china", "hellmann worldwide logistics usa"],
-#     ["hellmann worldwide logistics india"]
-# ]
-def postprocess_by_region(clusters):
+
+def jaccard_similarity(set1, set2):
+    intersection = set1 & set2
+    union = set1 | set2
+    if not union:
+        return 0.0
+    return len(intersection) / len(union)
+
+
+def postprocess_by_region(clusters, similarity_threshold=0.66):
     new_clusters = []
 
     for cluster in clusters:
         name_to_regions = {name: extract_regions(name) for name in cluster}
 
-        # Group names by region overlap
+        # Flatten all region sets to check how many unique regions exist
+        all_regions = set()
+        for regions in name_to_regions.values():
+            all_regions.update(regions)
+
+        # Skip processing if only one region (excluding "default")
+        filtered_regions = all_regions - {"default"}
+        if len(filtered_regions) <= 1:
+            new_clusters.append(cluster)
+            continue
+
+        # Proceed with regional grouping
         region_groups = []
         assigned = set()
 
@@ -93,7 +114,9 @@ def postprocess_by_region(clusters):
             for other_name, other_regions in name_to_regions.items():
                 if other_name in assigned:
                     continue
-                if regions & other_regions:  # any shared region
+
+                similarity = jaccard_similarity(regions, other_regions)
+                if similarity >= similarity_threshold:
                     group.append(other_name)
                     assigned.add(other_name)
 
@@ -119,10 +142,13 @@ def weighted_token_jaccard(a, b):
 
     intersection = 0
     union = tokens_a | tokens_b
-
+    if not union:
+        return 0.0
+    
     for token in tokens_a & tokens_b:
         if token in LEGAL_PREFIX or token in REGION_KEYWORDS:
-            intersection += 0.2  # small weight
+            continue
+            #intersection += 0.2  # small weight
         else:
             intersection += 1.0  # full weight
 
@@ -162,6 +188,8 @@ def refine_noisy_cluster(cluster):
 # NOTE: names argument must be a set of already cleaned names.
 # base_clusters argument must also contain names in their cleaned form
 def create_clusters(names=None, similarity_threshold=0.75, base_clusters=[]):
+    from sentence_transformers import SentenceTransformer
+    import faiss
     if not names:
         return base_clusters
 
@@ -181,11 +209,12 @@ def create_clusters(names=None, similarity_threshold=0.75, base_clusters=[]):
     # This way, we can also use the expand upon the base clusters.  
     remaining_names = names - base_clustered_names
     all_names = list(base_clustered_names) + list(remaining_names)
+    processed_all_names = [remove_regions(name) for name in all_names]
 
     # Step 1: Get embeddings
     #print("Calculating embeddings...")
     model = SentenceTransformer('all-MiniLM-L6-v2')
-    embeddings = model.encode(all_names, convert_to_numpy=True)
+    embeddings = model.encode(processed_all_names, convert_to_numpy=True)
 
     # Step 2: Normalize embeddings
     #print("Normalizing embeddings...")
@@ -225,8 +254,7 @@ def create_clusters(names=None, similarity_threshold=0.75, base_clusters=[]):
             
             adjusted_threshold = 0.95 if is_person_name(new_name) or is_person_name(candidate_name) else similarity_threshold
 
-
-            if score >= adjusted_threshold and shared_prefix(new_name, candidate_name):
+            if score >= adjusted_threshold: #and shared_prefix(new_name, candidate_name):
                 if candidate_name in base_clustered_names:
                     if score > best_score:
                         best_score = score
@@ -253,38 +281,51 @@ def create_clusters(names=None, similarity_threshold=0.75, base_clusters=[]):
     return final_clusters
 
 
-# NOTE: This function returns 3 things:
+# NOTE: This function returns 1 thing:
 # 1. The synonym clusters, a list of lists, where each list is a cluster 
-# 2. A set of all unique names in the synonym clusters
-# 3. A dictionary that maps the index of each cluster to its standard name 
-# (This 3rd variable returned will be usefull in the "Step 4: Creating final synonym map" of the main file)
 def create_ground_truth_synonym_clusters(synonyms_map):
-    synonym_clusters = {}
-    cluster_index_standard_name_map = {}
-    all_names = set()
+    # 1. Map every ID to the set of names that mention it
+    id_to_names = defaultdict(set)
+    name_to_ids = defaultdict(set)
 
-    for variant_name in synonyms_map.keys():
-        if len(synonyms_map[variant_name]) > 1:
-            continue
-        
-        standard_name = list(synonyms_map[variant_name].keys())[0] 
-        if len(synonyms_map[variant_name][standard_name]) > 1:
-            continue
+    for variant, canon_map in synonyms_map.items():
+        for canon, ids in canon_map.items():
+            for _id in ids:
+                id_to_names[_id].update([variant, canon])
+                name_to_ids[variant].add(_id)
+                name_to_ids[canon].add(_id)
 
-        identification_number = synonyms_map[variant_name][standard_name][0][0]
-        cluster = synonym_clusters.setdefault(identification_number, {
-            "standard_name": standard_name,
-            "synonyms": set()
-        })
-        cluster["synonyms"].add(variant_name)
-        all_names.update([variant_name, standard_name])
-    
-    final_clusters = []
-    for idx, identification_number in enumerate(synonym_clusters):
-        cluster = synonym_clusters[identification_number]
-        cleaned_cluster = cluster["synonyms"]
-        cleaned_cluster.add(clean_name(cluster["standard_name"]))
-        final_clusters.append(list(cleaned_cluster))
-        cluster_index_standard_name_map[idx] = cluster["standard_name"]
+    # 2. Union-find to merge IDs that share a name
+    parent = {}
 
-    return final_clusters, all_names, cluster_index_standard_name_map
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(a, b):
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[rb] = ra
+
+    # initialize each ID as its own parent
+    for _id in id_to_names:
+        parent[_id] = _id
+
+    # union all IDs that share any name
+    for name, ids in name_to_ids.items():
+        ids = list(ids)
+        for i in range(1, len(ids)):
+            union(ids[0], ids[i])
+
+    # 3. Gather clusters by representative ID
+    rep_to_names = defaultdict(set)
+    for _id, names in id_to_names.items():
+        rep = find(_id)
+        rep_to_names[rep].update(names)
+
+    # 4. Format result
+    clusters = [sorted(names) for names in rep_to_names.values()]
+
+    return clusters

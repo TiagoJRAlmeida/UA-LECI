@@ -8,13 +8,31 @@ LEGAL_PREFIX = {
 }
 
 UNIQUE_PEOPLE_NAMES = {
-    'julio', 'miguel', 'manuel', 'domingos', 'joao', 'ricardo', 'silva', 'paulo', 'alverca', 'matos', 'carlos', 'dias', 
-    'carvalho', 'de', 'monteiro', 'joel', 'maria', 'marques', 'joaquim', 'santos', 'torres', 'jorge', 'roberto', 'fernando',
-    'machado', 'oliveira', 'pereira', 'martins', 'reis', 'rafael', 'dos', 'lima', 'rodrigues', 'teixeira', 'angeja', 'antonio', 
-    'francisco', 'rouxinol', 'barbosa', 'ramos', 'ferreira', 'costa', 'luis', 'viegas', 'alberto', 'silveira', 'gomes', 'soares', 
-    'ribeiro', 'lda', 'rilho', 'rodrigo', 'melo', 'ernesto', 'madeira', 'nascimento', 'moutela', 'rocha', 'alves', 'simoes', 
-    'jose', 'pinto', 'almeida'
+    'melo', 'botelho', 'mfigueiredo', 'medeiros', 'susana', 'vasconcelos', 'alves', 'ttrovao', 'gaspar', 'carvalho', 'alberto', 'joana', 
+    'brandao', 'sara', 'mateus', 'gourgel', 'lobo', 'pinho', 'biscaia', 'forreta', 'mariana', 'sergio', 'batista', 'coelho', 'ricardina', 
+    'luz', 'sandra', 'baeta', 'rafael', 'canas', 'mourao', 'pila', 'joao', 'antero', 'trincheiras', 'pita', 'rasteiro', 'valerio', 'farinha', 'joel', 
+    'angelo', 'aguiar', 'uva', 'alverca', 'diogo', 'abastos', 'ramos', 'mena', 'rute', 'antonio', 'novais', 'barreiros', 'madeira', 'filipa', 'jesus', 
+    'paixao', 'duarte', 'lima', 'lanca', 'agostinho', 'maia', 'vinagre', 'brito', 'gil', 'fernando', 'rodrigo', 'santos', 'semiao', 'artur', 'pinto', 
+    'almeida', 'alexandre', 'cunha', 'jacinto', 'vozone', 'catarina', 'olga', 'barracha', 'nuno', 'acacio', 'eduardo', 'portela', 'ernesto', 'ricardo', 
+    'rilho', 'patricio', 'patricia', 'sebastiao', 'daniel', 'milene', 'nascimento', 'carlos', 'ferreira', 'figueiredo', 'renato', 'teixeira', 'o', 'carla', 
+    'regateiro', 'sofia', 'isabel', 'pereira', 'dos', 'albino', 'catarino', 'sobatista', 'mendonca', 'martins', 'freitas', 'sovelas', 'peralta', 'lince', 
+    'lrcorreia', 'telma', 'msantos', 'matos', 'rodrigues', 'repolholda', 'carreira', 'vaz', 'moises', 'beatriz', 'miguel', 'andre', 'jose', 
+    'augusto', 'luis', 'boavida', 'moreira', 'bandeira', 'conde', 'sotero', 'casqueiro', 'engenheiro', 'caxaria', 'purificano', 'helena', 'borrego', 
+    'machado', 'beirao', 'silva', 'nunes', 'edna', 'manuel', 'outros', 'santana', 'raul', 'alina', 'barbosa', 'vieira', 'travassos', 'ribeiro', 'correia', 
+    'monte', 'flsmbarbosa', 'fatima', 'moutela', 'guilherme', 'mendes', 'trindade', 'pguedes', 'bruno', 'bacalhau', 'neto', 'marco', 'marques', 'leonor', 
+    'goncalves', 'pedro', 'henrique', 'aduaneiro', 'armando', 'bandarra', 'antunes', 'flecha', 'delca', 'domingues', 'carmo', 'conceicao', 'abreu', 
+    'fernandes', 'carminho', 'julio', 'guimaraes', 'claudia', 'severo', 'aline', 'filipe', 'horta', 'pimenta', 'bento', 'domingos', 'chagas', 'reis', 
+    'guerreiro', 'baleizao', 'barros', 'fmartins', 'campos', 'barreiras', 'cavaco', 'amorim', 'faria', 'rocha', 'tania', 'crujo', 'torres', 'roberto', 
+    'marta', 'branco', 'josilva', 'maria', 'fonseca', 'da', 'gomes', 'mota', 'catalao', 'militao', 'cantoneiro', 'pessoa', 'dias', 
+    'nsleal', 'barreira', 'cpeixoto', 'de', 'raimundo', 'joaquim', 'do', 'fortunato', 'cascais', 'lucas', 'sousa', 'silveira', 'ines', 'despachante', 
+    'mario', 'urmal', 'esteves', 'victor', 'smelro', 'simoes', 'gramatinha', 'cabral', 'e', 'oliveira', 'paulo', 'mde', 'tiago', 'lopes', 'jorge', 
+    'leandro', 'ana', 'oficial', 'galhardo', 'fferreira', 'alfaiate', 'edgar', 'tavira', 'sanches', 'costa', 'monteiro', 'paiva', 'valente', 'rouxinol', 
+    'amandio', 'mesquita', 'viegas', 'jacome', 'david', 'francisco', 'abel', 'azevedo', 'soares', 'elisa', 'peca', 'assis', 'fpinto', 'angeja', 'urbano', 
+    'caldeira', 'simao', 'eva', 'rui', 'marrafa', 'carapinha', 'forte', 'celia', 'elisbao', 'rita', 'cruz', 'vitor', 'freire', 'garcia', 'felisbelo', 
+    'raposo', 'lara'
+    # 'unipessoal', 'lda', 'outro', 'filhos'
 }
+
 
 STOP_WORDS = {
     "rua","street","estrada","avenida","edif","largo","av"
@@ -48,7 +66,18 @@ TRANSLATION_TABLE = {
     r"\btran\b": "transitarios",
     r"\btrans\b": "transitarios",
     r"\btransitariossociedade\b": "transitarios sociedade",
-    r"\bj f\b": "jf"
+    r"\bj f\b": "jf",
+    r"\bintl\b": "international",
+    r"\binternati\b": "international",
+    r"\btransitarioslda\b": "transitarios lda",
+    r"\btransitrioslda\b": "transitarios lda",
+    r"\btransit rios\b": "transitarios",
+    r"\bldaaddress\b": "lda address",
+    r"\boutroslds\b": "outros lda",
+    r"\bunipessoallda\b": "unipessoal lda",
+    r"\bemaritima\b": "e maritima",
+    r"\bemaritimo\b": "e maritimo"
+
 }
 
 TRANSLATION_REGEX = [
@@ -59,7 +88,7 @@ TRANSLATION_REGEX = [
 
 def clean_name(name):
     name = unidecode.unidecode(name.lower())
-    name = re.sub(r'-', ' - ', name)
+    name = re.sub(r'[-()]', ' ', name)
     name = re.sub(r'[.,]', '', name)
     name = re.sub(r'\s+', ' ', name).strip()
 
@@ -73,14 +102,7 @@ def clean_name(name):
             break
     name = " ".join(words)
 
-    name = re.sub(r'[^a-z0-9 ]+', '', name)
-    return re.sub(r'\s+', ' ', name).strip()
-
-
-def light_clean_name(name):
-    name = unidecode.unidecode(name.lower())
-    name = re.sub(r'-', ' - ', name)
-    name = re.sub(r'[^a-z0-9 ]+', '', name)
+    name = re.sub(r'[^a-z ]+', '', name)
     return re.sub(r'\s+', ' ', name).strip()
 
 

@@ -1,2 +1,0 @@
-def testClustersAccuracy():
-    pass
