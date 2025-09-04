@@ -1,4 +1,6 @@
 #!/bin/bash
 
+FILE_FOLDER=$(dirname $0)
+
 # rep_decrypt_file <encrypted file> <encryption metadata>
-python3 ./client.py -c rep_decrypt_file $1 $2
+python3 ${FILE_FOLDER}/../client.py -c rep_decrypt_file $1 $2

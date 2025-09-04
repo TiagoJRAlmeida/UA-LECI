@@ -2,7 +2,6 @@
 SO/FSO  Simulating a uniprocessor scheduler, contiguous memory allocation system
 
 ******
-******
 
 ## Prerequisites
 
@@ -21,8 +20,7 @@ In other Linux distributions you need equivalent packages installed.
 The code is documented in **doxygen**. So, you can easily generate **html** documentation pages.
 
 ```
-cd «directory-of-your-choice»
-cd somm22nm/doc
+cd doc/
 doxygen
 ```
 Then, you can display the pages running (inside the **doc** directory)
@@ -35,58 +33,25 @@ Of course, you can replace _firefox_ with your favorite browser.
 
 ******
 
-## Preparing the compilation environment
-
-In a terminal, enter the base directory of your project, create the **build** directory,
-and use _cmake_ to prepare _make_
-
-```
-cd «directory-of-your-choice»
-cd «your-project»
-mkdir build
-cd build
-cmake ../src
-```
-
-If you prefer _ninja_, instead of _make_,
-
-```
-cd «directory-of-your-choice»
-cd «your-project»
-mkdir build
-cd build
-cmake -G Ninja ../src
-```
-
-******
-
 ## Building the code
 
-In a terminal, enter the **build** directory of your project and run _make_ or _ninja_
+In a terminal, enter the **build** directory of your project and run _make_
 
 ```
-cd «directory-of-your-choice»
-cd «your-project»«your-project»«your-project»/build
+cd build/
 make
-```
-or
-
-```
-cd «directory-of-your-choice»
-cd «your-project»/build
-ninja
 ```
 
 ******
 
-## Testing the code
+<!-- ## Testing the code
 
-After building the code, a program will be put in the <tt>«your-project»/bin</tt> directory. 
+After building the code, a program will be put in the <tt>/bin</tt> directory. 
 It is a default test program delivered with the base code.
 
 You may edit it (<tt>main.cpp</tt>) to write your own tests.
 
 Alternatively, you can write new test programs.
-In this case, do not forget to add them to the main <tt>CMakeList.txt</tt> file.
+In this case, do not forget to add them to the main <tt>CMakeList.txt</tt> file. -->
 
 

@@ -1,5 +1,148 @@
+# 🔐 Secure Document Repository System
 
-# Explicação das Features Implementadas
+## 📋 Project Overview
+
+This project was developed as part of the Information Security in Organizations (SIO) course. The goal is to implement a secure document repository service for organizations that enables controlled sharing of documents among authorized personnel. The system implements a robust role-based access control mechanism with three distinct API tiers providing varying levels of access, comprehensive encryption, and sophisticated session management.
+
+---
+
+## 🎯 System Objectives
+
+- Provide a secure document management system for organizational use
+- Implement granular access control through role-based permissions with cryptographic protection
+- Support secure document upload, download, and deletion operations with encryption at rest
+- Enable organizational management with subject and role administration
+- Maintain secure session management with protection against eavesdropping, impersonation, manipulation, and replay attacks
+
+---
+
+## ⚙️ System Architecture
+
+### Core Components
+
+The repository is implemented as a Python Flask backend with a RESTful API interface. The client communicates with the repository through well-defined API endpoints organized into three security tiers:
+
+### 1. Anonymous API
+
+Endpoints accessible without authentication:
+
+- ```Create organization``` - Register new organizations
+- ```List organizations``` - Browse available organizations
+- ```Create session``` - Establish authenticated sessions
+- ```Download file``` - Access files with known handles (encrypted content only)
+
+### 2. Authenticated API
+
+Endpoints requiring valid session tokens:
+
+- ```Assume session role``` - Activate specific roles for operations
+- ```Release session role``` - Deactivate currently assumed roles
+- ```List session roles``` - View available roles for current session
+- ```List subjects - Browse``` subjects within the organization
+- ```List roles``` - View roles defined in the organization
+- ```List subjects in role``` - View membership of specific roles
+- ```List roles of subject``` - View role assignments for specific subjects
+- ```List permissions in role``` - View permissions granted to roles
+- ```List roles with permission``` - Find roles with specific permissions
+- ```List documents``` - Browse documents with filtering capabilities
+
+### 3. Authorized API
+
+Endpoints requiring both session authentication and specific role assignments:
+
+- ```Add subject``` - Register new users in the organization
+- ```Change subject status``` - Suspend or reactivate user accounts
+- ```Add role``` - Create new organizational roles
+- ```Change role status``` - Activate or deactivate roles
+- ```Manage role membership``` - Add/remove subjects from roles
+- ```Manage role permissions``` - Add/remove permissions to roles
+- ```Upload document``` - Add new documents to the repository
+- ```Download document metadata``` - Access document information
+- ```Delete document``` - Remove documents from the repository
+- ```Change document ACL``` - Modify document access control lists
+
+---
+
+## 🔐 Security Architecture
+
+### Cryptographic Implementation
+
+- Session Key Exchange: Hybrid encryption (RSA + AES) with digital signatures
+- Document Encryption: AES-CBC for file content encryption
+- File Identification: SHA-256 hashing combined with organization name for unique file handles
+- Communication Security: HMAC for message authentication, NONCE for replay protection
+
+### Security Protocols
+
+- Session Establishment: Secure key exchange with forward secrecy properties
+- Message Integrity: HMAC verification on all communications
+- Replay Protection: NONCE-based mechanism with session identifiers
+- Freshness Guarantees: Timestamp validation with expiration mechanisms
+
+### Access Control Model
+
+- Role-Based Access Control (RBAC) - Permissions assigned to roles, not individual users
+- Document ACLs: Fine-grained permissions (DOC_READ, DOC_DELETE, DOC_ACL) per role per document
+- Organization Management: Administrative permissions (ROLE_ACL, SUBJECT_NEW, SUBJECT_DOWN, SUBJECT_UP, DOC_NEW)
+- Role Management: Role manipulation permissions (ROLE_NEW, ROLE_DOWN, ROLE_UP, ROLE_MOD)
+
+### Session Management
+
+- Secure Authentication: Session establishment with strong credentials
+- Multiple Sessions: Support for simultaneous sessions across different organizations
+- Attack Protection: Robust against eavesdropping, impersonation, manipulation, and replay attacks
+- Session Lifetime: Configurable expiration based on inactivity
+
+--- 
+
+## 📊 Permission Matrix
+
+### Document Permissions
+
+| Permission  | Description                                         |
+|-------------|-----------------------------------------------------|
+| DOC_READ    | Read encrypted file content and decrypt with proper key |
+| DOC_DELETE  | Clear file_handle (soft delete)                     |
+| DOC_ACL     | Modify document access control list                 |
+
+### Organization Permissions
+
+| Permission    | Description                        |
+|---------------|------------------------------------|
+| ROLE_ACL      | Modify organization ACL            |
+| SUBJECT_NEW   | Add new subjects to organization   |
+| SUBJECT_DOWN  | Suspend subjects                   |
+| SUBJECT_UP    | Reactivate suspended subjects      |
+| DOC_NEW       | Add new documents to organization  |
+
+### Role Management Permissions
+
+| Permission | Description                              |
+|------------|------------------------------------------|
+| ROLE_NEW   | Create new roles                         |
+| ROLE_DOWN  | Suspend roles                            |
+| ROLE_UP    | Reactivate roles                         |
+| ROLE_MOD   | Modify role membership and permissions   |
+
+--- 
+
+## ✅ Validation & Testing
+
+A set of commands are provided to interact with the repository. A test script is also included. To execute it, run:
+
+```bash
+./run_test
+```
+
+This script demonstrates the utilization of all available commands. Note: The explanation provided is in Portuguese.
+
+After testing, you can remove the files created by the run_test command using:
+
+```bash
+./run_files
+```
+
+<!-- # Explicação das Features Implementadas
 
 ## Índice
 1. [Comandos de Teste](#comandos-de-teste)
@@ -389,4 +532,4 @@ sessions = {
   "ROLES": [],
   "EXPIRY_TIME": "ISO-8601-timestamp",
 }
-```
+``` -->

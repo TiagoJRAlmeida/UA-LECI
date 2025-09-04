@@ -9,90 +9,105 @@ MAGENTA="\033[1;35m"
 CYAN="\033[1;36m"
 RESET="\033[0m"
 
+FILE_FOLDER=$(dirname $0)
+
 # Remover ficheiros de testes passados
 echo $'\n'
 echo -e "${YELLOW}Remover ficheiros e pastas de testes passados${RESET}"
 
-if test -f Subject_A_keys.json; then
-    rm Subject_A_keys.json
-    echo "--> Ficheiro 'Subject_A_keys.json' removido."
+if test -f "${FILE_FOLDER}/Subject_A_keys.json"; then
+    rm "${FILE_FOLDER}/Subject_A_keys.json"
+    echo "--> Ficheiro '"${FILE_FOLDER}/Subject_A_keys.json"' removido."
     sleep 0.1
 fi
 
-if test -f Subject_B_keys.json; then
-    rm Subject_B_keys.json
-    echo "--> Ficheiro 'Subject_B_keys.json' removido."
+if test -f "${FILE_FOLDER}/Subject_B_keys.json"; then
+    rm "${FILE_FOLDER}/Subject_B_keys.json"
+    echo "--> Ficheiro '"${FILE_FOLDER}/Subject_B_keys.json"' removido."
     sleep 0.1
 fi
 
-if test -f Subject_A_session.json; then
-    rm Subject_A_session.json
-    echo "--> Ficheiro 'Subject_A_session.json' removido."
+if test -f "${FILE_FOLDER}/Subject_A_session.json"; then
+    rm "${FILE_FOLDER}/Subject_A_session.json"
+    echo "--> Ficheiro '"${FILE_FOLDER}/Subject_A_session.json"' removido."
     sleep 0.1
 fi
 
-if test -f Subject_B_session.json; then
-    rm Subject_B_session.json
-    echo "--> Ficheiro 'Subject_B_session.json' removido."
+if test -f "${FILE_FOLDER}/Subject_B_session.json"; then
+    rm "${FILE_FOLDER}/Subject_B_session.json"
+    echo "--> Ficheiro '"${FILE_FOLDER}/Subject_B_session.json"' removido."
     sleep 0.1
 fi
 
-if test -f rep_pub_key.pem; then
-    rm rep_pub_key.pem
-    echo "--> Ficheiro 'rep_pub_key.pem' removido."
+if test -f "${FILE_FOLDER}/rep_pub_key.pem"; then
+    rm "${FILE_FOLDER}/rep_pub_key.pem"
+    echo "--> Ficheiro '"${FILE_FOLDER}/rep_pub_key.pem"' removido."
     sleep 0.1
 fi
 
-if test -f test_file_10Kb; then
-    rm test_file_10Kb
-    echo "--> Ficheiro 'test_file_10Kb' removido."
+if test -f "${FILE_FOLDER}/test_file_10Kb"; then
+    rm "${FILE_FOLDER}/test_file_10Kb"
+    echo "--> Ficheiro '${FILE_FOLDER}/test_file_10Kb' removido."
     sleep 0.1
 fi
 
-if test -f test_file_100Kb; then
-    rm test_file_100Kb
-    echo "--> Ficheiro 'test_file_100Kb' removido."
+if test -f "${FILE_FOLDER}/test_file_100Kb"; then
+    rm "${FILE_FOLDER}/test_file_100Kb"
+    echo "--> Ficheiro '${FILE_FOLDER}/test_file_100Kb' removido."
     sleep 0.1
 fi
 
-if test -f test_file_1Mb; then
-    rm test_file_1Mb
-    echo "--> Ficheiro 'test_file_1Mb' removido."
+if test -f "${FILE_FOLDER}/test_file_1Mb"; then
+    rm "${FILE_FOLDER}/test_file_1Mb"
+    echo "--> Ficheiro '${FILE_FOLDER}/test_file_1Mb' removido."
     sleep 0.1
 fi
 
-if test -d repository/docs; then
-    rm -rf repository/docs
-    echo "--> Pasta 'repository/docs' removida."
+if test -f "${FILE_FOLDER}/small_story.txt"; then
+    rm "${FILE_FOLDER}/small_story.txt"
+    echo "--> Ficheiro '${FILE_FOLDER}/small_story.txt' removido."
     sleep 0.1
 fi
 
-if test -f repository/documents.json; then
-    rm repository/documents.json
-    echo "--> Ficheiro 'repository/documents.json' removido."
+if test -f "${FILE_FOLDER}/metadados.json"; then
+    rm "${FILE_FOLDER}/metadados.json"
+    echo "--> Ficheiro '${FILE_FOLDER}/metadados.json' removido."
     sleep 0.1
 fi
 
-if test -f repository/organizations.json; then
-    rm repository/organizations.json
-    echo "--> Ficheiro 'repository/organizations.json' removido."
+if test -d "${FILE_FOLDER}/repository/docs"; then
+    rm -rf "${FILE_FOLDER}/repository/docs"
+    echo "--> Pasta '${FILE_FOLDER}/repository/docs' removida."
     sleep 0.1
 fi
 
-if test -f repository/sessions.json; then
-    rm repository/sessions.json
-    echo "--> Ficheiro 'repository/sessions.json' removido."
+if test -f "${FILE_FOLDER}/repository/documents.json"; then
+    rm "${FILE_FOLDER}/repository/documents.json"
+    echo "--> Ficheiro '${FILE_FOLDER}/repository/documents.json' removido."
     sleep 0.1
 fi
 
-if test -f repository/rep_priv_key.pem; then
-    rm repository/rep_priv_key.pem
-    echo "--> Ficheiro 'repository/rep_priv_key.pem' removido."
+if test -f "${FILE_FOLDER}/repository/organizations.json"; then
+    rm "${FILE_FOLDER}/repository/organizations.json"
+    echo "--> Ficheiro '${FILE_FOLDER}/repository/organizations.json' removido."
     sleep 0.1
 fi
 
-if test -f repository/rep_pub_key.pem; then
-    rm repository/rep_pub_key.pem
-    echo "--> Ficheiro 'repository/rep_pub_key.pem' removido."
+if test -f "${FILE_FOLDER}/repository/sessions.json"; then
+    rm "${FILE_FOLDER}/repository/sessions.json"
+    echo "--> Ficheiro '${FILE_FOLDER}/repository/sessions.json' removido."
     sleep 0.1
 fi
+
+if test -f "${FILE_FOLDER}/repository/rep_priv_key.pem"; then
+    rm "${FILE_FOLDER}/repository/rep_priv_key.pem"
+    echo "--> Ficheiro '${FILE_FOLDER}/repository/rep_priv_key.pem' removido."
+    sleep 0.1
+fi
+
+if test -f "${FILE_FOLDER}/repository/rep_pub_key.pem"; then
+    rm "${FILE_FOLDER}/repository/rep_pub_key.pem"
+    echo "--> Ficheiro '${FILE_FOLDER}/repository/rep_pub_key.pem' removido."
+    sleep 0.1
+fi
+echo $'\n'
