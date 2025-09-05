@@ -37,18 +37,7 @@ phases over one academic year.
 
 ## 🏗️ System Architecture
 
-https://github.com/user-attachments/assets/cf63420a-3bec-4e4d-9f26-0dba782a862e
-
-
 1. Ground Truth Creation
-
-https://github.com/user-attachments/assets/d0d65645-a634-46d7-bb13-698cbf21b55a
-
-
-
-https://github.com/user-attachments/assets/16cc3cd5-46f5-43d2-8c2f-464a2630219a
-
-
    - Built from standardized company IDs (NIFs)
    - Used as reference to evaluate clustering precision
 2. Preprocessing
