@@ -1,12 +1,10 @@
 # Data Standardization and Entity Resolution for Port Logistics Records
 
-<center>
-  <video src="StudentsDETI-PECI.mp4" width="320" height="240" controls></video>
-</center>
+https://github.com/user-attachments/assets/4af17b18-dea2-4252-b253-a41047bacbf1
 
 ---
 
-## 📌 Project Overview
+## 📌 Project Overview        
 This project was developed **from scratch as a complete software system**,
 as the final capstone project of the Computer and Informatics Engineering degree
 at the University of Aveiro, in collaboration with the Port of Sines under the
@@ -38,7 +36,19 @@ phases over one academic year.
 --- 
 
 ## 🏗️ System Architecture
+
+https://github.com/user-attachments/assets/cf63420a-3bec-4e4d-9f26-0dba782a862e
+
+
 1. Ground Truth Creation
+
+https://github.com/user-attachments/assets/d0d65645-a634-46d7-bb13-698cbf21b55a
+
+
+
+https://github.com/user-attachments/assets/16cc3cd5-46f5-43d2-8c2f-464a2630219a
+
+
    - Built from standardized company IDs (NIFs)
    - Used as reference to evaluate clustering precision
 2. Preprocessing
