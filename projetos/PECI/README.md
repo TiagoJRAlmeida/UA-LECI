@@ -1,6 +1,8 @@
 # Data Standardization and Entity Resolution for Port Logistics Records
 
-<iframe width="2070" height="873" src="https://www.youtube.com/embed/5yiOe-Kk6pA" title="Students@DETI PECI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<center>
+  <video src="StudentsDETI-PECI.mp4" width="320" height="240" controls></video>
+</center>
 
 ---
 
